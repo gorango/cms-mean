@@ -1,0 +1,16 @@
+section
+  .page-header
+    h1 Settings
+  .row
+    nav.col-sm-3.col-md-3
+      ul.nav.nav-pills.nav-stacked
+        li(ui-sref-active='active')
+          a(ui-sref='settings.profile') Edit Profile
+        li(ui-sref-active='active')
+          a(ui-sref='settings.picture') Change Profile Picture
+        li(ui-sref-active='active', ng-show="vm.user.provider === 'local'")
+          a(ui-sref='settings.password') Change Password
+        li(ui-sref-active='active')
+          a(ui-sref='settings.accounts') Manage Social Accounts
+    .col-sm-9.col-md-8.settings-view
+      div(ui-view='')

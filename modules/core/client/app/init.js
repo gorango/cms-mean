@@ -1,4 +1,4 @@
-(function (app) {
+(function(app) {
   'use strict';
 
   // Start by defining the main module and adding the module dependencies
@@ -8,11 +8,13 @@
   // Setting HTML5 Location Mode
   angular
     .module(app.applicationModuleName)
-    .config(bootstrapConfig);
+    .config(bootstrapConfig)
+    .run(bootstrapRun);
 
-  bootstrapConfig.$inject = ['$compileProvider', '$locationProvider', '$httpProvider', '$logProvider'];
+  bootstrapConfig.$inject = ['$compileProvider', '$locationProvider', '$httpProvider', '$logProvider', '$mdIconProvider', '$mdThemingProvider', 'localStorageServiceProvider', 'uiGmapGoogleMapApiProvider'];
+  bootstrapRun.$inject = ['$rootScope', '$state'];
 
-  function bootstrapConfig($compileProvider, $locationProvider, $httpProvider, $logProvider) {
+  function bootstrapConfig($compileProvider, $locationProvider, $httpProvider, $logProvider, $mdIconProvider, $mdThemingProvider, localStorageServiceProvider, uiGmapGoogleMapApiProvider) {
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
@@ -24,8 +26,31 @@
     // @link https://docs.angularjs.org/guide/production
     $compileProvider.debugInfoEnabled(app.applicationEnvironment !== 'production');
     $logProvider.debugEnabled(app.applicationEnvironment !== 'production');
+
+    // Register custom theme
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue')
+      .accentPalette('blue-grey', {
+        'default': '100'
+      })
+      .warnPalette('red');
+
+    localStorageServiceProvider.setPrefix('cms');
+
+    uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyBbv92i2n2EwboM3pYKPlTkJPz9eV4XaSs',
+      libraries: ['geometry', 'places']
+    });
   }
 
+  function bootstrapRun($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+      if (to.redirectTo) {
+        evt.preventDefault();
+        $state.go(to.redirectTo, params, { location: 'replace' });
+      }
+    });
+  }
 
   // Then define the init function for starting up the application
   angular.element(document).ready(init);

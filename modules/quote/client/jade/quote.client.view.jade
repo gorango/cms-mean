@@ -1,0 +1,35 @@
+div(ng-cloak='')
+  //- md-toolbar.md-whiteframe-1dp(style="background: #f6f6f6 !important; color: #202020 !important; z-index: 3;")
+  //-   .md-toolbar-tools.max-width-5.mx-auto
+  //-     span.muted.md-display-1 Service Quote
+  //-     span(flex='')
+  //-     p.muted Get a quote before you can say snowflake
+
+  .hide
+    img(ng-repeat="img in vm.previewImages" ng-src="/modules/quote/client/img/{{img}}")
+
+  .width-100.max-width-5.mx-auto.mt4.pb5
+    .row.clearfix
+      .sm-col.sm-col-7.px2.height-100.relative
+        .absolute.muted.px2(style="top: 52px; top: -3.5em; left: 0;")
+          md-button.md-raised.px2(
+          ng-click="vm.reset()", 
+          ng-if='vm.quote.selection.length > 1') 
+            md-icon.mr1 settings_backup_restore
+            | Start Over
+        md-card
+          section(ng-include='"/modules/quote/client/views/quote.form.client.view.html"')
+      .sm-col.sm-col-5.px2.height-100
+        md-card
+          md-toolbar.md-accent(style="min-height: 0; border-bottom: 1px solid rgba(0,0,0,0.12);")
+            .md-toolbar-tools(style="height: 48px")
+              span.md-title.caps.h5 Service Preview
+          div.center.p2(md-colors="{background: 'blue-grey-500'}")
+            div(ng-if="vm.quoteForm.$valid || vm.quote.bipassInfo")
+              span.md-title {{ vm.quote.total | currency }}
+            div(ng-if="!vm.quoteForm.$valid && !vm.quote.bipassInfo")
+              //- md-tooltip(md-direction="bottom") Complete the steps to reveal the quote
+              span.md-block.md-body-2.muted(ng-if="!vm.quoteForm.$valid")
+                | Complete the steps to reveal the quote
+          div
+            img.fit(ng-src="/modules/quote/client/img/{{ vm.quote.image }}")

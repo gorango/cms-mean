@@ -1,0 +1,13 @@
+section
+  .page-header
+    .row
+      .col-md-4
+        h1 Users
+      .col-md-4(style='margin-top: 2em')
+        input.form-control.col-md-4(type='text', ng-model='vm.search', placeholder='Search', ng-change='vm.figureOutItemsToDisplay()')
+  .list-group
+    a.list-group-item(ng-repeat='user in vm.pagedItems', ui-sref='admin.user({userId: user._id})')
+      h4.list-group-item-heading(ng-bind='user.username')
+      p.list-group-item-text.pull-right.small(ng-bind='user.roles')
+      p.list-group-item-text(ng-bind='user.email')
+  uib-pagination(boundary-links='true', max-size='8', items-per-page='vm.itemsPerPage', total-items='vm.filterLength', ng-model='vm.currentPage', ng-change='vm.pageChanged()')

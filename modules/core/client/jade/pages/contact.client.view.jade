@@ -1,0 +1,116 @@
+md-toolbar.md-whiteframe-1dp(style="background: #f6f6f6 !important; color: #202020 !important; z-index: 3;")
+  .md-toolbar-tools.max-width-5.mx-auto
+    span.muted.md-display-1 Contact Us
+    span(flex='')
+    p.muted Drop us a line or give us a call
+
+.width-100.max-width-5.mx-auto.mt4.mb6
+  .row.clearfix
+    .sm-col.sm-col-4.px2
+      md-card
+        md-toolbar(md-colors="{background: 'blue-grey-500'}")
+          .md-toolbar-tools Contact Info
+        md-content
+          md-list.flex.flex-column
+            md-subheader.md-no-sticky Address
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon location_city
+              .md-list-item-text
+                h3 3211 Lenworth Drive
+                p Mississauga, ON L4X 2G6
+                  br
+                  | Canada
+            md-divider
+            md-subheader.md-no-sticky Direct Line
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon phone
+              .md-list-item-text
+                h3 (905) 272-9939
+                p Phone 
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon phone
+              .md-list-item-text
+                h3 (905) 275-5969
+                p Fax
+            md-divider
+            md-subheader.md-no-sticky Email
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon email
+              .md-list-item-text
+                a.text-decoration-none.black(href="mailto:sales@clearmysnow.com") sales@clearmysnow.com
+                p General Inquiries
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon email
+              .md-list-item-text
+                a.text-decoration-none.black(href="mailto:jobs@clearmysnow.com") jobs@clearmysnow.com
+                p Job Inquiries
+            md-divider
+            md-subheader.md-no-sticky Hours of Operation
+            md-list-item.md-2-line
+              md-icon.md-avatar-icon access_time
+              .md-list-item-text
+                h3 9 AM - 5 PM
+                p Monday - Friday
+              .md-list-item-text
+                h3 24/7
+                p During Storms
+            .p1
+        
+    .sm-col.sm-col-8.px2
+      md-card
+        md-toolbar(md-colors="{background: 'blue-grey-500'}")
+          .md-toolbar-tools Direct Contact
+        md-content
+          p.p2 
+            | We are happy to answer any of your questions and to provide assistance any way we can.
+            br
+            | You can leave us a message using this form, and we will get back to you as soon as possible.
+          form(name='contactForm', novalidate='').p2
+            div(layout-gt-sm='row')
+              md-input-container.md-block(flex-gt-sm)
+                label Your Name
+                input(required='', 
+                name='clientName', 
+                ng-model='contact.clientName')
+                div(ng-messages='contactForm.clientName.$error')
+                  div(ng-message='required') We need your name.
+              span(flex='5')
+              md-input-container.md-block(flex-gt-sm)
+                label Your Email
+                input(required='', 
+                type='email', 
+                name='clientEmail', 
+                ng-model='contact.clientEmail', 
+                minlength='10', 
+                maxlength='100', 
+                ng-pattern='/^.+@.+\..+$/')
+                div(ng-messages='contactForm.clientEmail.$error', 
+                role='alert')
+                  div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
+                    | Your email must look like an e-mail address.
+                  div(ng-message-exp="['required']")
+                    | We need your email address.
+            div(layout-gt-sm='row')
+              md-input-container.md-block(flex-gt-sm)
+                label Address
+                input(name='clientAddress', 
+                ng-model='contact.clientAddress')
+              span(flex='5')
+              md-input-container.md-block(flex-gt-sm)
+                label Phone Number
+                input(name='clientPhone', 
+                ng-model='contact.clientPhone')
+            div(layout-gt-sm='row')
+              md-input-container.md-block(flex-gt-sm)
+                label Message
+                textarea(required=''
+                name='message'
+                ng-model='contact.message', 
+                rows='5', 
+                md-select-on-focus='')
+                div(ng-messages='contactForm.message.$error')
+                  div(ng-message='required') You left the message blank.
+            div
+              md-button.md-raised(type="submit") Submit
+        div(md-colors="{background: 'blue-grey-50'}").p1
+          p.center.small.muted We generally follow up within one business day.

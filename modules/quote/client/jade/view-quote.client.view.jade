@@ -1,0 +1,11 @@
+section
+  .page-header
+    h1(ng-bind='vm.quote.title')
+  small
+    em.text-muted
+      | Posted on
+      span(ng-bind="vm.quote.created | date:'mediumDate'")
+      | by
+      span(ng-if='vm.quote.user', ng-bind='vm.quote.user.displayName')
+      span(ng-if='!vm.quote.user') Deleted User
+  p.lead(ng-bind='vm.quote.content')

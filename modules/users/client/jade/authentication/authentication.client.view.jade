@@ -1,0 +1,22 @@
+section.row
+  h3.col-md-12.text-center Sign in using your social accounts
+  .col-md-12.text-center
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/facebook')", ng-src='/modules/users/client/img/buttons/facebook.png')
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/twitter')", ng-src='/modules/users/client/img/buttons/twitter.png')
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/google')", ng-src='/modules/users/client/img/buttons/google.png')
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/linkedin')", ng-src='/modules/users/client/img/buttons/linkedin.png')
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/github')", ng-src='/modules/users/client/img/buttons/github.png')
+    .social-account-container.social-button
+      a.btn
+        img.img-responsive(ng-click="vm.callOauthProvider('/api/auth/paypal')", ng-src='/modules/users/client/img/buttons/paypal.png')
+  div(ui-view='')

@@ -29,13 +29,25 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: '/modules/core/client/views/home.client.view.html',
+        templateUrl: '/modules/core/client/views/pages/home.client.view.html',
         controller: 'HomeController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Residential Snow Clearing'
+        }
+      })
+      .state('contact', {
+        url: '/contact',
+        templateUrl: '/modules/core/client/views/pages/contact.client.view.html',
+        controller: 'ContactController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Contact Us'
+        }
       })
       .state('not-found', {
         url: '/not-found',
-        templateUrl: '/modules/core/client/views/404.client.view.html',
+        templateUrl: '/modules/core/client/views/pages/404.client.view.html',
         controller: 'ErrorController',
         controllerAs: 'vm',
         params: {
@@ -50,7 +62,7 @@
       })
       .state('bad-request', {
         url: '/bad-request',
-        templateUrl: '/modules/core/client/views/400.client.view.html',
+        templateUrl: '/modules/core/client/views/pages/400.client.view.html',
         controller: 'ErrorController',
         controllerAs: 'vm',
         params: {
@@ -65,7 +77,7 @@
       })
       .state('forbidden', {
         url: '/forbidden',
-        templateUrl: '/modules/core/client/views/403.client.view.html',
+        templateUrl: '/modules/core/client/views/pages/403.client.view.html',
         data: {
           ignoreState: true,
           pageTitle: 'Forbidden'

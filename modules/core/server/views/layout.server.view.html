@@ -30,17 +30,19 @@
   <!-- Fav Icon -->
   <link href="/{{favicon}}" rel="shortcut icon" type="image/x-icon">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons" rel="stylesheet">
+
   <!-- Application CSS Files -->
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
-      {{{block "content"}}}
-    </section>
+  <header ng-include="'/modules/core/client/views/partials/header.client.view.html'"></header>
+  <section class="main z2 relative clearfix">
+    {{{block "content"}}}
   </section>
+  <footer class="z1 fixed bottom-0 left-0 right-0" ng-include="'/modules/core/client/views/partials/footer.client.view.html'"></footer>
 
   <noscript>
     <style>
@@ -64,12 +66,6 @@
 
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
-  
-  <!--owasp config sync-->
-  <script type="text/javascript">
-    var sharedConfig = {{{ sharedConfig }}};
-    owaspPasswordStrengthTest.config(sharedConfig.owasp);
-  </script>
 
   {{#if livereload}}
   <!--Livereload script rendered -->

@@ -1,0 +1,22 @@
+section.row
+  .col-xs-offset-1.col-xs-10.col-md-offset-3.col-md-4
+    form.signin.form-horizontal
+      fieldset
+        .text-center.form-group(ng-show='vm.fileSelected')
+          p Crop your picture then press upload below:
+          .cropArea(ngf-drop='', ng-model='picFile', ngf-pattern='image/*')
+            img-crop(image='picFile | ngfDataUrl', result-image='croppedDataUrl', ng-init="croppedDataUrl=''")
+        .form-group.text-center
+          img.img-thumbnail.user-profile-picture(ng-src='{{vm.fileSelected ? croppedDataUrl : vm.user.profileImageURL}}', alt='{{vm.user.displayName}}', ngf-drop='')
+        .text-center.form-group(ng-show='!vm.fileSelected')
+          button.btn.btn-default.btn-file(ngf-select='vm.fileSelected = true; vm.success = null', ng-model='picFile', accept='image/*') Select Picture
+        .text-center.form-group(ng-show='vm.fileSelected')
+          button.btn.btn-primary(ng-click='vm.upload(croppedDataUrl, picFile.name)') Upload
+          button.btn.btn-default(ng-click='vm.fileSelected = false') Cancel
+        .progress.text-center(ng-show='vm.fileSelected')
+          .progress-bar(role='progressbar', aria-valuenow='{{vm.progress}}', aria-valuemin='0', aria-valuemax='100', style='width:{{vm.progress}}%', ng-bind="vm.progress + '%'")
+            span.sr-only {{vm.progress}}% Complete
+        .text-center.text-success(ng-show='vm.success')
+          strong Profile Picture Changed Successfully
+        .text-center.text-danger(ng-show='vm.error')
+          strong(ng-bind='vm.error')

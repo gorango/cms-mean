@@ -1,0 +1,8 @@
+md-toolbar(md-colors="{background: 'blue-grey-900'}" ng-controller='HeaderController as vm')
+  .md-toolbar-tools.max-width-5.mx-auto.smaller
+    p &copy; {{vm.year}} - ClearMySnow
+    span(flex='')
+    nav
+      a.mx2(ui-sref="legal.terms") Terms
+      a.mx2(ui-sref="legal.privacy") Privacy
+      a.mx2.bold(ui-sref="contact") Contact

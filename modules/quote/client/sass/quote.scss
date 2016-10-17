@@ -1,0 +1,11 @@
+.md-tab {
+  opacity: 0.5
+}
+
+.md-tab.md-active {
+  opacity: 1
+}
+
+.md-tab.md-disabled {
+  opacity: 0.25 !important
+}

@@ -1,0 +1,16 @@
+ui-gmap-google-map(
+  center='vm.map.center',
+  options='vm.map.options',
+  zoom='vm.map.zoom',
+  pan='true')
+  ui-gmap-polygon(
+  ng-repeat='poly in vm.polygons track by $index'
+  path='poly.path', 
+  stroke='poly.stroke', 
+  fill='poly.fill', 
+  clickable='false', 
+  draggable='false', 
+  editable='false', 
+  visible='true', 
+  fit='true', 
+  static='true')

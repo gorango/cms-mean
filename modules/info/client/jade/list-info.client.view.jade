@@ -1,0 +1,13 @@
+section
+  .page-header
+    h1 Info
+  .list-group
+    a.list-group-item(ng-repeat='info in vm.info', ui-sref='info.view({ infoId: info._id })')
+      small.list-group-item-text
+        | Posted on
+        span(ng-bind="info.created | date:'mediumDate'")
+        | by
+        span(ng-if='info.user', ng-bind='info.user.displayName')
+        span(ng-if='!info.user') Deleted User
+      h4.list-group-item-heading(ng-bind='info.title')
+      p.list-group-item-text(ng-bind='info.content')

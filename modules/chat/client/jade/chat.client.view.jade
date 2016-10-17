@@ -1,0 +1,21 @@
+// The chat view
+section.container
+  .page-header
+    h1 Chat Example
+  // The message form
+  form.col-xs-12.col-md-offset-4.col-md-4(ng-submit='vm.sendMessage();')
+    fieldset.row
+      .input-group
+        input#messageText.form-control(type='text', name='messageText', ng-model='vm.messageText', placeholder='Enter new message')
+        |         
+        span.input-group-btn
+          button.btn.btn-primary(type='submit', ng-disabled='!vm.messageText.length') Submit
+  ul.list-unstyled
+    // List all messages
+    li.col-xs-12.col-md-offset-4.col-md-4.chat-message(ng-repeat='message in vm.messages')
+      small.pull-right.text-muted(ng-bind="message.created | date:'mediumTime'")
+      img.pull-left.chat-profile-image(ng-src='{{message.profileImageURL}}', alt='{{message.username}}')
+      .pull-left.chat-message-details
+        strong(ng-bind='message.username')
+        br
+        span(ng-bind='message.text')

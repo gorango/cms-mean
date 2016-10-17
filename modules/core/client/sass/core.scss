@@ -1,0 +1,19 @@
+@import "./basscss/basscss";
+// @import "./pages/quote";
+
+body {
+  background-color: $body;
+  font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  // font-family: 'Source Sans Pro';
+}
+
+[ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important }
+
+main, .main {
+  background-color: $body;
+  margin-bottom: 64px;
+}

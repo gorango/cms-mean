@@ -1,0 +1,43 @@
+div
+  h3.col-xs-12.text-center Or sign up using your email
+  .col-xs-offset-2.col-xs-8.col-md-offset-4.col-md-4
+    form.signin(name='vm.userForm', ng-submit='vm.signup(vm.userForm.$valid)', novalidate='', autocomplete='off')
+      fieldset
+        .form-group(show-errors='')
+          label(for='firstName') First Name
+          input#firstName.form-control(type='text', name='firstName', ng-model='vm.credentials.firstName', placeholder='First Name', required='')
+          div(ng-messages='vm.userForm.firstName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') First name is required.
+        .form-group(show-errors='')
+          label(for='lastName') Last Name
+          input#lastName.form-control(type='text', name='lastName', ng-model='vm.credentials.lastName', placeholder='Last Name', required='')
+          div(ng-messages='vm.userForm.lastName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Last name is required.
+        .form-group(show-errors='')
+          label(for='email') Email
+          input#email.form-control(type='email', name='email', ng-model='vm.credentials.email', placeholder='Email', lowercase='', required='')
+          div(ng-messages='vm.userForm.email.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Email address is required.
+            p.help-block.error-text(ng-message='email') Email address is invalid.
+        .form-group(show-errors='')
+          label(for='username') Username
+          input#username.form-control(type='text', name='username', ng-model='vm.credentials.username', placeholder='Username', lowercase='', required='')
+          div(ng-messages='vm.userForm.username.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Username is required.
+        .form-group(show-errors='')
+          label(for='password') Password
+          input#password.form-control(type='password', name='password', ng-model='vm.credentials.password', placeholder='Password', uib-popover='{{vm.getPopoverMsg()}}', uib-popover-trigger='focus', password-validator='', required='')
+          div(ng-messages='vm.userForm.password.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Password is required.
+            div(ng-repeat='passwordError in passwordErrors')
+              p.help-block.error-text(ng-show='vm.userForm.password.$error.requirements') {{passwordError}}
+        .form-group(ng-show='!vm.userForm.password.$error.required')
+          label Password Requirements
+          uib-progressbar(value='requirementsProgress', type='{{requirementsColor}}')
+            span(style='color:white; white-space:nowrap;') {{requirementsProgress}}%
+        .text-center.form-group
+          button.btn.btn-primary(type='submit') Sign up
+          | &nbsp; or&nbsp;
+          a.show-signup(ui-sref='authentication.signin') Sign in
+        .text-center.text-danger(ng-show='vm.error')
+          strong(ng-bind='vm.error')

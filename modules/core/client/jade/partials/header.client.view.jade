@@ -1,0 +1,9 @@
+md-toolbar(ng-controller='HeaderController as vm')
+  .md-toolbar-tools.max-width-5.mx-auto
+    a(ui-sref='home')
+      img.fit(src="https://s3-us-west-2.amazonaws.com/clearmysnow/front/brand/logo300-w.png")
+    span(flex='')
+    nav
+      md-button.py2.px3.m0(ui-sref-active='"bg-darken-1"' ui-sref="service") Service
+      md-button.py2.px3.m0(ui-sref-active='"bg-darken-1"' ui-sref="info") Information
+      md-button.py2.px3.m0(ui-sref-active='"bg-darken-1"' ui-sref="contact") Contact

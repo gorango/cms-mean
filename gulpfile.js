@@ -6,6 +6,7 @@
 var _ = require('lodash'),
   fs = require('fs'),
   defaultAssets = require('./config/assets/default'),
+  developmentAssets = require('./config/assets/development'),
   testAssets = require('./config/assets/test'),
   testConfig = require('./config/env/test'),
   glob = require('glob'),
@@ -24,7 +25,6 @@ var _ = require('lodash'),
   protractor = require('gulp-protractor').protractor,
   webdriver_update = require('gulp-protractor').webdriver_update,
   webdriver_standalone = require('gulp-protractor').webdriver_standalone,
-  del = require('del'),
   KarmaServer = require('karma').Server;
 
 // Local settings
@@ -51,16 +51,33 @@ gulp.task('nodemon', function () {
     script: 'server.js',
     nodeArgs: ['--debug'],
     ext: 'js,html',
-    verbose: true,
     watch: _.union(defaultAssets.server.views, defaultAssets.server.allJS, defaultAssets.server.config)
   });
 });
 
-// Nodemon task without verbosity or debugging
-gulp.task('nodemon-nodebug', function () {
+gulp.task('node-inspector', function() {
+  gulp.src([])
+    .pipe(plugins.nodeInspector({
+      debugPort: 5858,
+      webHost: '0.0.0.0',
+      webPort: 1337,
+      saveLiveEdit: false,
+      preload: true,
+      inject: true,
+      hidden: [],
+      stackTraceLimit: 50,
+      sslKey: '',
+      sslCert: ''
+    }));
+});
+
+// Nodemon debug task
+gulp.task('nodemon-debug', function () {
   return plugins.nodemon({
     script: 'server.js',
+    nodeArgs: ['--debug'],
     ext: 'js,html',
+    verbose: true,
     watch: _.union(defaultAssets.server.views, defaultAssets.server.allJS, defaultAssets.server.config)
   });
 });
@@ -74,16 +91,28 @@ gulp.task('watch', function () {
   gulp.watch(defaultAssets.server.views).on('change', plugins.refresh.changed);
   gulp.watch(defaultAssets.server.allJS, ['eslint']).on('change', plugins.refresh.changed);
   gulp.watch(defaultAssets.client.js, ['eslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.css, ['csslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.sass, ['sass', 'csslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.less, ['less', 'csslint']).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.less, ['less']).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.sass, ['sass']).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.jade, ['jade']);
 
   if (process.env.NODE_ENV === 'production') {
     gulp.watch(defaultAssets.server.gulpConfig, ['templatecache', 'eslint']);
     gulp.watch(defaultAssets.client.views, ['templatecache']).on('change', plugins.refresh.changed);
   } else {
     gulp.watch(defaultAssets.server.gulpConfig, ['eslint']);
-    gulp.watch(defaultAssets.client.views).on('change', plugins.refresh.changed);
+    gulp.watch(defaultAssets.client.views).on('change', debounce(plugins.refresh.changed, 650));
+  }
+
+  function debounce(fn, delay) {
+    var timer = null;
+    return function () {
+      var context = this;
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
   }
 });
 
@@ -108,17 +137,8 @@ gulp.task('watch:server:run-tests', function () {
       });
     });
 
-    plugins.refresh.changed();
+    plugins.livereload.changed();
   });
-});
-
-// CSS linting task
-gulp.task('csslint', function () {
-  return gulp.src(defaultAssets.client.css)
-    .pipe(plugins.csslint('.csslintrc'))
-    .pipe(plugins.csslint.formatter());
-    // Don't fail CSS issues yet
-    // .pipe(plugins.csslint.failFormatter());
 });
 
 // ESLint JS linting task
@@ -143,7 +163,6 @@ gulp.task('uglify', function () {
     defaultAssets.client.js,
     defaultAssets.client.templates
   );
-  del(['public/dist/*']);
 
   return gulp.src(assets)
     .pipe(plugins.ngAnnotate())
@@ -151,7 +170,6 @@ gulp.task('uglify', function () {
       mangle: false
     }))
     .pipe(plugins.concat('application.min.js'))
-    .pipe(plugins.rev())
     .pipe(gulp.dest('public/dist'));
 });
 
@@ -160,7 +178,14 @@ gulp.task('cssmin', function () {
   return gulp.src(defaultAssets.client.css)
     .pipe(plugins.csso())
     .pipe(plugins.concat('application.min.css'))
-    .pipe(plugins.rev())
+    .pipe(gulp.dest('public/dist'));
+});
+
+// Vendor CSS minifying task
+gulp.task('cssvendor', function () {
+  return gulp.src(developmentAssets.client.lib.css)
+    .pipe(plugins.csso())
+    .pipe(plugins.concat('vendor.min.css'))
     .pipe(gulp.dest('public/dist'));
 });
 
@@ -170,7 +195,7 @@ gulp.task('sass', function () {
     .pipe(plugins.sass())
     .pipe(plugins.autoprefixer())
     .pipe(plugins.rename(function (file) {
-      file.dirname = file.dirname.replace(path.sep + 'scss', path.sep + 'css');
+      file.dirname = file.dirname.replace(path.sep + 'sass', path.sep + 'css');
     }))
     .pipe(gulp.dest('./modules/'));
 });
@@ -182,6 +207,16 @@ gulp.task('less', function () {
     .pipe(plugins.autoprefixer())
     .pipe(plugins.rename(function (file) {
       file.dirname = file.dirname.replace(path.sep + 'less', path.sep + 'css');
+    }))
+    .pipe(gulp.dest('./modules/'));
+});
+
+// Jade task
+gulp.task('jade', function () {
+  return gulp.src(defaultAssets.client.jade)
+    .pipe(plugins.jade())
+    .pipe(plugins.rename(function (file) {
+      file.dirname = file.dirname.replace(path.sep + 'jade', path.sep + 'views');
     }))
     .pipe(gulp.dest('./modules/'));
 });
@@ -405,12 +440,12 @@ gulp.task('protractor', ['webdriver_update'], function () {
 
 // Lint CSS and JavaScript files.
 gulp.task('lint', function (done) {
-  runSequence('less', 'sass', ['csslint', 'eslint'], done);
+  runSequence('less', 'sass', ['eslint'], done);
 });
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
-  runSequence('env:dev', 'wiredep:prod', 'lint', ['uglify', 'cssmin'], done);
+  runSequence('env:dev', ['jade', 'less', 'sass'], 'lint', ['uglify', 'cssmin', 'cssvendor'], done);
 });
 
 // Run the project tests
@@ -441,15 +476,15 @@ gulp.task('test:coverage', function (done) {
 
 // Run the project in development mode
 gulp.task('default', function (done) {
-  runSequence('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['nodemon', 'watch'], done);
+  runSequence('env:dev', ['jade', 'less', 'sass'], ['copyLocalEnvConfig', 'makeUploadsDir'], ['nodemon', 'watch'], done);
 });
 
 // Run the project in debug mode
 gulp.task('debug', function (done) {
-  runSequence('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['nodemon-nodebug', 'watch'], done);
+  runSequence('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['node-inspector', 'nodemon-debug', 'watch'], done);
 });
 
 // Run the project in production mode
 gulp.task('prod', function (done) {
-  runSequence(['copyLocalEnvConfig', 'makeUploadsDir', 'templatecache'], 'build', 'env:prod', 'lint', ['nodemon-nodebug', 'watch'], done);
+  runSequence(['copyLocalEnvConfig', 'makeUploadsDir', 'templatecache'], 'build', 'env:prod', 'lint', ['nodemon', 'watch'], done);
 });

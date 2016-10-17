@@ -1,0 +1,27 @@
+section
+  .page-header
+    h1 User 
+      span(ng-bind='vm.user.username')
+  .col-md-12
+    form(name='vm.userForm', ng-submit='vm.update(vm.userForm.$valid)', novalidate='')
+      fieldset
+        .form-group(show-errors='')
+          label(for='firstName') First Name
+          input#firstName.form-control(type='text', name='firstName', ng-model='vm.user.firstName', placeholder='First Name', required='')
+          div(ng-messages='vm.userForm.firstName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') First name is required.
+        .form-group(show-errors='')
+          label(for='lastName') Last Name
+          input#lastName.form-control(type='text', name='lastName', ng-model='vm.user.lastName', placeholder='Last Name', required='')
+          div(ng-messages='vm.userForm.lastName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Last name is required.
+        .form-group(show-errors='')
+          label.control-label(for='roles') Roles
+          .controls
+            input#roles.form-control(type='text', name='roles', ng-model='vm.user.roles', ng-list='', required='')
+            div(ng-messages='vm.userForm.roles.$error', role='alert')
+              p.help-block.error-text(ng-message='required') At least one role is required.
+        .form-group
+          input.btn.btn-default(type='submit', value='Update')
+        .text-danger(ng-show='vm.error')
+          strong(ng-bind='vm.error')

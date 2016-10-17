@@ -1,0 +1,19 @@
+section
+  .page-header
+    h1 {{vm.quote._id ? 'Edit Quote' : 'New Quote'}}
+  .pull-right
+    a.btn.btn-primary(ng-show='vm.quote._id', ng-click='vm.remove()')
+      i.glyphicon.glyphicon-trash
+  .col-md-12
+    form.form-horizontal(name='vm.form.quoteForm', ng-submit='vm.save(vm.form.quoteForm.$valid)', novalidate='')
+      fieldset
+        .form-group(show-errors='')
+          label.control-label(for='title') Title
+          input#title.form-control(name='title', type='text', ng-model='vm.quote.title', placeholder='Title', required='')
+          div(ng-messages='vm.form.quoteForm.title.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Quote title is required.
+        .form-group
+          label.control-label(for='content') Content
+          textarea#content.form-control(name='content', data-ng-model='vm.quote.content', cols='30', rows='10', placeholder='Content')
+        .form-group
+          button.btn.btn-default(type='submit') {{vm.quote._id ? 'Update' : 'Create'}}

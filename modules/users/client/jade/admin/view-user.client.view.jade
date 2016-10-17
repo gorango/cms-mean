@@ -1,0 +1,41 @@
+section
+  .page-header
+    .row
+      .col-md-6
+        h1(ng-bind='vm.user.username')
+      .col-md-4
+        a.btn.btn-primary(ui-sref='admin.user-edit({userId: vm.user._id})')
+          i.glyphicon.glyphicon-edit
+        a.btn.btn-primary(ng-click='vm.remove()', ng-if='vm.user._id !== vm.authentication.user._id')
+          i.glyphicon.glyphicon-trash
+  .row
+    .col-md-8
+      .row
+        .col-md-3
+          strong First Name
+        .col-md-6(ng-bind='vm.user.firstName')
+      hr
+      .row
+        .col-md-3
+          strong Last Name
+        .col-md-6(ng-bind='vm.user.lastName')
+      hr
+      .row
+        .col-md-3
+          strong Email
+        .col-md-6(ng-bind='vm.user.email')
+      hr
+      .row
+        .col-md-3
+          strong Provider
+        .col-md-6(ng-bind='vm.user.provider')
+      hr
+      .row
+        .col-md-3
+          strong Created
+        .col-md-6(ng-bind='vm.user.created')
+      hr
+      .row
+        .col-md-3
+          strong Roles
+        .col-md-6(ng-bind='vm.user.roles')

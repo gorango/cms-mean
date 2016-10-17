@@ -1,0 +1,13 @@
+section
+  .page-header
+    h1 Quotes
+  .list-group
+    a.list-group-item(ng-repeat='quote in vm.quotes', ui-sref='quotes.view({ quoteId: quote._id })')
+      small.list-group-item-text
+        | Posted on
+        span(ng-bind="quote.created | date:'mediumDate'")
+        | by
+        span(ng-if='quote.user', ng-bind='quote.user.displayName')
+        span(ng-if='!quote.user') Deleted User
+      h4.list-group-item-heading(ng-bind='quote.title')
+      p.list-group-item-text(ng-bind='quote.content')

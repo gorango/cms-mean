@@ -1,0 +1,31 @@
+section.row
+  .col-xs-offset-1.col-xs-10.col-md-offset-4.col-md-4
+    form.signin(name='vm.userForm', ng-submit='vm.updateUserProfile(vm.userForm.$valid)', novalidate='', autocomplete='off')
+      fieldset
+        .form-group(show-errors='')
+          label(for='firstName') First Name
+          input#firstName.form-control(type='text', name='firstName', ng-model='vm.user.firstName', placeholder='First Name', required='')
+          div(ng-messages='vm.userForm.firstName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') First name is required.
+        .form-group(show-errors='')
+          label(for='lastName') Last Name
+          input#lastName.form-control(type='text', name='lastName', ng-model='vm.user.lastName', placeholder='Last Name', required='')
+          div(ng-messages='vm.userForm.lastName.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Last name is required.
+        .form-group(show-errors='')
+          label(for='email') Email
+          input#email.form-control(type='email', name='email', ng-model='vm.user.email', placeholder='Email', lowercase='', required='')
+          div(ng-messages='vm.userForm.email.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Email address is required.
+            p.help-block.error-text(ng-message='email') Email address is invalid.
+        .form-group(show-errors='')
+          label(for='username') Username
+          input#username.form-control(type='text', name='username', ng-model='vm.user.username', placeholder='Username', lowercase='', required='')
+          div(ng-messages='vm.userForm.username.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Username is required.
+        .text-center.form-group
+          button.btn.btn-primary(type='submit') Save Profile
+        .text-center.text-success(ng-show='vm.success')
+          strong Profile Saved Successfully
+        .text-center.text-danger(ng-show='vm.error')
+          strong(ng-bind='vm.error')

@@ -14,6 +14,7 @@
     vm.authentication = Authentication;
     vm.isCollapsed = false;
     vm.menu = menuService.getMenu('topbar');
+    vm.year = new Date().getFullYear();
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
 

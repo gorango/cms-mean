@@ -1,0 +1,23 @@
+div
+  h3.col-xs-12.text-center Or with your account
+  .col-xs-offset-2.col-xs-8.col-md-offset-4.col-md-4
+    form.signin(name='vm.userForm', ng-submit='vm.signin(vm.userForm.$valid)', novalidate='', autocomplete='off')
+      fieldset
+        .form-group(show-errors='')
+          label(for='username') Username
+          input#username.form-control(type='text', name='username', ng-model='vm.credentials.username', placeholder='Username', lowercase='', required='')
+          div(ng-messages='vm.userForm.username.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Username is required.
+        .form-group(show-errors='')
+          label(for='password') Password
+          input#password.form-control(type='password', name='password', ng-model='vm.credentials.password', placeholder='Password', required='')
+          div(ng-messages='vm.userForm.password.$error', role='alert')
+            p.help-block.error-text(ng-message='required') Password is required.
+        .text-center.form-group
+          button.btn.btn-primary(type='submit') Sign in
+          a(ui-sref='authentication.signup') Sign up
+        .text-center.forgot-password
+          a(ui-sref='password.forgot') Forgot your password?
+        p
+        uib-alert.text-center.text-danger(type='danger', ng-show='vm.error')
+          span(ng-bind='vm.error')
