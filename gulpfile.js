@@ -160,8 +160,9 @@ gulp.task('eslint', function () {
 // JS minifying task
 gulp.task('uglify', function () {
   var assets = _.union(
-    defaultAssets.client.js,
-    defaultAssets.client.templates
+    developmentAssets.client.lib.js,
+    defaultAssets.client.js/*,
+    defaultAssets.client.templates*/
   );
 
   return gulp.src(assets)
