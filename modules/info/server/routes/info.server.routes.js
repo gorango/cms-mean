@@ -12,6 +12,10 @@ module.exports = function (app) {
     .get(info.list)
     .post(info.create);
 
+  // Weather
+  app.route('/api/current-weather')
+    .get(info.weather);
+
   // Single info routes
   app.route('/api/info/:infoId').all(infoPolicy.isAllowed)
     .get(info.read)

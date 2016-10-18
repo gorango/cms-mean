@@ -5,8 +5,37 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
+  https = require('https'),
   Info = mongoose.model('Info'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+
+/**
+ * Get current weather
+ */
+exports.weather = function (req, res) {
+  var path = '/forecast/2ab6bc66d7ddfc41330dbedf258ce699/43.63,-79.67?exclude=currently,hourly,flags,minutely&units=si';
+  var options = {
+    host: 'api.darksky.net',
+    port: 443,
+    path: path,
+    method: 'GET'
+  };
+  var request = https.request(options, function(response) {
+    var data = '';
+    response.on('data', function (chunk) {
+      data += chunk;
+    });
+    response.on('end', function () {
+      res.json(data);
+    });
+  });
+  request.end();
+  request.on('error', function(err) {
+    return res.status(500).send({
+      message: errorHandler.getErrorMessage(err)
+    });
+  });
+};
 
 /**
  * Create an info

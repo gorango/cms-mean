@@ -1,0 +1,2253 @@
+{
+  "updates": [
+    {
+      "content": "Although there is less than 5cm of snow out there we`re out servicing areas in parts of Etobicoke and Mississauga. We began our routes at 9 am this morning and will stop prior to the expected rain this afternoon. The rain is coming with a warm temperature of about 4&deg;C that will continue through the night and is expected to melt all the snow that accumulated in the past 24 hours.",
+      "date": 1325290000000,
+      "id": 1325290000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1325221200,
+            "summary": "Foggy starting in the afternoon, continuing until evening.",
+            "icon": "fog",
+            "sunriseTime": 1325249588,
+            "sunsetTime": 1325281885,
+            "moonPhase": 0.2,
+            "precipType": "snow",
+            "temperatureMin": -2.97,
+            "temperatureMinTime": 1325246400,
+            "temperatureMax": 0.58,
+            "temperatureMaxTime": 1325304000,
+            "apparentTemperatureMin": -8.91,
+            "apparentTemperatureMinTime": 1325242800,
+            "apparentTemperatureMax": -5.06,
+            "apparentTemperatureMaxTime": 1325304000,
+            "dewPoint": -2.04,
+            "humidity": 0.94,
+            "windSpeed": 6.29,
+            "windBearing": 67,
+            "visibility": 5.39,
+            "cloudCover": 1,
+            "pressure": 1009.75
+          }]
+        }
+      }
+    }, {
+      "content": "From Everyone here at Clear My Snow we would like to wish you and your family a happy, healthy and&nbsp;CLEAR New Year.",
+      "date": 1325370000000,
+      "id": 1325370000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1325307600,
+            "summary": "Foggy in the morning.",
+            "icon": "snow",
+            "sunriseTime": 1325335996,
+            "sunsetTime": 1325368333,
+            "moonPhase": 0.23,
+            "precipType": "rain",
+            "temperatureMin": 0.84,
+            "temperatureMinTime": 1325307600,
+            "temperatureMax": 3.49,
+            "temperatureMaxTime": 1325358000,
+            "apparentTemperatureMin": -5.03,
+            "apparentTemperatureMinTime": 1325307600,
+            "apparentTemperatureMax": 0.22,
+            "apparentTemperatureMaxTime": 1325358000,
+            "dewPoint": 1.24,
+            "humidity": 0.92,
+            "windSpeed": 1.18,
+            "windBearing": 9,
+            "visibility": 9.14,
+            "cloudCover": 0.97,
+            "pressure": 1011.16
+          }]
+        }
+      }
+    }, {
+      "content": "we have 1/2 an inch on the ground in Etobicoke at 8:30 am. Looking for 1 inch before we go out. We expect that we will be out this afternoon.",
+      "date": 1326480000000,
+      "id": 1326480000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1326430800,
+            "summary": "Overcast throughout the day and windy in the morning.",
+            "icon": "cloudy",
+            "sunriseTime": 1326459080,
+            "sunsetTime": 1326492316,
+            "moonPhase": 0.65,
+            "precipType": "snow",
+            "temperatureMin": -6.78,
+            "temperatureMinTime": 1326513600,
+            "temperatureMax": 4.51,
+            "temperatureMaxTime": 1326434400,
+            "apparentTemperatureMin": -14.01,
+            "apparentTemperatureMinTime": 1326513600,
+            "apparentTemperatureMax": 1.61,
+            "apparentTemperatureMaxTime": 1326434400,
+            "dewPoint": -5.25,
+            "humidity": 0.79,
+            "windSpeed": 6.66,
+            "windBearing": 257,
+            "visibility": 11.57,
+            "cloudCover": 0.99,
+            "pressure": 997.2
+          }]
+        }
+      }
+    }, {
+      "content": "We started our routes at 11 Am this morning. Snow stopped at 12.&nbsp;We are seeing varying amounts down per area. We will do our best to service all accounts today, however we may finish up Saturday. Please be patient",
+      "date": 1326500000000,
+      "id": 1326500000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1326430800,
+            "summary": "Overcast throughout the day and windy in the morning.",
+            "icon": "cloudy",
+            "sunriseTime": 1326459080,
+            "sunsetTime": 1326492316,
+            "moonPhase": 0.65,
+            "precipType": "snow",
+            "temperatureMin": -6.78,
+            "temperatureMinTime": 1326513600,
+            "temperatureMax": 4.51,
+            "temperatureMaxTime": 1326434400,
+            "apparentTemperatureMin": -14.01,
+            "apparentTemperatureMinTime": 1326513600,
+            "apparentTemperatureMax": 1.61,
+            "apparentTemperatureMaxTime": 1326434400,
+            "dewPoint": -5.25,
+            "humidity": 0.79,
+            "windSpeed": 6.66,
+            "windBearing": 257,
+            "visibility": 11.57,
+            "cloudCover": 0.99,
+            "pressure": 997.2
+          }]
+        }
+      }
+    }, {
+      "content": "We got our feet wet and started at 11 Am&nbsp; Friday and finished by midnight. A tough storm that was wet and then froze.&nbsp;There were different amounts of snow through out Mississauga and Etobicoke, but hard to say that 5 cm fell everywhere. Thanks for your patience, we are revisiting our routing and service times and will adjust for the next outing.",
+      "date": 1326750000000,
+      "id": 1326750000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1326690000,
+            "summary": "Foggy overnight.",
+            "icon": "fog",
+            "sunriseTime": 1326718196,
+            "sunsetTime": 1326751731,
+            "moonPhase": 0.76,
+            "precipType": "snow",
+            "temperatureMin": -7.51,
+            "temperatureMinTime": 1326693600,
+            "temperatureMax": 4.73,
+            "temperatureMaxTime": 1326762000,
+            "apparentTemperatureMin": -13.12,
+            "apparentTemperatureMinTime": 1326693600,
+            "apparentTemperatureMax": 0.44,
+            "apparentTemperatureMaxTime": 1326762000,
+            "dewPoint": -4.77,
+            "humidity": 0.74,
+            "windSpeed": 4,
+            "windBearing": 178,
+            "visibility": 14.98,
+            "cloudCover": 0.71,
+            "pressure": 1019.8
+          }]
+        }
+      }
+    }, {
+      "content": "It is snowing outside and we have accumulated just under 1 inch at this point. As this is below the 2 inch threshold, we will not be plowing at this time. We will continue to monitor the weather and revise our plans if the snow accumulates further.",
+      "date": 1327020000000,
+      "id": 1327020000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1326949200,
+            "summary": "Foggy until afternoon.",
+            "icon": "snow",
+            "sunriseTime": 1326977291,
+            "sunsetTime": 1327011155,
+            "moonPhase": 0.88,
+            "precipType": "snow",
+            "temperatureMin": -8.31,
+            "temperatureMinTime": 1327032000,
+            "temperatureMax": -1.38,
+            "temperatureMaxTime": 1326988800,
+            "apparentTemperatureMin": -16.56,
+            "apparentTemperatureMinTime": 1327032000,
+            "apparentTemperatureMax": -9.43,
+            "apparentTemperatureMaxTime": 1326988800,
+            "dewPoint": -8.68,
+            "humidity": 0.69,
+            "windSpeed": 6.16,
+            "windBearing": 224,
+            "visibility": 13.02,
+            "cloudCover": 0.71,
+            "pressure": 1011.62
+          }]
+        }
+      }
+    }, {
+      "content": "We have been out clearing since 7 AM. We estimate 2.5 cm is down, Not really 5 cm, however with Thursdays accumulation we feel we should clear all driveways. We will be there today !&nbsp; Look forward to Monday/ Tuesday for a another melting",
+      "date": 1327170000000,
+      "id": 1327170000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1327122000,
+            "summary": "Mostly cloudy starting in the evening.",
+            "icon": "cloudy",
+            "sunriseTime": 1327150010,
+            "sunsetTime": 1327184109,
+            "moonPhase": 0.95,
+            "precipType": "snow",
+            "temperatureMin": -7.48,
+            "temperatureMinTime": 1327150800,
+            "temperatureMax": -2.21,
+            "temperatureMaxTime": 1327176000,
+            "apparentTemperatureMin": -13.37,
+            "apparentTemperatureMinTime": 1327150800,
+            "apparentTemperatureMax": -6.48,
+            "apparentTemperatureMaxTime": 1327176000,
+            "dewPoint": -10.25,
+            "humidity": 0.7,
+            "windSpeed": 2.72,
+            "windBearing": 358,
+            "visibility": 12.49,
+            "cloudCover": 0.55,
+            "pressure": 1022.64
+          }]
+        }
+      }
+    }, {
+      "content": "We have seen some heavy flurries roll through Etobicoke and Mississauga today. However, with the warm temperatures and relatively low accumulation of &lt;2cm we will not be doing a full service run at this point.",
+      "date": 1327700000000,
+      "id": 1327700000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1327640400,
+            "summary": "Mostly cloudy throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1327668118,
+            "sunsetTime": 1327702986,
+            "moonPhase": 0.15,
+            "precipType": "rain",
+            "temperatureMin": 0.84,
+            "temperatureMinTime": 1327723200,
+            "temperatureMax": 4.47,
+            "temperatureMaxTime": 1327694400,
+            "apparentTemperatureMin": -4.53,
+            "apparentTemperatureMinTime": 1327647600,
+            "apparentTemperatureMax": -0.09,
+            "apparentTemperatureMaxTime": 1327694400,
+            "dewPoint": -0.62,
+            "humidity": 0.83,
+            "windSpeed": 2.96,
+            "windBearing": 318,
+            "visibility": 11.59,
+            "cloudCover": 0.88,
+            "pressure": 1002.05
+          }]
+        }
+      }
+    }, {
+      "content": "We have received 3-5cm of accumulation across Etobicoke and Mississauga and our crews have started clearing all properties tonight after midnight. We are expecting some warm weather in the coming days and, unfortunately, we will be looking at green lawns before the end of the week...",
+      "date": 1328010000000,
+      "id": 1328010000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1328936400,
+            "summary": "Foggy in the morning.",
+            "icon": "snow",
+            "sunriseTime": 1328963095,
+            "sunsetTime": 1329000221,
+            "moonPhase": 0.64,
+            "precipType": "snow",
+            "temperatureMin": -12.21,
+            "temperatureMinTime": 1328972400,
+            "temperatureMax": -2.89,
+            "temperatureMaxTime": 1328936400,
+            "apparentTemperatureMin": -22.5,
+            "apparentTemperatureMinTime": 1328972400,
+            "apparentTemperatureMax": -8.25,
+            "apparentTemperatureMaxTime": 1328936400,
+            "dewPoint": -13.74,
+            "humidity": 0.71,
+            "windSpeed": 5.61,
+            "windBearing": 342,
+            "visibility": 9.61,
+            "cloudCover": 0.74,
+            "pressure": 1014.33
+          }]
+        }
+      }
+    }, {
+      "content": "Good cold morning, Yes we are out today, 3-6 cm in Etobicoke, and&nbsp;drifting snow. We started at 7 am this morning. Feels like minus 21. Salt will not do too much so be careful ! Thanks for your support.",
+      "date": 1328990000000,
+      "id": 1328990000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1328936400,
+            "summary": "Foggy in the morning.",
+            "icon": "fog",
+            "sunriseTime": 1328963095,
+            "sunsetTime": 1329000221,
+            "moonPhase": 0.64,
+            "precipType": "snow",
+            "temperatureMin": -12.21,
+            "temperatureMinTime": 1328972400,
+            "temperatureMax": -2.89,
+            "temperatureMaxTime": 1328936400,
+            "apparentTemperatureMin": -22.5,
+            "apparentTemperatureMinTime": 1328972400,
+            "apparentTemperatureMax": -8.25,
+            "apparentTemperatureMaxTime": 1328936400,
+            "dewPoint": -13.74,
+            "humidity": 0.71,
+            "windSpeed": 5.61,
+            "windBearing": 342,
+            "visibility": 9.61,
+            "cloudCover": 0.74,
+            "pressure": 1014.33
+          }]
+        }
+      }
+    }, {
+      "content": "Today we are out there clearing our full routes throughout, Mississauga, Etobicoke and Brampton. We started early this morning and all properties will get serviced and&nbsp;\"\"We Will Show Up.\"\" As promised, the routes&nbsp;have been alternated so if you were serviced in the afternoon in the last storm you will likely get serviced in the morning for this storm. Please don't hesitate to call us at any time, we are in the office and it is our pleasure to service you.",
+      "date": 1329590000000,
+      "id": 1329590000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1329541200,
+            "summary": "Foggy in the morning.",
+            "icon": "fog",
+            "sunriseTime": 1329567299,
+            "sunsetTime": 1329605592,
+            "moonPhase": 0.89,
+            "precipType": "rain",
+            "temperatureMin": -1.51,
+            "temperatureMinTime": 1329624000,
+            "temperatureMax": 2.79,
+            "temperatureMaxTime": 1329584400,
+            "apparentTemperatureMin": -6.04,
+            "apparentTemperatureMinTime": 1329620400,
+            "apparentTemperatureMax": -0.87,
+            "apparentTemperatureMaxTime": 1329584400,
+            "dewPoint": -2.86,
+            "humidity": 0.78,
+            "windSpeed": 2.5,
+            "windBearing": 298,
+            "visibility": 11.59,
+            "cloudCover": 0.82,
+            "pressure": 1015.23
+          }]
+        }
+      }
+    }, {
+      "content": "Heavy snow fall over night has accumulated to about 10 cm across Etobicoke, Mississauga and Oakville. Our drivers have been dispatched early this morning and we will be servicing all properties.",
+      "date": 1356660000000,
+      "id": 1356660000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1356584400,
+            "summary": "Foggy in the morning.",
+            "icon": "snow",
+            "sunriseTime": 1356612761,
+            "sunsetTime": 1356644984,
+            "moonPhase": 0.48,
+            "precipType": "snow",
+            "temperatureMin": -6.07,
+            "temperatureMinTime": 1356667200,
+            "temperatureMax": -2.76,
+            "temperatureMaxTime": 1356642000,
+            "apparentTemperatureMin": -12.31,
+            "apparentTemperatureMinTime": 1356584400,
+            "apparentTemperatureMax": -7.78,
+            "apparentTemperatureMaxTime": 1356642000,
+            "dewPoint": -7.14,
+            "humidity": 0.82,
+            "windSpeed": 4.05,
+            "windBearing": 352,
+            "visibility": 10.28,
+            "cloudCover": 0.86,
+            "pressure": 1013.72
+          }]
+        }
+      }
+    }, {
+      "content": "Heavy snow today has accumulated across Etobicoke, Mississauga and Oakville. Our drivers have been dispatched this morning and we will be servicing all properties. Please be patient as it takes time for our drivers to complete their routes but we promise to be on your property as soon as possible. Feel free to contact us regarding any questions or concerns which you may have. We will be here until all of our customers are complete.",
+      "date": 1356830000000,
+      "id": 1356830000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1356757200,
+            "summary": "Foggy in the morning.",
+            "icon": "snow",
+            "sunriseTime": 1356785586,
+            "sunsetTime": 1356817873,
+            "moonPhase": 0.54,
+            "precipType": "snow",
+            "temperatureMin": -4.29,
+            "temperatureMinTime": 1356829200,
+            "temperatureMax": -2.96,
+            "temperatureMaxTime": 1356800400,
+            "apparentTemperatureMin": -9.64,
+            "apparentTemperatureMinTime": 1356840000,
+            "apparentTemperatureMax": -7.67,
+            "apparentTemperatureMaxTime": 1356800400,
+            "dewPoint": -5.67,
+            "humidity": 0.85,
+            "windSpeed": 2.87,
+            "windBearing": 359,
+            "visibility": 9.64,
+            "cloudCover": 0.96,
+            "pressure": 1011.32
+          }]
+        }
+      }
+    }, {
+      "content": "We may get snow this weekend, please be advised we have been working hard to be prepared. We have reviewed our routes and continued driver training since the last outing. We wish you the best in the New year and enjoy the snow!",
+      "date": 1358450000000,
+      "id": 1358450000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1358398800,
+            "summary": "Foggy in the evening.",
+            "icon": "fog",
+            "sunriseTime": 1358426938,
+            "sunsetTime": 1358460660,
+            "moonPhase": 0.21,
+            "precipType": "snow",
+            "temperatureMin": -10.1,
+            "temperatureMinTime": 1358481600,
+            "temperatureMax": 2,
+            "temperatureMaxTime": 1358406000,
+            "apparentTemperatureMin": -15.75,
+            "apparentTemperatureMinTime": 1358478000,
+            "apparentTemperatureMax": -2.8,
+            "apparentTemperatureMaxTime": 1358406000,
+            "dewPoint": -10.89,
+            "humidity": 0.66,
+            "windSpeed": 2.71,
+            "windBearing": 338,
+            "visibility": 13.34,
+            "cloudCover": 0.88,
+            "pressure": 1019.71
+          }]
+        }
+      }
+    }, {
+      "content": "Due to the snow accumulating only to 2cm, we will not be going on our routes this morning.",
+      "date": 1358540000000,
+      "id": 1358540000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1358485200,
+            "summary": "Mostly cloudy starting in the afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1358513301,
+            "sunsetTime": 1358547135,
+            "moonPhase": 0.24,
+            "precipType": "snow",
+            "temperatureMin": -10.81,
+            "temperatureMinTime": 1358496000,
+            "temperatureMax": 1.01,
+            "temperatureMaxTime": 1358564400,
+            "apparentTemperatureMin": -16.59,
+            "apparentTemperatureMinTime": 1358506800,
+            "apparentTemperatureMax": -5.02,
+            "apparentTemperatureMaxTime": 1358564400,
+            "dewPoint": -11.16,
+            "humidity": 0.68,
+            "windSpeed": 4.13,
+            "windBearing": 234,
+            "visibility": 13.86,
+            "cloudCover": 0.57,
+            "pressure": 1025.33
+          }]
+        }
+      }
+    }, {
+      "content": "We have some accumulation of snow today, not quite 2 inches in the Etobicoke area. Our plows started their routes at 3pm today in Etobicoke. Please be patient as it takes time for our drivers to complete their routes but we promise to be on your property as soon as possible.",
+      "date": 1358910000000,
+      "id": 1358910000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1358830800,
+            "summary": "Mostly cloudy throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1358858733,
+            "sunsetTime": 1358893045,
+            "moonPhase": 0.36,
+            "precipType": "snow",
+            "temperatureMin": -14.57,
+            "temperatureMinTime": 1358913600,
+            "temperatureMax": -11.17,
+            "temperatureMaxTime": 1358830800,
+            "apparentTemperatureMin": -22.44,
+            "apparentTemperatureMinTime": 1358852400,
+            "apparentTemperatureMax": -20.48,
+            "apparentTemperatureMaxTime": 1358830800,
+            "dewPoint": -17.81,
+            "humidity": 0.66,
+            "windSpeed": 4.29,
+            "windBearing": 284,
+            "visibility": 12.3,
+            "cloudCover": 0.57,
+            "pressure": 1018.47
+          }]
+        }
+      }
+    }, {
+      "content": "We are expecting snow today, we are prepared and ready to start our routes this afternoon. Please feel free to contact us regarding any questions or concerns which you may have. We will be here until all of our customers are serviced.",
+      "date": 1359140000000,
+      "id": 1359140000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1359090000,
+            "summary": "Foggy in the afternoon.",
+            "icon": "snow",
+            "sunriseTime": 1359117785,
+            "sunsetTime": 1359152484,
+            "moonPhase": 0.45,
+            "precipType": "snow",
+            "temperatureMin": -14.03,
+            "temperatureMinTime": 1359093600,
+            "temperatureMax": -7.83,
+            "temperatureMaxTime": 1359147600,
+            "apparentTemperatureMin": -18.39,
+            "apparentTemperatureMinTime": 1359093600,
+            "apparentTemperatureMax": -11.58,
+            "apparentTemperatureMaxTime": 1359147600,
+            "dewPoint": -13.29,
+            "humidity": 0.78,
+            "windSpeed": 0.8,
+            "windBearing": 23,
+            "visibility": 10.19,
+            "cloudCover": 0.87,
+            "pressure": 1025.79
+          }]
+        }
+      }
+    }, {
+      "content": "Our drivers are completing the routes this morning Saturday January 26, any questions or concerns please feel free to call the office, our office staff will be answering your calls today. Thank you for choosing Clear My Snow!!!!!",
+      "date": 1359230000000,
+      "id": 1359230000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1359176400,
+            "summary": "Mostly cloudy until evening.",
+            "icon": "cloudy",
+            "sunriseTime": 1359204132,
+            "sunsetTime": 1359238965,
+            "moonPhase": 0.48,
+            "precipType": "snow",
+            "temperatureMin": -10.49,
+            "temperatureMinTime": 1359180000,
+            "temperatureMax": -3.25,
+            "temperatureMaxTime": 1359230400,
+            "apparentTemperatureMin": -14.08,
+            "apparentTemperatureMinTime": 1359180000,
+            "apparentTemperatureMax": -6.02,
+            "apparentTemperatureMaxTime": 1359230400,
+            "dewPoint": -10.96,
+            "humidity": 0.72,
+            "windSpeed": 0.62,
+            "windBearing": 302,
+            "visibility": 15.27,
+            "cloudCover": 0.7,
+            "pressure": 1024.3
+          }]
+        }
+      }
+    }, {
+      "content": "There is snow on the ground, and our drivers have started their routes this morning. We will be completing our routes throughout the day. If you have any questions or concerns please do not hesitate to contact our office. Have a great day!",
+      "date": 1359400000000,
+      "id": 1359400000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1359349200,
+            "summary": "Foggy starting in the afternoon, continuing until evening.",
+            "icon": "fog",
+            "sunriseTime": 1359376820,
+            "sunsetTime": 1359411927,
+            "moonPhase": 0.55,
+            "precipType": "rain",
+            "temperatureMin": -1.72,
+            "temperatureMinTime": 1359367200,
+            "temperatureMax": 3.21,
+            "temperatureMaxTime": 1359428400,
+            "apparentTemperatureMin": -5.68,
+            "apparentTemperatureMinTime": 1359367200,
+            "apparentTemperatureMax": 1.1,
+            "apparentTemperatureMaxTime": 1359428400,
+            "dewPoint": -0.37,
+            "humidity": 0.92,
+            "windSpeed": 1.29,
+            "windBearing": 120,
+            "visibility": 5.62,
+            "cloudCover": 0.99,
+            "pressure": 1016.78
+          }]
+        }
+      }
+    }, {
+      "content": "Our plows are out completing their routes, our office staff is here to take any questions or concerns that you may have. Please feel free to call us at the office as we are here all day. Drive Safely Everyone it's Icy!!!!",
+      "date": 1359490000000,
+      "id": 1359490000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1359435600,
+            "summary": "Foggy throughout the day.",
+            "icon": "snow",
+            "sunriseTime": 1359463160,
+            "sunsetTime": 1359498409,
+            "moonPhase": 0.58,
+            "precipType": "rain",
+            "temperatureMin": 0.89,
+            "temperatureMinTime": 1359457200,
+            "temperatureMax": 4.89,
+            "temperatureMaxTime": 1359518400,
+            "apparentTemperatureMin": -2.39,
+            "apparentTemperatureMinTime": 1359453600,
+            "apparentTemperatureMax": 3.07,
+            "apparentTemperatureMaxTime": 1359518400,
+            "dewPoint": 1.83,
+            "humidity": 0.97,
+            "windSpeed": 2.37,
+            "windBearing": 83,
+            "visibility": 4.25,
+            "cloudCover": 1,
+            "pressure": 1012.86
+          }]
+        }
+      }
+    }, {
+      "content": "We are preparing for the biggest storm this season. Based on the current weather forecast, we are planning to start our routes early morning. We are also planning to revisit all properties Friday Feb 8th and Saturday Feb 9th. We ask that you please be patient as we make our way along our routes. Drive Safely!!!!!",
+      "date": 1360290000000,
+      "id": 1360290000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360213200,
+            "summary": "Foggy starting in the afternoon, continuing until evening.",
+            "icon": "snow",
+            "sunriseTime": 1360240149,
+            "sunsetTime": 1360276752,
+            "moonPhase": 0.91,
+            "precipType": "snow",
+            "temperatureMin": -7.76,
+            "temperatureMinTime": 1360213200,
+            "temperatureMax": -3.2,
+            "temperatureMaxTime": 1360260000,
+            "apparentTemperatureMin": -12.99,
+            "apparentTemperatureMinTime": 1360224000,
+            "apparentTemperatureMax": -9.45,
+            "apparentTemperatureMaxTime": 1360260000,
+            "dewPoint": -7.66,
+            "humidity": 0.8,
+            "windSpeed": 5.65,
+            "windBearing": 75,
+            "visibility": 9.58,
+            "cloudCover": 0.98,
+            "pressure": 1026.49
+          }]
+        }
+      }
+    }, {
+      "content": "The snow is accumulating and fast, our drivers are still out plowing and finishing their routes. Due to the fast accumulation we will be sending our drivers out again on their routes. Our office is open until 9:00pm tonight. We will continue to update our website as well. Thank you for your continued patience.",
+      "date": 1360350000000,
+      "id": 1360350000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360299600,
+            "summary": "Foggy until evening.",
+            "icon": "snow",
+            "sunriseTime": 1360326472,
+            "sunsetTime": 1360363235,
+            "moonPhase": 0.94,
+            "precipType": "snow",
+            "temperatureMin": -8.67,
+            "temperatureMinTime": 1360368000,
+            "temperatureMax": -4.58,
+            "temperatureMaxTime": 1360299600,
+            "apparentTemperatureMin": -16.58,
+            "apparentTemperatureMinTime": 1360368000,
+            "apparentTemperatureMax": -12.36,
+            "apparentTemperatureMaxTime": 1360299600,
+            "dewPoint": -8.46,
+            "humidity": 0.89,
+            "windSpeed": 5.4,
+            "windBearing": 24,
+            "visibility": 4.39,
+            "cloudCover": 0.99,
+            "pressure": 1016.16
+          }]
+        }
+      }
+    }, {
+      "content": "Still Snowing!!!! Our drivers have finished the first run of their routes, we will be heading out again tonight for another run. We thank you for your patience, the whole city is moving very slowly due to the accumulation of snow. Our office staff is still here to address any questions or concerns you may have.",
+      "date": 1360370000000,
+      "id": 1360370000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360299600,
+            "summary": "Foggy until evening.",
+            "icon": "snow",
+            "sunriseTime": 1360326472,
+            "sunsetTime": 1360363235,
+            "moonPhase": 0.94,
+            "precipType": "snow",
+            "temperatureMin": -8.67,
+            "temperatureMinTime": 1360368000,
+            "temperatureMax": -4.58,
+            "temperatureMaxTime": 1360299600,
+            "apparentTemperatureMin": -16.58,
+            "apparentTemperatureMinTime": 1360368000,
+            "apparentTemperatureMax": -12.36,
+            "apparentTemperatureMaxTime": 1360299600,
+            "dewPoint": -8.46,
+            "humidity": 0.89,
+            "windSpeed": 5.4,
+            "windBearing": 24,
+            "visibility": 4.39,
+            "cloudCover": 0.99,
+            "pressure": 1016.16
+          }]
+        }
+      }
+    }, {
+      "content": "The Snow has finally stopped!! Our drivers are out clearing driveways and walkways sidewalk clearing will commence after this shift is complete, we are not stopping until all routes are completed.&nbsp;&nbsp;Due to the amount of snow that has accumulated in the past 24 hours and the road conditions, we are experiencing delays.&nbsp;&nbsp;We thank you for your patience at this time. Our office is open today but due to the amount of&nbsp;incoming calls&nbsp;we are unable to answer your call. We encourage you to leave a message and your call will be returned by the end of the day.",
+      "date": 1360440000000,
+      "id": 1360440000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360386000,
+            "summary": "Mostly cloudy starting in the evening.",
+            "icon": "cloudy",
+            "sunriseTime": 1360412795,
+            "sunsetTime": 1360449717,
+            "moonPhase": 0.98,
+            "precipType": "snow",
+            "temperatureMin": -12.86,
+            "temperatureMinTime": 1360414800,
+            "temperatureMax": -2.73,
+            "temperatureMaxTime": 1360443600,
+            "apparentTemperatureMin": -18.67,
+            "apparentTemperatureMinTime": 1360414800,
+            "apparentTemperatureMax": -2.73,
+            "apparentTemperatureMaxTime": 1360443600,
+            "dewPoint": -12.37,
+            "humidity": 0.72,
+            "windSpeed": 2.31,
+            "windBearing": 329,
+            "visibility": 15.35,
+            "cloudCover": 0.2,
+            "pressure": 1028.44
+          }]
+        }
+      }
+    }, {
+      "content": "Our drivers have completed their routes, we are out clearing any incomplete properties. We will also be out on Monday February 11th clearing properties. Our office is open today until 2pm, please feel free to contact the office with any concerns you may have. Our office will reopen on Monday February 11th at 9am. Enjoy the snow!!!!",
+      "date": 1360530000000,
+      "id": 1360530000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360472400,
+            "summary": "Mostly cloudy throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1360499115,
+            "sunsetTime": 1360536200,
+            "moonPhase": 0.02,
+            "precipType": "snow",
+            "temperatureMin": -12.09,
+            "temperatureMinTime": 1360490400,
+            "temperatureMax": 1.15,
+            "temperatureMaxTime": 1360555200,
+            "apparentTemperatureMin": -14.82,
+            "apparentTemperatureMinTime": 1360476000,
+            "apparentTemperatureMax": -2.62,
+            "apparentTemperatureMaxTime": 1360555200,
+            "dewPoint": -8.06,
+            "humidity": 0.75,
+            "windSpeed": 2.96,
+            "windBearing": 80,
+            "visibility": 15.11,
+            "cloudCover": 0.46,
+            "pressure": 1024.42
+          }]
+        }
+      }
+    }, {
+      "content": "The Storm is over!!!!! The biggest snowfall since 2008 and our routes are completed. Due to the 25cm of snow it took longer to complete our routes. We have drivers available for any clean ups that need to be done. Our office is also open today to address any questions or concerns. Have a wonderful day!",
+      "date": 1360620000000,
+      "id": 1360620000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1360558800,
+            "summary": "Overcast throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1360585435,
+            "sunsetTime": 1360622682,
+            "moonPhase": 0.06,
+            "precipType": "rain",
+            "temperatureMin": 1.18,
+            "temperatureMinTime": 1360562400,
+            "temperatureMax": 6.33,
+            "temperatureMaxTime": 1360605600,
+            "apparentTemperatureMin": -3.77,
+            "apparentTemperatureMinTime": 1360634400,
+            "apparentTemperatureMax": 2.36,
+            "apparentTemperatureMaxTime": 1360605600,
+            "dewPoint": 0.09,
+            "humidity": 0.82,
+            "windSpeed": 3.64,
+            "windBearing": 225,
+            "visibility": 12.65,
+            "cloudCover": 0.99,
+            "pressure": 1005.03
+          }]
+        }
+      }
+    }, {
+      "content": "The snow has started to accumulate and we will be starting our routes at 8pm tonight, our plows will be working through the night to complete all routes. Our office will be open at 9am tomorrow if you have any questions or concerns. Drive Safely!!!!",
+      "date": 1361080000000,
+      "id": 1361080000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361077200,
+            "summary": "Partly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1361103322,
+            "sunsetTime": 1361141571,
+            "moonPhase": 0.25,
+            "precipType": "snow",
+            "temperatureMin": -14.67,
+            "temperatureMinTime": 1361102400,
+            "temperatureMax": -7.49,
+            "temperatureMaxTime": 1361077200,
+            "apparentTemperatureMin": -21.02,
+            "apparentTemperatureMinTime": 1361102400,
+            "apparentTemperatureMax": -13.18,
+            "apparentTemperatureMaxTime": 1361077200,
+            "dewPoint": -16.72,
+            "humidity": 0.63,
+            "windSpeed": 4.09,
+            "windBearing": 321,
+            "visibility": 15.35,
+            "cloudCover": 0.29,
+            "pressure": 1019.06
+          }]
+        }
+      }
+    }, {
+      "content": "It is a sunny day today and our routes are almost completed. If you have any questions or concerns our office is open today. Please feel free to call and speak to our staff. Have a wonderful day!!",
+      "date": 1361130000000,
+      "id": 1361130000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361077200,
+            "summary": "Partly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1361103322,
+            "sunsetTime": 1361141571,
+            "moonPhase": 0.25,
+            "precipType": "snow",
+            "temperatureMin": -14.67,
+            "temperatureMinTime": 1361102400,
+            "temperatureMax": -7.49,
+            "temperatureMaxTime": 1361077200,
+            "apparentTemperatureMin": -21.02,
+            "apparentTemperatureMinTime": 1361102400,
+            "apparentTemperatureMax": -13.18,
+            "apparentTemperatureMaxTime": 1361077200,
+            "dewPoint": -16.72,
+            "humidity": 0.63,
+            "windSpeed": 4.09,
+            "windBearing": 321,
+            "visibility": 15.35,
+            "cloudCover": 0.29,
+            "pressure": 1019.06
+          }]
+        }
+      }
+    }, {
+      "content": "The time now is 1pm, we have 10 homes left to service. Our drivers have worked through the night to complete their routes. Our office is open until 3pm. We hope you are enjoying your day!!",
+      "date": 1361140000000,
+      "id": 1361140000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361077200,
+            "summary": "Partly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1361103322,
+            "sunsetTime": 1361141571,
+            "moonPhase": 0.25,
+            "precipType": "snow",
+            "temperatureMin": -14.67,
+            "temperatureMinTime": 1361102400,
+            "temperatureMax": -7.49,
+            "temperatureMaxTime": 1361077200,
+            "apparentTemperatureMin": -21.02,
+            "apparentTemperatureMinTime": 1361102400,
+            "apparentTemperatureMax": -13.18,
+            "apparentTemperatureMaxTime": 1361077200,
+            "dewPoint": -16.72,
+            "humidity": 0.63,
+            "windSpeed": 4.09,
+            "windBearing": 321,
+            "visibility": 15.35,
+            "cloudCover": 0.29,
+            "pressure": 1019.06
+          }]
+        }
+      }
+    }, {
+      "content": "The time is 3pm and our routes have been completed. Our office is now closed until February 18th 2013. If you have any questions or concerns please do not hesitate to call the office and leave us a message. Your concern will be addressed on February 18th 2013. Happy Family Day!",
+      "date": 1361150000000,
+      "id": 1361150000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361077200,
+            "summary": "Partly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1361103322,
+            "sunsetTime": 1361141571,
+            "moonPhase": 0.25,
+            "precipType": "snow",
+            "temperatureMin": -14.67,
+            "temperatureMinTime": 1361102400,
+            "temperatureMax": -7.49,
+            "temperatureMaxTime": 1361077200,
+            "apparentTemperatureMin": -21.02,
+            "apparentTemperatureMinTime": 1361102400,
+            "apparentTemperatureMax": -13.18,
+            "apparentTemperatureMaxTime": 1361077200,
+            "dewPoint": -16.72,
+            "humidity": 0.63,
+            "windSpeed": 4.09,
+            "windBearing": 321,
+            "visibility": 15.35,
+            "cloudCover": 0.29,
+            "pressure": 1019.06
+          }]
+        }
+      }
+    }, {
+      "content": "We had a couple cm of snow fall within the last 24 hours, however we have not met the 5cm minimum and we will not be sending our plows out today. Our office will be open Monday morning to address any concerns you have. Enjoy the day!!!!",
+      "date": 1361740000000,
+      "id": 1361740000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361682000,
+            "summary": "Foggy in the morning.",
+            "icon": "fog",
+            "sunriseTime": 1361707471,
+            "sunsetTime": 1361746928,
+            "moonPhase": 0.46,
+            "precipType": "rain",
+            "temperatureMin": -1.92,
+            "temperatureMinTime": 1361707200,
+            "temperatureMax": 2,
+            "temperatureMaxTime": 1361736000,
+            "apparentTemperatureMin": -5.75,
+            "apparentTemperatureMinTime": 1361714400,
+            "apparentTemperatureMax": -2.21,
+            "apparentTemperatureMaxTime": 1361736000,
+            "dewPoint": -3.54,
+            "humidity": 0.77,
+            "windSpeed": 3.38,
+            "windBearing": 269,
+            "visibility": 11.57,
+            "cloudCover": 0.97,
+            "pressure": 1013.89
+          }]
+        }
+      }
+    }, {
+      "content": "It has started to snow and we are also seeing rain, we are watching the weather and are prepared to head out if and when we see&nbsp; 2 inches of snow accumulate. The time now is 8:15pm and we will be updating the website at 6:00am tomorrow.&nbsp;",
+      "date": 1361950000000,
+      "id": 1361950000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361941200,
+            "summary": "Foggy overnight.",
+            "icon": "snow",
+            "sunriseTime": 1361966376,
+            "sunsetTime": 1362006362,
+            "moonPhase": 0.56,
+            "precipType": "rain",
+            "temperatureMin": 0.36,
+            "temperatureMinTime": 1362024000,
+            "temperatureMax": 1.82,
+            "temperatureMaxTime": 1362002400,
+            "apparentTemperatureMin": -5.93,
+            "apparentTemperatureMinTime": 1361944800,
+            "apparentTemperatureMax": -1.29,
+            "apparentTemperatureMaxTime": 1362002400,
+            "dewPoint": 0.64,
+            "humidity": 0.97,
+            "windSpeed": 6.05,
+            "windBearing": 78,
+            "visibility": 6.34,
+            "cloudCover": 1,
+            "pressure": 1004.13
+          }]
+        }
+      }
+    }, {
+      "content": "The time now is 6:00am and our drivers and&nbsp; have started their routes. Our office is open at 8am, please feel free to call if you have any questions or concerns. Drive Safely Today!!!!",
+      "date": 1361980000000,
+      "id": 1361980000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361941200,
+            "summary": "Foggy overnight.",
+            "icon": "rain",
+            "sunriseTime": 1361966376,
+            "sunsetTime": 1362006362,
+            "moonPhase": 0.56,
+            "precipType": "rain",
+            "temperatureMin": 0.36,
+            "temperatureMinTime": 1362024000,
+            "temperatureMax": 1.82,
+            "temperatureMaxTime": 1362002400,
+            "apparentTemperatureMin": -5.93,
+            "apparentTemperatureMinTime": 1361944800,
+            "apparentTemperatureMax": -1.29,
+            "apparentTemperatureMaxTime": 1362002400,
+            "dewPoint": 0.64,
+            "humidity": 0.97,
+            "windSpeed": 6.05,
+            "windBearing": 78,
+            "visibility": 6.34,
+            "cloudCover": 1,
+            "pressure": 1004.13
+          }]
+        }
+      }
+    }, {
+      "content": "Our drivers have been working hard. We are more than halfway completed our routes. Our office is open until 6pm tonight if you have any questions or concerns. &nbsp;Have a great day!",
+      "date": 1362010000000,
+      "id": 1362010000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361941200,
+            "summary": "Foggy overnight.",
+            "icon": "fog",
+            "sunriseTime": 1361966376,
+            "sunsetTime": 1362006362,
+            "moonPhase": 0.56,
+            "precipType": "rain",
+            "temperatureMin": 0.36,
+            "temperatureMinTime": 1362024000,
+            "temperatureMax": 1.82,
+            "temperatureMaxTime": 1362002400,
+            "apparentTemperatureMin": -5.93,
+            "apparentTemperatureMinTime": 1361944800,
+            "apparentTemperatureMax": -1.29,
+            "apparentTemperatureMaxTime": 1362002400,
+            "dewPoint": 0.64,
+            "humidity": 0.97,
+            "windSpeed": 6.05,
+            "windBearing": 78,
+            "visibility": 6.34,
+            "cloudCover": 1,
+            "pressure": 1004.13
+          }]
+        }
+      }
+    }, {
+      "content": "Our routes are 80% complete. We are predicting the routes will be completed by 8:00pm. Our office will be open tomorrow morning at 9am to address any concerns you may have. In the event that there is 5cm of accumulation tomorrow please be assured we will continue you service you.",
+      "date": 1362020000000,
+      "id": 1362020000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1361941200,
+            "summary": "Foggy overnight.",
+            "icon": "rain",
+            "sunriseTime": 1361966376,
+            "sunsetTime": 1362006362,
+            "moonPhase": 0.56,
+            "precipType": "rain",
+            "temperatureMin": 0.36,
+            "temperatureMinTime": 1362024000,
+            "temperatureMax": 1.82,
+            "temperatureMaxTime": 1362002400,
+            "apparentTemperatureMin": -5.93,
+            "apparentTemperatureMinTime": 1361944800,
+            "apparentTemperatureMax": -1.29,
+            "apparentTemperatureMaxTime": 1362002400,
+            "dewPoint": 0.64,
+            "humidity": 0.97,
+            "windSpeed": 6.05,
+            "windBearing": 78,
+            "visibility": 6.34,
+            "cloudCover": 1,
+            "pressure": 1004.13
+          }]
+        }
+      }
+    }, {
+      "content": "We received a few cm of accumulation and we have sent our drivers on their routes again this morning. Our office is open today, please feel free to call the office with any concerns you may have.",
+      "date": 1362080000000,
+      "id": 1362080000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1362027600,
+            "summary": "Overcast throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1362052677,
+            "sunsetTime": 1362092839,
+            "moonPhase": 0.6,
+            "precipType": "rain",
+            "temperatureMin": 0.23,
+            "temperatureMinTime": 1362031200,
+            "temperatureMax": 3.56,
+            "temperatureMaxTime": 1362085200,
+            "apparentTemperatureMin": -4.61,
+            "apparentTemperatureMinTime": 1362110400,
+            "apparentTemperatureMax": 0.74,
+            "apparentTemperatureMaxTime": 1362085200,
+            "dewPoint": -0.61,
+            "humidity": 0.87,
+            "windSpeed": 2.2,
+            "windBearing": 322,
+            "visibility": 10.56,
+            "cloudCover": 0.97,
+            "pressure": 1003.16
+          }]
+        }
+      }
+    }, {
+      "content": "The time now is 4:00pm and our routes are 65% complete. The snow is starting to melt as well. Our office will be closed tonight, but will reopen tomorrow morning at 8am, please feel free to contact the office with any questions or concerns.",
+      "date": 1362090000000,
+      "id": 1362090000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1362027600,
+            "summary": "Overcast throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1362052677,
+            "sunsetTime": 1362092839,
+            "moonPhase": 0.6,
+            "precipType": "rain",
+            "temperatureMin": 0.23,
+            "temperatureMinTime": 1362031200,
+            "temperatureMax": 3.56,
+            "temperatureMaxTime": 1362085200,
+            "apparentTemperatureMin": -4.61,
+            "apparentTemperatureMinTime": 1362110400,
+            "apparentTemperatureMax": 0.74,
+            "apparentTemperatureMaxTime": 1362085200,
+            "dewPoint": -0.61,
+            "humidity": 0.87,
+            "windSpeed": 2.2,
+            "windBearing": 322,
+            "visibility": 10.56,
+            "cloudCover": 0.97,
+            "pressure": 1003.16
+          }]
+        }
+      }
+    }, {
+      "content": "What a wet heavy storm, but we are now completed our routes. Our office if open tomorrow morning at 8pm please feel free to call the office with any questions or concerns you may have.",
+      "date": 1362120000000,
+      "id": 1362120000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1362114000,
+            "summary": "Mostly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1362138976,
+            "sunsetTime": 1362179316,
+            "moonPhase": 0.63,
+            "precipType": "snow",
+            "temperatureMin": -4.92,
+            "temperatureMinTime": 1362196800,
+            "temperatureMax": -0.22,
+            "temperatureMaxTime": 1362114000,
+            "apparentTemperatureMin": -10.99,
+            "apparentTemperatureMinTime": 1362196800,
+            "apparentTemperatureMax": -4.99,
+            "apparentTemperatureMaxTime": 1362114000,
+            "dewPoint": -6.98,
+            "humidity": 0.71,
+            "windSpeed": 5,
+            "windBearing": 332,
+            "visibility": 15.35,
+            "cloudCover": 0.61,
+            "pressure": 1013.17
+          }]
+        }
+      }
+    }, {
+      "content": "We had a couple cm of snow fall within the last 12 hours, however we have not met the 5cm minimum and we will not be sending our plows out. Our office will be open today. Have a great day!",
+      "date": 1363710000000,
+      "id": 1363710000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -4,
+        "daily": {
+          "data": [{
+            "time": 1363665600,
+            "summary": "Overcast throughout the day.",
+            "icon": "cloudy",
+            "sunriseTime": 1363692269,
+            "sunsetTime": 1363735848,
+            "moonPhase": 0.25,
+            "precipType": "rain",
+            "temperatureMin": -3.41,
+            "temperatureMinTime": 1363748400,
+            "temperatureMax": 2.57,
+            "temperatureMaxTime": 1363680000,
+            "apparentTemperatureMin": -9.99,
+            "apparentTemperatureMinTime": 1363744800,
+            "apparentTemperatureMax": -2.3,
+            "apparentTemperatureMaxTime": 1363680000,
+            "dewPoint": -3.06,
+            "humidity": 0.81,
+            "windSpeed": 4.56,
+            "windBearing": 237,
+            "visibility": 12.49,
+            "cloudCover": 0.98,
+            "pressure": 1005.75
+          }]
+        }
+      }
+    }, {
+      "content": "We are updating our routes and starting to install stakes. Please feel free to call the office if you have any questions.",
+      "date": 1385530000000,
+      "id": 1385530000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1385528400,
+            "summary": "Clear throughout the day.",
+            "icon": "clear-day",
+            "sunriseTime": 1385555366,
+            "sunsetTime": 1385588784,
+            "moonPhase": 0.81,
+            "precipType": "rain",
+            "temperatureMin": -6.72,
+            "temperatureMinTime": 1385611200,
+            "temperatureMax": 0.88,
+            "temperatureMaxTime": 1385535600,
+            "apparentTemperatureMin": -13.64,
+            "apparentTemperatureMinTime": 1385611200,
+            "apparentTemperatureMax": -1.01,
+            "apparentTemperatureMaxTime": 1385535600,
+            "dewPoint": -5.04,
+            "humidity": 0.77,
+            "windSpeed": 4.75,
+            "windBearing": 317,
+            "visibility": 12.47,
+            "cloudCover": 0.44,
+            "pressure": 1008.95
+          }]
+        }
+      }
+    }, {
+      "content": "We are starting our routes for the first round today at 3 PM. We have varying amounts of snow through out the city. We will work until Midnight. We will be starting again Sunday morning once the snow has stopped and work through out the day until everybody has been cleared. We will show up again if we have to, when the street snow plows go out!",
+      "date": 1387060000000,
+      "id": 1387060000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1386997200,
+            "summary": "Snow (20–30 cm.) throughout the day.",
+            "icon": "snow",
+            "sunriseTime": 1387025163,
+            "sunsetTime": 1387057422,
+            "moonPhase": 0.42,
+            "precipIntensity": 0.5944,
+            "precipIntensityMax": 1.27,
+            "precipIntensityMaxTime": 1387026000,
+            "precipProbability": 0.62,
+            "precipType": "snow",
+            "precipAccumulation": 19.182,
+            "temperatureMin": -14.24,
+            "temperatureMinTime": 1387022400,
+            "temperatureMax": -9.96,
+            "temperatureMaxTime": 1387076400,
+            "apparentTemperatureMin": -22.88,
+            "apparentTemperatureMinTime": 1387022400,
+            "apparentTemperatureMax": -19.01,
+            "apparentTemperatureMaxTime": 1387076400,
+            "dewPoint": -14.76,
+            "humidity": 0.79,
+            "windSpeed": 6.11,
+            "windBearing": 50,
+            "visibility": 5.5,
+            "pressure": 1024.46
+          }]
+        }
+      }
+    }, {
+      "content": "Here we are again, This morning it snowed approx. 4 cm, and we are out clearing driveways. We expect another 2 cm during the evening rush hour. We are working until complete and monitoring our staff.",
+      "date": 1387340000000,
+      "id": 1387340000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1387256400,
+            "summary": "Snow (4–9 cm.) in the morning and evening.",
+            "icon": "snow",
+            "sunriseTime": 1387284487,
+            "sunsetTime": 1387316668,
+            "moonPhase": 0.52,
+            "precipIntensity": 0.4318,
+            "precipIntensityMax": 0.762,
+            "precipIntensityMaxTime": 1387274400,
+            "precipProbability": 0.56,
+            "precipType": "snow",
+            "precipAccumulation": 7.056,
+            "temperatureMin": -13.75,
+            "temperatureMinTime": 1387260000,
+            "temperatureMax": -3.9,
+            "temperatureMaxTime": 1387339200,
+            "apparentTemperatureMin": -21.24,
+            "apparentTemperatureMinTime": 1387260000,
+            "apparentTemperatureMax": -3.9,
+            "apparentTemperatureMaxTime": 1387339200,
+            "dewPoint": -9.27,
+            "humidity": 0.86,
+            "windSpeed": 0.54,
+            "windBearing": 52,
+            "visibility": 8.95,
+            "pressure": 1015.09
+          }]
+        }
+      }
+    }, {
+      "content": "Wishing everyone a happy New Year!",
+      "date": 1388520000000,
+      "id": 1388520000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1388466000,
+            "summary": "Foggy in the morning.",
+            "icon": "fog",
+            "sunriseTime": 1388494399,
+            "sunsetTime": 1388526757,
+            "moonPhase": 0.97,
+            "precipType": "snow",
+            "precipAccumulation": 0.102,
+            "temperatureMin": -10.56,
+            "temperatureMinTime": 1388469600,
+            "temperatureMax": -6.62,
+            "temperatureMaxTime": 1388502000,
+            "apparentTemperatureMin": -18.42,
+            "apparentTemperatureMinTime": 1388530800,
+            "apparentTemperatureMax": -13.33,
+            "apparentTemperatureMaxTime": 1388502000,
+            "dewPoint": -12.5,
+            "humidity": 0.74,
+            "windSpeed": 4.81,
+            "windBearing": 261,
+            "visibility": 12.1,
+            "pressure": 1019.81
+          }]
+        }
+      }
+    }, {
+      "content": "Another 5 Cm has fallen today, and we are out once again. This is clearing number 13 of this season. Thanks to Sherry and all the drivers, for their long hours and hard work.",
+      "date": 1392750000000,
+      "id": 1392750000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1392699600,
+            "summary": "Light snow (under 1 cm.) in the morning.",
+            "icon": "snow",
+            "sunriseTime": 1392725656,
+            "sunsetTime": 1392764030,
+            "moonPhase": 0.62,
+            "precipIntensity": 0.1473,
+            "precipIntensityMax": 1.2903,
+            "precipIntensityMaxTime": 1392706800,
+            "precipProbability": 0.62,
+            "precipType": "snow",
+            "precipAccumulation": 4,
+            "temperatureMin": -4.33,
+            "temperatureMinTime": 1392703200,
+            "temperatureMax": -0.9,
+            "temperatureMaxTime": 1392721200,
+            "apparentTemperatureMin": -10.53,
+            "apparentTemperatureMinTime": 1392703200,
+            "apparentTemperatureMax": -6.04,
+            "apparentTemperatureMaxTime": 1392721200,
+            "dewPoint": -5.28,
+            "humidity": 0.81,
+            "windSpeed": 3.09,
+            "windBearing": 215,
+            "visibility": 10.11,
+            "pressure": 1010.91
+          }]
+        }
+      }
+    }, {
+      "content": "Another round is upon us, we are out Snow clearing. 5 Cm has fallen. Keep Warm!",
+      "date": 1393900000000,
+      "id": 1393900000000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1393822800,
+            "summary": "Clear throughout the day.",
+            "icon": "clear-day",
+            "sunriseTime": 1393847599,
+            "sunsetTime": 1393888249,
+            "moonPhase": 0.09,
+            "precipIntensity": 0.0076,
+            "precipIntensityMax": 0.1016,
+            "precipIntensityMaxTime": 1393855200,
+            "precipProbability": 0.14,
+            "precipType": "snow",
+            "precipAccumulation": 0.297,
+            "temperatureMin": -19.22,
+            "temperatureMinTime": 1393848000,
+            "temperatureMax": -11.61,
+            "temperatureMaxTime": 1393884000,
+            "apparentTemperatureMin": -27.03,
+            "apparentTemperatureMinTime": 1393851600,
+            "apparentTemperatureMax": -18.46,
+            "apparentTemperatureMaxTime": 1393884000,
+            "dewPoint": -23.12,
+            "humidity": 0.52,
+            "windSpeed": 2.78,
+            "windBearing": 297,
+            "visibility": 15.29,
+            "cloudCover": 0.02,
+            "pressure": 1029.54
+          }]
+        }
+      }
+    }, {
+      "content": "We are ready and booking services  for the winter.\nWe are reviewing and updating our routes!\nLets be ready for the first storm.",
+      "date": 1415023320000,
+      "id": 1415023320000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1414990800,
+            "summary": "Clear throughout the day.",
+            "icon": "clear-day",
+            "sunriseTime": 1415015896,
+            "sunsetTime": 1415052524,
+            "moonPhase": 0.39,
+            "precipIntensity": 0,
+            "precipIntensityMax": 0,
+            "precipProbability": 0,
+            "temperatureMin": 3.34,
+            "temperatureMinTime": 1414990800,
+            "temperatureMax": 12.95,
+            "temperatureMaxTime": 1415041200,
+            "apparentTemperatureMin": 0.61,
+            "apparentTemperatureMinTime": 1414990800,
+            "apparentTemperatureMax": 12.95,
+            "apparentTemperatureMaxTime": 1415041200,
+            "dewPoint": -0.17,
+            "humidity": 0.55,
+            "windSpeed": 3.26,
+            "windBearing": 238,
+            "visibility": 15.26,
+            "cloudCover": 0.53,
+            "pressure": 1019.66
+          }]
+        }
+      }
+    }, {
+      "content": "First snowfall of the season! Although we didn't get accumulation over 5cm, we will be dispatching drivers to their routes at 11PM tonight.",
+      "date": 1416451740000,
+      "id": 1416495881623,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1416459600,
+            "summary": "Partly cloudy until evening.",
+            "icon": "cloudy",
+            "sunriseTime": 1416486034,
+            "sunsetTime": 1416520261,
+            "moonPhase": 0.94,
+            "precipIntensity": 0.0025,
+            "precipIntensityMax": 0.0533,
+            "precipIntensityMaxTime": 1416524400,
+            "precipProbability": 0.05,
+            "precipType": "snow",
+            "precipAccumulation": 0.069,
+            "temperatureMin": -6.38,
+            "temperatureMinTime": 1416542400,
+            "temperatureMax": -1.52,
+            "temperatureMaxTime": 1416459600,
+            "apparentTemperatureMin": -13.29,
+            "apparentTemperatureMinTime": 1416542400,
+            "apparentTemperatureMax": -8.73,
+            "apparentTemperatureMaxTime": 1416459600,
+            "dewPoint": -8.83,
+            "humidity": 0.68,
+            "windSpeed": 7.14,
+            "windBearing": 256,
+            "visibility": 15.06,
+            "cloudCover": 0.22,
+            "pressure": 1010.33
+          }]
+        }
+      }
+    }, {
+      "content": "We are 90% Done. First storm done, Just salting and finishing up. We will be out next week with our Driveway Markers !",
+      "date": 1416488100000,
+      "id": 1416495906471,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1416459600,
+            "summary": "Partly cloudy until evening.",
+            "icon": "cloudy",
+            "sunriseTime": 1416486034,
+            "sunsetTime": 1416520261,
+            "moonPhase": 0.94,
+            "precipIntensity": 0.0025,
+            "precipIntensityMax": 0.0533,
+            "precipIntensityMaxTime": 1416524400,
+            "precipProbability": 0.05,
+            "precipType": "snow",
+            "precipAccumulation": 0.069,
+            "temperatureMin": -6.38,
+            "temperatureMinTime": 1416542400,
+            "temperatureMax": -1.52,
+            "temperatureMaxTime": 1416459600,
+            "apparentTemperatureMin": -13.29,
+            "apparentTemperatureMinTime": 1416542400,
+            "apparentTemperatureMax": -8.73,
+            "apparentTemperatureMaxTime": 1416459600,
+            "dewPoint": -8.83,
+            "humidity": 0.68,
+            "windSpeed": 7.14,
+            "windBearing": 256,
+            "visibility": 15.06,
+            "cloudCover": 0.22,
+            "pressure": 1010.33
+          }]
+        }
+      }
+    }, {
+      "content": "WOW  !! here we are again, 10 CM so far and still snowing, We will start our routes at 10 AM. 2nd outing of the season.",
+      "date": 1418219940000,
+      "id": 1418306434025,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1418274000,
+            "summary": "Snow (6–14 cm.) until evening.",
+            "icon": "snow",
+            "sunriseTime": 1418301809,
+            "sunsetTime": 1418334198,
+            "moonPhase": 0.67,
+            "precipIntensity": 0.3531,
+            "precipIntensityMax": 0.8788,
+            "precipIntensityMaxTime": 1418317200,
+            "precipProbability": 0.58,
+            "precipType": "snow",
+            "precipAccumulation": 10.683,
+            "temperatureMin": -4.94,
+            "temperatureMinTime": 1418310000,
+            "temperatureMax": -2.18,
+            "temperatureMaxTime": 1418349600,
+            "apparentTemperatureMin": -10.82,
+            "apparentTemperatureMinTime": 1418277600,
+            "apparentTemperatureMax": -6.1,
+            "apparentTemperatureMaxTime": 1418349600,
+            "dewPoint": -5.98,
+            "humidity": 0.85,
+            "windSpeed": 3.84,
+            "windBearing": 329,
+            "visibility": 5.94,
+            "pressure": 1010.79
+          }]
+        }
+      }
+    }, {
+      "content": "We have completed the first round of clearing. We will have trucks out and do touch ups if required.",
+      "date": 1418308620000,
+      "id": 1418395085778,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1418360400,
+            "summary": "Clear throughout the day.",
+            "icon": "clear-day",
+            "sunriseTime": 1418388258,
+            "sunsetTime": 1418420603,
+            "moonPhase": 0.7,
+            "precipIntensity": 0.0152,
+            "precipIntensityMax": 0.1956,
+            "precipIntensityMaxTime": 1418428800,
+            "precipProbability": 0.35,
+            "precipType": "rain",
+            "temperatureMin": -3.01,
+            "temperatureMinTime": 1418364000,
+            "temperatureMax": 3.13,
+            "temperatureMaxTime": 1418414400,
+            "apparentTemperatureMin": -7.04,
+            "apparentTemperatureMinTime": 1418371200,
+            "apparentTemperatureMax": -0.27,
+            "apparentTemperatureMaxTime": 1418414400,
+            "dewPoint": -3.89,
+            "humidity": 0.76,
+            "windSpeed": 2.17,
+            "windBearing": 296,
+            "visibility": 14.93,
+            "cloudCover": 0.46,
+            "pressure": 1018.4
+          }]
+        }
+      }
+    }, {
+      "content": "Last week our president, John Larsen, gave an interview for CBC in a segment on how to avoid falling victim to fraudulent snow-removal companies. Take a look!",
+      "date": 1418739660000,
+      "id": 1418819091034,
+      "link": "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/6ayG9bDpINA?rel=0&amp;showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>"
+    }, {
+      "content": "8:00 AM : We are out clearing the 3 cm of wet stuff before it freezes. A funny weather pattern... warm weather, cold ground, snow is not melting . Be carefull",
+      "date": 1420299180000,
+      "id": 1420385711949,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1420347600,
+            "summary": "Rain in the morning and evening.",
+            "icon": "rain",
+            "sunriseTime": 1420376004,
+            "sunsetTime": 1420408557,
+            "moonPhase": 0.48,
+            "precipIntensity": 0.2946,
+            "precipIntensityMax": 1.4554,
+            "precipIntensityMaxTime": 1420372800,
+            "precipProbability": 0.63,
+            "precipType": "rain",
+            "temperatureMin": -3.09,
+            "temperatureMinTime": 1420430400,
+            "temperatureMax": 4.41,
+            "temperatureMaxTime": 1420398000,
+            "apparentTemperatureMin": -10.46,
+            "apparentTemperatureMinTime": 1420430400,
+            "apparentTemperatureMax": -0.72,
+            "apparentTemperatureMaxTime": 1420398000,
+            "dewPoint": 0.26,
+            "humidity": 0.91,
+            "windSpeed": 2.76,
+            "windBearing": 273,
+            "visibility": 8,
+            "pressure": 1004.72
+          }]
+        }
+      }
+    }, {
+      "content": "We started our routes at 6 this morning, 10 cm down now !. Still snowing. We will complete the routes, and come back a second time tomorrow morning.",
+      "date": 1422881220000,
+      "id": 1422881455492,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1422853200,
+            "summary": "Snow (3–8 cm.) until afternoon.",
+            "icon": "snow",
+            "sunriseTime": 1422880540,
+            "sunsetTime": 1422916295,
+            "moonPhase": 0.46,
+            "precipIntensity": 0.2413,
+            "precipIntensityMax": 0.9881,
+            "precipIntensityMaxTime": 1422853200,
+            "precipProbability": 0.59,
+            "precipType": "snow",
+            "precipAccumulation": 11.024,
+            "temperatureMin": -14.51,
+            "temperatureMinTime": 1422885600,
+            "temperatureMax": -10.68,
+            "temperatureMaxTime": 1422907200,
+            "apparentTemperatureMin": -24.25,
+            "apparentTemperatureMinTime": 1422860400,
+            "apparentTemperatureMax": -18.95,
+            "apparentTemperatureMaxTime": 1422907200,
+            "dewPoint": -16.63,
+            "humidity": 0.76,
+            "windSpeed": 4.19,
+            "windBearing": 1,
+            "visibility": 8.47,
+            "cloudCover": 0.25,
+            "pressure": 1011.98
+          }]
+        }
+      }
+    }, {
+      "content": "Hi, We have started at 7:00 this evening and we will be working through the night. We will have everyone serviced by morning.\nThank you to all our great clients :)",
+      "date": 1424571960000,
+      "id": 1424572488011,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1424494800,
+            "summary": "Snow (4–10 cm.) until evening.",
+            "icon": "snow",
+            "sunriseTime": 1424520605,
+            "sunsetTime": 1424559450,
+            "moonPhase": 0.1,
+            "precipIntensity": 0.1778,
+            "precipIntensityMax": 0.7264,
+            "precipIntensityMaxTime": 1424534400,
+            "precipProbability": 0.56,
+            "precipType": "snow",
+            "precipAccumulation": 7.259,
+            "temperatureMin": -13.8,
+            "temperatureMinTime": 1424494800,
+            "temperatureMax": -6.95,
+            "temperatureMaxTime": 1424552400,
+            "apparentTemperatureMin": -19.99,
+            "apparentTemperatureMinTime": 1424494800,
+            "apparentTemperatureMax": -10.88,
+            "apparentTemperatureMaxTime": 1424552400,
+            "dewPoint": -12.23,
+            "humidity": 0.79,
+            "windSpeed": 1.6,
+            "windBearing": 231,
+            "visibility": 8.47,
+            "cloudCover": 0.56,
+            "pressure": 1018.55
+          }]
+        }
+      }
+    }, {
+      "content": "We will be out tonight and service your homes,. We measured 3 cm here, but we want to have the drive ways clear if it ices up.\nThanks",
+      "date": 1425421860000,
+      "id": 1425422024785,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1425358800,
+            "summary": "Snow (3–8 cm.) until evening.",
+            "icon": "snow",
+            "sunriseTime": 1425383626,
+            "sunsetTime": 1425424229,
+            "moonPhase": 0.44,
+            "precipIntensity": 0.1727,
+            "precipIntensityMax": 0.8814,
+            "precipIntensityMaxTime": 1425409200,
+            "precipProbability": 0.58,
+            "precipType": "snow",
+            "precipAccumulation": 5.491,
+            "temperatureMin": -11.67,
+            "temperatureMinTime": 1425369600,
+            "temperatureMax": 1.11,
+            "temperatureMaxTime": 1425441600,
+            "apparentTemperatureMin": -15.86,
+            "apparentTemperatureMinTime": 1425369600,
+            "apparentTemperatureMax": -4.45,
+            "apparentTemperatureMaxTime": 1425441600,
+            "dewPoint": -8.31,
+            "humidity": 0.84,
+            "windSpeed": 1.07,
+            "windBearing": 186,
+            "visibility": 9.95,
+            "cloudCover": 0.36,
+            "pressure": 1016.72
+          }]
+        }
+      }
+    }, {
+      "content": "Farmers Almanac forecasted snowy periods and cold weather for December but we're still in the plus ranges with no snow yet. We had already been out twice by this time last year with snowfalls over 10 cm. \nDo you think we'll get snow before the New Year?",
+      "date": 1450081320000,
+      "id": 1450081320000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1450069200,
+            "summary": "Light rain in the afternoon and evening.",
+            "icon": "rain",
+            "sunriseTime": 1450097140,
+            "sunsetTime": 1450129417,
+            "moonPhase": 0.11,
+            "precipIntensity": 0.0864,
+            "precipIntensityMax": 0.8788,
+            "precipIntensityMaxTime": 1450134000,
+            "precipProbability": 0.58,
+            "precipType": "rain",
+            "temperatureMin": 6.39,
+            "temperatureMinTime": 1450072800,
+            "temperatureMax": 12.31,
+            "temperatureMaxTime": 1450137600,
+            "apparentTemperatureMin": 3.81,
+            "apparentTemperatureMinTime": 1450076400,
+            "apparentTemperatureMax": 12.31,
+            "apparentTemperatureMaxTime": 1450137600,
+            "dewPoint": 7.37,
+            "humidity": 0.89,
+            "windSpeed": 1.78,
+            "windBearing": 87,
+            "visibility": 11.57,
+            "cloudCover": 0.72,
+            "pressure": 1001.03
+          }]
+        }
+      }
+    }, {
+      "content": "There's a storm brewing with freezing rain and snow called for later today, it is supposed to warm to raining tomorrow. We are in the office today getting ready. We will be out tonight and Tuesday morning if we get 5 cm of snow.",
+      "date": 1451299020000,
+      "id": 1451299020000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1451278800,
+            "summary": "Heavy snow (5–12 cm.) and windy starting in the evening.",
+            "icon": "snow",
+            "sunriseTime": 1451307164,
+            "sunsetTime": 1451339394,
+            "moonPhase": 0.61,
+            "precipIntensity": 0.2667,
+            "precipIntensityMax": 2.4968,
+            "precipIntensityMaxTime": 1451358000,
+            "precipProbability": 0.68,
+            "precipType": "snow",
+            "precipAccumulation": 6.937,
+            "temperatureMin": -5.44,
+            "temperatureMinTime": 1451314800,
+            "temperatureMax": 0.08,
+            "temperatureMaxTime": 1451278800,
+            "apparentTemperatureMin": -12.87,
+            "apparentTemperatureMinTime": 1451347200,
+            "apparentTemperatureMax": -3.79,
+            "apparentTemperatureMaxTime": 1451278800,
+            "dewPoint": -7.67,
+            "humidity": 0.74,
+            "windSpeed": 6.61,
+            "windBearing": 61,
+            "visibility": 11.94,
+            "cloudCover": 0.42,
+            "pressure": 1030.12
+          }]
+        }
+      }
+    }, {
+      "content": "We started servicing today just after noon, and expected to be finished at 2 AM. We are facing cold winds and intermittent snow falls. We are also experiencing mechanical issues on one of the routes and are moving slowly. Another vehicle has been added to help with the progress. We will work until all routes are finished.",
+      "date": 1452620274555,
+      "id": 1452620274555,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1452574800,
+            "summary": "Snow (1–3 cm.) in the morning and afternoon.",
+            "icon": "snow",
+            "sunriseTime": 1452603104,
+            "sunsetTime": 1452636244,
+            "moonPhase": 0.09,
+            "precipIntensity": 0.0737,
+            "precipIntensityMax": 0.4115,
+            "precipIntensityMaxTime": 1452607200,
+            "precipProbability": 0.5,
+            "precipType": "snow",
+            "precipAccumulation": 2.233,
+            "temperatureMin": -8.54,
+            "temperatureMinTime": 1452578400,
+            "temperatureMax": -1.33,
+            "temperatureMaxTime": 1452610800,
+            "apparentTemperatureMin": -14.3,
+            "apparentTemperatureMinTime": 1452657600,
+            "apparentTemperatureMax": -7.16,
+            "apparentTemperatureMaxTime": 1452610800,
+            "dewPoint": -8.49,
+            "humidity": 0.77,
+            "windSpeed": 3.9,
+            "windBearing": 244,
+            "visibility": 9.64,
+            "cloudCover": 0.5,
+            "pressure": 1004
+          }]
+        }
+      }
+    }, {
+      "content": "We are servicing those clients today who purchased salt services -- for any icy walkways or driveways.",
+      "date": 1454048113000,
+      "id": 1454048113000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1454043600,
+            "summary": "Partly cloudy until afternoon.",
+            "icon": "cloudy",
+            "sunriseTime": 1454071207,
+            "sunsetTime": 1454106345,
+            "moonPhase": 0.68,
+            "precipIntensity": 0.0025,
+            "precipIntensityMax": 0.0533,
+            "precipIntensityMaxTime": 1454050800,
+            "precipProbability": 0.05,
+            "precipType": "snow",
+            "precipAccumulation": 0.041,
+            "temperatureMin": -7.82,
+            "temperatureMinTime": 1454126400,
+            "temperatureMax": 0.89,
+            "temperatureMaxTime": 1454043600,
+            "apparentTemperatureMin": -14.94,
+            "apparentTemperatureMinTime": 1454083200,
+            "apparentTemperatureMax": -3.31,
+            "apparentTemperatureMaxTime": 1454043600,
+            "dewPoint": -9.29,
+            "humidity": 0.7,
+            "windSpeed": 5.43,
+            "windBearing": 302,
+            "visibility": 14.87,
+            "cloudCover": 0.28,
+            "pressure": 1006.63
+          }]
+        }
+      }
+    }, {
+      "content": "We have dispatched our crews earlier this morning and will continue servicing for the rest of the day. Weather pending, we will continue servicing again tomorrow.",
+      "date": 1455640259773,
+      "id": 1455640259773,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1455598800,
+            "summary": "Snow (2–5 cm.) until afternoon.",
+            "icon": "snow",
+            "sunriseTime": 1455625079,
+            "sunsetTime": 1455663027,
+            "moonPhase": 0.3,
+            "precipIntensity": 0.188,
+            "precipIntensityMax": 0.6756,
+            "precipIntensityMaxTime": 1455620400,
+            "precipProbability": 0.55,
+            "precipType": "snow",
+            "precipAccumulation": 3.825,
+            "temperatureMin": -1.16,
+            "temperatureMinTime": 1455616800,
+            "temperatureMax": 0.06,
+            "temperatureMaxTime": 1455656400,
+            "apparentTemperatureMin": -5.73,
+            "apparentTemperatureMinTime": 1455663600,
+            "apparentTemperatureMax": -4.93,
+            "apparentTemperatureMaxTime": 1455656400,
+            "dewPoint": -2.72,
+            "humidity": 0.86,
+            "windSpeed": 1.75,
+            "windBearing": 325,
+            "visibility": 8.75,
+            "pressure": 1007.79
+          }]
+        }
+      }
+    }, {
+      "content": "As the storm is coming down, our plan is to start clearing once the snow has accumulated past two inches, we are starting to send out our crews this evening and we will work through the night. We will be back wednesday evening for clean ups and windrows.",
+      "date": 1456884213000,
+      "id": 1456884213000,
+      "weather": {
+        "latitude": 43.63,
+        "longitude": -79.67,
+        "timezone": "America/Toronto",
+        "offset": -5,
+        "daily": {
+          "data": [{
+            "time": 1456808400,
+            "summary": "Heavy snow (6–14 cm.) starting in the evening.",
+            "icon": "snow",
+            "sunriseTime": 1456833354,
+            "sunsetTime": 1456873733,
+            "moonPhase": 0.74,
+            "precipIntensity": 0.1829,
+            "precipIntensityMax": 1.5164,
+            "precipIntensityMaxTime": 1456887600,
+            "precipProbability": 0.63,
+            "precipType": "snow",
+            "precipAccumulation": 7.8,
+            "temperatureMin": -8.71,
+            "temperatureMinTime": 1456833600,
+            "temperatureMax": -5.86,
+            "temperatureMaxTime": 1456869600,
+            "apparentTemperatureMin": -16.13,
+            "apparentTemperatureMinTime": 1456862400,
+            "apparentTemperatureMax": -15.01,
+            "apparentTemperatureMaxTime": 1456869600,
+            "dewPoint": -11.18,
+            "humidity": 0.75,
+            "windSpeed": 5.49,
+            "windBearing": 53,
+            "visibility": 10.01,
+            "cloudCover": 0.38,
+            "pressure": 1014.86
+          }]
+        }
+      }
+    }
+  ]
+}

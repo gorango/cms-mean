@@ -13,6 +13,8 @@
         url: '/info',
         templateUrl: '/modules/info/client/views/info.client.view.html',
         redirectTo: 'info.updates',
+        controller: 'InfoController',
+        controllerAs: 'vm',
         data: {
           pageTitle: 'Service'
         }
@@ -43,6 +45,13 @@
         templateUrl: '/modules/info/client/views/info.about.client.view.html',
         data: {
           pageTitle: 'About Us'
+        }
+      })
+      .state('info.weather', {
+        url: '/weather',
+        templateUrl: '/modules/info/client/views/info.weather.client.view.html',
+        data: {
+          pageTitle: 'Weather Icons'
         }
       });
   }
