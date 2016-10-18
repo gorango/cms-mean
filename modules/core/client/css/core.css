@@ -2338,16 +2338,16 @@
   text-decoration: none; }
 
 .thin {
-  font-weight: 100; }
+  font-weight: 100 !important; }
 
 .bold {
-  font-weight: bold; }
+  font-weight: bold !important; }
 
 .heavy {
-  font-weight: 800; }
+  font-weight: 800 !important; }
 
 .regular {
-  font-weight: normal; }
+  font-weight: normal !important; }
 
 .italic {
   font-style: italic; }
@@ -2424,3 +2424,7 @@ body {
 main, .main {
   background-color: #ECEFF1;
   margin-bottom: 64px; }
+
+md-icon.climacon {
+  width: 100px;
+  height: 100px; }

@@ -22,13 +22,13 @@ $heavy-font-weight: 800 !default;
 
 .text-decoration-none { text-decoration: none }
 
-.thin    { font-weight: $thin-font-weight }
+.thin    { font-weight: $thin-font-weight !important }
 
-.bold    { font-weight: $bold-font-weight /* Fallback value:  bold */ }
+.bold    { font-weight: $bold-font-weight !important /* Fallback value:  bold */ }
 
-.heavy    { font-weight: $heavy-font-weight }
+.heavy    { font-weight: $heavy-font-weight !important }
 
-.regular { font-weight: normal }
+.regular { font-weight: normal !important }
 
 .italic  { font-style: italic }
 

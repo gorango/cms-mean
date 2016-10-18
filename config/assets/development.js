@@ -26,6 +26,7 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-local-storage/dist/angular-local-storage.js',
         'public/lib/lodash/dist/lodash.js',
+        'public/lib/skycons/skycons.js',
         'public/lib/angular-simple-logger/dist/angular-simple-logger.js',
         'public/lib/angular-google-maps/dist/angular-google-maps.js'
         // endbower
