@@ -59,6 +59,7 @@ module.exports = {
   },
   globals: {
     angular: true,
+    google: true,
     by: true,
     browser: true,
     element: true,
@@ -66,6 +67,7 @@ module.exports = {
     io: true,
     moment: true,
     Modernizr: true,
+    Skycons: true,
     Promise: true,
     __TESTING__: true,
     _: false,
