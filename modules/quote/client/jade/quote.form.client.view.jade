@@ -11,7 +11,7 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Snow Clearing
         md-content.md-padding
           md-list.flex-row
-            md-subheader.md-no-sticky.h2 How many cars could park in your driveway?
+            md-subheader.heavy.blue.md-no-sticky.h2 How many cars could park in your driveway?
             md-list-item.md-2-line
               md-radio-group.width-100(
               name='driveway'
@@ -20,7 +20,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_REGULAR') Fewer than 5
                 md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') More than 5
             md-divider
-            md-subheader.md-no-sticky.h2 Would you like your front walkway cleared?
+            md-subheader.heavy.blue.md-no-sticky.h2 Would you like your front walkway cleared?
             md-list-item.md-2-line
               md-radio-group.width-100(
               name='walkway'
@@ -29,7 +29,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_YES') Yes
                 md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_NO') No
             md-divider
-            md-subheader.md-no-sticky.h2 Would you like your city sidewalk cleared?
+            md-subheader.heavy.blue.md-no-sticky.h2 Would you like your city sidewalk cleared?
             md-list-item.md-2-line
               md-radio-group.width-100(
               name='sidewalk'
@@ -37,10 +37,10 @@ form(name='vm.quoteForm' novalidate='')
               ng-change='vm.sidewalkSwitch(vm.quote.sidewalk)')
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_YES') Yes
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_NO') No
-            //- md-subheader.md-no-sticky.h2 
+            //- md-subheader.heavy.blue.md-no-sticky.h2 
             div(ng-if='vm.quote.sidewalk === vm.actions.SIDEWALK_YES')
               md-divider
-              md-subheader.md-no-sticky.h2 Is your property on a corner lot?
+              md-subheader.heavy.blue.md-no-sticky.h2 Is your property on a corner lot?
                 br
                 small (Does the sidewalk go around two sides of your home?)
               md-list-item
@@ -62,13 +62,13 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Salting
         md-content.md-padding
           md-list.flex-row
-            md-subheader.md-no-sticky.h2 Would you like salt on your driveway?
+            md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your driveway?
             md-list-item(ng-click='vm.saltSwitch("_drivesalt")')
               p Include Driveway Salting
               md-switch.md-warn(ng-model='vm.quote._drivesalt')
             div(ng-show="vm.quote._drivesalt")
               md-divider
-              md-subheader.md-no-sticky.h2 Choose regular or eco salt for your driveway.
+              md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your driveway.
               md-list-item.md-2-line
                 md-radio-group.width-100(
                 name='drivesalt'
@@ -77,13 +77,13 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_REGULAR') Regular
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_ECO') Eco
             md-divider
-            md-subheader.md-no-sticky.h2 Would you like salt on your walkway?
+            md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your walkway?
             md-list-item(ng-click='vm.saltSwitch("_walksalt")')
               p Include Walkway Salting
               md-switch.md-warn(ng-model='vm.quote._walksalt')
             div(ng-show="vm.quote._walksalt")
               md-divider
-              md-subheader.md-no-sticky.h2 Choose regular or eco salt for your walkway.
+              md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your walkway.
               md-list-item.md-2-line
                 md-radio-group.width-100(
                 name='walksalt'
@@ -92,13 +92,13 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_SALT_REGULAR') Regular
                   md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_SALT_ECO') Eco
             md-divider
-            md-subheader.md-no-sticky.h2 Would you like salt on your sidewalk?
+            md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your sidewalk?
             md-list-item(ng-click='vm.saltSwitch("_sidesalt")')
               p Include Sidewalk Salting
               md-switch.md-warn(ng-model='vm.quote._sidesalt')
             div(ng-show="vm.quote._sidesalt")
               md-divider
-              md-subheader.md-no-sticky.h2 Choose regular or eco salt for your sidewalk.
+              md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your sidewalk.
               md-list-item.md-2-line
                 md-radio-group.width-100(
                 name='sidesalt'
@@ -119,13 +119,13 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Service Details
         md-content.md-padding
           md-list
-            //- md-subheader.md-no-sticky.h2 Are you a senior citizen (or purchasing for a senior)? 
-            md-list-item.flex(ng-click='vm.confirm()')
-              p.flex-auto Are you a senior citizen (or purchasing for a senior)? 
+            //- md-subheader.heavy.blue.md-no-sticky.h2 Are you a senior citizen (or purchasing for a senior)? 
+            md-list-item.flex(ng-click='vm.confirm("SENIOR")')
+              .md-body-2.flex-auto.heavy.blue Are you a senior citizen (or purchasing for a senior)? 
               p 65+
               md-switch.md-warn(ng-model='vm.quote._senior' ng-change='vm.help()')
             md-divider
-            p.px2.pt2.flex-auto What type of coverage are you looking for?
+            .md-body-2.flex-auto.heavy.blue.px2.pt2 What type of coverage are you looking for?
             md-list-item
               md-input-container
                 md-select(
@@ -138,7 +138,7 @@ form(name='vm.quoteForm' novalidate='')
                   md-option(ng-value='vm.actions.SEASON_HOLIDAY') Holiday Coverage
                   md-option(ng-value='vm.actions.SEASON_SINGLE') Single Service
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_HALF')
-              md-subheader.md-no-sticky Select which half of the season.
+              md-subheader.heavy.blue.md-no-sticky Select which half of the season.
               md-list-item.md-2-line
                 md-input-container.width-100
                   md-radio-group.width-100.flex.justify-around(
@@ -149,7 +149,7 @@ form(name='vm.quoteForm' novalidate='')
                     md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_FIRST') November 15 - February 1
                     md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_SECOND') February 1 - April 15
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_HOLIDAY')
-              md-subheader.md-no-sticky Select your desired start and end dates.
+              md-subheader.heavy.blue.md-no-sticky Select your desired start and end dates.
               md-list-item
                 md-input-container.sm-col.sm-col-6
                   md-datepicker(
@@ -170,7 +170,7 @@ form(name='vm.quoteForm' novalidate='')
                   md-min-date='vm.dates.minDate', 
                   md-max-date='vm.dates.maxDate')
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_SINGLE')
-              md-subheader.md-no-sticky Select your desired service date.
+              md-subheader.heavy.blue.md-no-sticky Select your desired service date.
               md-list-item
                 md-input-container
                   md-datepicker(
@@ -181,14 +181,6 @@ form(name='vm.quoteForm' novalidate='')
                   md-placeholder='Service date', 
                   md-min-date='vm.dates.minDate', 
                   md-max-date='vm.dates.maxDate')
-            //- md-divider
-            //- md-list-item
-            //-   md-input-container.md-block(flex-gt-sm)
-            //-     label Specify any particular requests.
-            //-     textarea(name='message'
-            //-     ng-model='vm.quote.notes', 
-            //-     rows='1',
-            //-     md-select-on-focus='')
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
             md-button.md-raised(ng-click='vm.step("prev")') Prev
@@ -201,18 +193,19 @@ form(name='vm.quoteForm' novalidate='')
         div.p2(md-colors="{background: 'blue-grey-500'}")
           span.md-title Your Info
         md-content.md-padding
-          p Please enter your name and email to receive the quote.
+          .md-body-2.flex-auto.heavy.blue Please enter your contact info to receive the quote.
           div(layout-gt-sm='row')
-            md-input-container.md-block(flex-gt-sm)
+            md-input-container.md-block(flex-gt-sm='')
               label Your Name
               input.md-warn(required='', 
+              md-autofocus=''
               ng-disabled='vm.quote.clientNo',
               name='clientName', 
               ng-model='vm.quote.clientName')
-              div(ng-messages='quoteForm.clientName.$error')
+              div(ng-messages='vm.quoteForm.clientName.$error')
                 div(ng-message='required') We need your name.
             span(flex='5')
-            md-input-container.md-block(flex-gt-sm)
+            md-input-container.md-block(flex-gt-sm='')
               label Your Email
               input.md-warn(required='', 
               ng-disabled='vm.quote.clientNo',
@@ -222,12 +215,19 @@ form(name='vm.quoteForm' novalidate='')
               minlength='10', 
               maxlength='100', 
               ng-pattern='/^.+@.+\..+$/')
-              div(ng-messages='quoteForm.clientEmail.$error', 
+              div(ng-messages='vm.quoteForm.clientEmail.$error', 
               role='alert')
                 div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
                   | Your email must look like an e-mail address.
                 div(ng-message-exp="['required']")
                   | We need your email address.
+            md-input-container.md-block(flex-gt-sm='')
+              label Your Phone Number
+              input.md-warn(
+              ng-disabled='vm.quote.clientNo',
+              type='text', 
+              name='clientPhone', 
+              ng-model='vm.quote.clientPhone')
           div(layout='column')
             md-checkbox.md-warn(
             name='clientFollowup',
@@ -243,7 +243,7 @@ form(name='vm.quoteForm' novalidate='')
               | I would like to receive occasional updates from ClearMySnow
             md-checkbox.md-warn(
             name='clientNo'
-            ng-change='vm.privateQuote()'
+            ng-change='vm.confirm("NO_CONTACT")'
             ng-style='{ opacity: vm.quote.clientNo ? 1 : 0.5 }'
             ng-model='vm.quote.clientNo', 
             aria-label='I\'d rather not give my email address')
@@ -270,7 +270,7 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Breakdown
         md-content.md-padding
           md-list.flex.flex-column
-            md-subheader.md-no-sticky Coverage and Duration
+            md-subheader.heavy.blue.md-no-sticky Coverage and Duration
             md-list-item.md-2-line
               //- md-icon.md-avatar-icon phone
               .md-list-item-text
@@ -286,15 +286,39 @@ form(name='vm.quoteForm' novalidate='')
                 p(ng-if='vm.quote.coverage === vm.actions.SEASON_SINGLE') 
                   | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
             md-divider
-            md-subheader.md-no-sticky Total with Tax
+            md-subheader.heavy.blue.md-no-sticky Total with Tax
             md-list-item.md-2-line
               .md-list-item-text
                 h3 {{ vm.quote.total * 1.13 | currency }}
                 p (Includes any early bird and/or senior discounts)
+            md-divider
+            md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area.
+            md-list-item
+              //- md-input-container.width-100
+              md-autocomplete.width-100(
+              md-no-cache='true', 
+              md-selected-item='vm.selectedItem', 
+              md-selected-item-change='vm.checkAddress(item)'
+              md-search-text-change='vm.search(vm.searchText)', 
+              md-search-text='vm.searchText', 
+              md-items='item in vm.search(vm.searchText)', 
+              md-item-text='item.description', 
+              md-min-length='0', 
+              placeholder='Type your address')
+                md-item-template
+                  span(md-highlight-text='vm.searchText', 
+                  md-highlight-flags='^i') {{item.description}}
+                md-not-found
+                  | No matches found for &quot;{{vm.searchText}}&quot;.
+            p.px2.md-caption.green(ng-show='vm.quote.verified && vm.quote.serviceAddress') Excellent! We've got you covered. You can go ahead and register with your quote.
+            p.px2.md-caption.red(ng-show='!vm.quote.verified && vm.quote.serviceAddress') Oh no! We do not provide service at that address. Would you like to try a different one?
+
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
-            md-button.md-raised.md-primary.px3(ui-sref='register', style='color: white') 
+            md-button.md-raised.md-primary.px3(ui-sref='register', 
+            ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress'
+            style='color: white') 
               | Register
               md-icon.ml1 keyboard_arrow_right
