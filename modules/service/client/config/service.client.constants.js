@@ -139,7 +139,7 @@
         }]
       }
     ])
-    .constant('SERVICE_AREA', {
+    .constant('SERVICE_AREA_STYLES', {
       fill: {
         color: '#fff',
         opacity: 0.2
