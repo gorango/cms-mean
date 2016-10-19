@@ -1,16 +1,36 @@
-ui-gmap-google-map(
-  center='vm.map.center',
-  options='vm.map.options',
-  zoom='vm.map.zoom',
-  pan='true')
-  ui-gmap-polygon(
-  ng-repeat='poly in vm.polygons track by $index'
-  path='poly.path', 
-  stroke='poly.stroke', 
-  fill='poly.fill', 
-  clickable='false', 
-  draggable='false', 
-  editable='false', 
-  visible='true', 
-  fit='true', 
-  static='true')
+md-content.py3.px2.center.border-bottom.border-silver
+  h2.md-headline We service Etobicoke, Missisauga, Brampton and Oakvile.
+  .max-width-2.mx-auto
+    p You can verify that you are on the route by checking the list of included postal codes or searching for your address.
+  md-button.md-raised(ng-click='vm.dialog("postal")') View Postal Codes
+  md-button.md-raised(ng-click='vm.dialog("address")') Search by Address
+
+div.relative
+  div.z2.absolute.top-0.left-0.right-0.p2.center(
+  md-colors="{background: 'blue'}", 
+  ng-show='vm.verified === true') 
+    p Excellent! We've got you covered. You can go ahead and register once you #[a.white(ui-sref='service.quote') get a quote].
+  div.z2.absolute.top-0.left-0.right-0.p2.center(
+  md-colors="{background: 'red'}", 
+  ng-show='vm.verified === false') 
+    p Oh no! We do not provide service at that address. Would you like to try a different one?
+  ui-gmap-google-map(
+    center='vm.map.center',
+    options='vm.map.options',
+    zoom='vm.map.zoom',
+    pan='false')
+    ui-gmap-polygon(
+    ng-repeat='poly in vm.polygons track by $index'
+    path='poly.path', 
+    stroke='poly.stroke', 
+    fill='poly.fill', 
+    clickable='false', 
+    draggable='false', 
+    editable='false', 
+    visible='true', 
+    fit='true', 
+    static='true')
+    ui-gmap-marker(
+    idKey='0',
+    coords='vm.marker.coords',
+    options='vm.marker.options')

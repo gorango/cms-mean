@@ -5,14 +5,9 @@
     .module('quotes')
     .factory('QuoteFactory', QuoteFactory);
 
-  QuoteFactory.$inject = (['$q', '$http', 'localStorageService', 'uiGmapGoogleMapApi', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE', 'SERVICE_AREA_BOUNDS']);
+  QuoteFactory.$inject = (['$q', 'localStorageService', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE']);
 
-  function QuoteFactory($q, $http, localStorage, uiGmapGoogleMapApi, ACTIONS, PRICING, QUOTE_INITIAL_STATE, SERVICE_AREA_BOUNDS) {
-    var gmapsService;
-    uiGmapGoogleMapApi.then(function(map) {
-      gmapsService = new google.maps.places.AutocompleteService();
-    });
-
+  function QuoteFactory($q, localStorage, ACTIONS, PRICING, QUOTE_INITIAL_STATE) {
     return {
       calc: function(quote) {
         var defer = $q.defer();
@@ -48,30 +43,6 @@
                 new Date(serviceStart.valueOf() + (1000 * 60 * 60 * 24 * 7)) :
                 new Date(new Date().valueOf() + (1000 * 60 * 60 * 24 * 7));
         }
-      },
-      geocode: function(address) {
-        var url = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&place_id=' + address.place_id + '&key=AIzaSyCw8afM0SzdyOsDysY_k_eDzTwunNH2-NY';
-        return $http.get(url);
-      },
-      searchAddress: function (address) {
-        var deferred = $q.defer();
-        if (address.length > 2) {
-          _getSearchResults(address).then(
-            function(predictions) {
-              var results = [];
-              for (var i = 0; i < predictions.length - 1; i++) {
-                results.push(predictions[i]);
-              }
-              deferred.resolve(results);
-            }
-          );
-        } else { deferred.reject(); }
-        return deferred.promise;
-      },
-      isInsideServiceArea(location) {
-        var serviceArea = new google.maps.Polygon({ paths: SERVICE_AREA_BOUNDS });
-        var latLng = new google.maps.LatLng(location);
-        return google.maps.geometry.poly.containsLocation(latLng, serviceArea);
       }
     };
 
@@ -129,9 +100,9 @@
       var selection = [];
       Object.keys(quote).forEach(function(key) {
         if (ACTIONS.hasOwnProperty(quote[key])) {
-          // Because 'SEASON_XXX' type and 'CLIENT_XXX' type act as modifiers
+          // Because 'SEASON_XXX' action and 'CLIENT_XXX' action act as modifiers
           // on the quote, they need to be applied at the very end.
-          // (The order of all other fields is irrelevant)
+          // (The order of all other fields is irrelevant because they apply addition)
           if (quote[key].indexOf('SEASON') > -1 || quote[key].indexOf('CLIENT') > -1) {
             selection.push(quote[key]);
           } else {
@@ -149,15 +120,6 @@
         var range = (end - start) / 1000 / 60 / 60 / 24;
         return range;
       }
-    }
-
-    function _getSearchResults(address) {
-      var deferred = $q.defer();
-      var options = { input: address, componentRestrictions: { country: 'ca' } };
-      gmapsService.getPlacePredictions(options, function(data) {
-        deferred.resolve(data);
-      });
-      return deferred.promise;
     }
 
     // The main calc function

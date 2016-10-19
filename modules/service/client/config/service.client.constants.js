@@ -3,7 +3,7 @@
 
   angular
     .module('service')
-    .constant('MAP_CONFIG', {
+    .constant('SERVICE_AREA_MAP_CONFIG', {
       center: {
         latitude: 43.61,
         longitude: -79.68
@@ -13,6 +13,7 @@
         mapTypeControl: false,
         streetViewControl: false,
         zoomControl: false,
+        scrollwheel: false,
         maxZoom: 13,
         minZoom: 9,
         styles: [
@@ -301,5 +302,6 @@
         latitude: 43.47036259175014,
         longitude: -79.7834014892578
       }
-    ]);
+    ])
+    .constant('POSTAL_CODES', ['M9R', 'M9W', 'M8V', 'M8W', 'M8X', 'M8Y', 'M8Z', 'M9A', 'M9B', 'M9C', 'M9P', 'L4W', 'L4X', 'L4Y', 'L4Z', 'L5A', 'L5B', 'L5C', 'L5E', 'L5G', 'L5H', 'L5J', 'L5K', 'L5L', 'L5R', 'L5T', 'L5V', 'L5M', 'L5N', 'L5W', 'L6H', 'L6J', 'L6K', 'L6L', 'L6M', 'L6Y', 'L6X', 'L6W', 'L6V', 'L6Z', 'L6T']);
 }());

@@ -40,6 +40,8 @@
       .state('service.area', {
         url: '/area',
         templateUrl: '/modules/service/client/views/service.area.client.view.html',
+        controller: 'ServiceAreaController',
+        controllerAs: 'vm',
         data: {
           pageTitle: 'Service Area'
         }

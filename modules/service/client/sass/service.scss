@@ -1,3 +1,8 @@
+// subtract header, service nav, footer, and text-section
 .angular-google-map-container {
-  height: calc(100vh - (64px * 3) - 1px);
+  height: calc(100vh - (64px * 3) - 241px);
+}
+
+.postal-codes {
+  columns: 50px 5;
 }

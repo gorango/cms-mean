@@ -1,0 +1,19 @@
+.min-width-3.p3.center
+  .md-title.my3 Enter your service address
+  md-autocomplete.width-100(
+  md-autofocus='',
+  md-no-cache='true', 
+  md-selected-item='vm.selectedItem', 
+  md-selected-item-change='vm.verifyAddress(item)',
+  md-search-text-change='vm.searchAddress(vm.searchText)', 
+  md-search-text='vm.searchText', 
+  md-items='item in vm.searchAddress(vm.searchText)', 
+  md-item-text='item.description', 
+  md-min-length='0', 
+  placeholder='Enter your service address')
+    md-item-template
+      span(md-highlight-text='vm.searchText', 
+      md-highlight-flags='^i') {{item.description}}
+    md-not-found
+      | No matches found for &quot;{{vm.searchText}}&quot;.
+  p.px2.md-caption.white You found me! If I wasn't here I'd have to write css and no one likes single-use css.
