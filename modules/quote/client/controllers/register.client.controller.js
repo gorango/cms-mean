@@ -29,7 +29,7 @@
       $mdDialog.show(
         $mdDialog.confirm()
           .clickOutsideToClose(true)
-          .title('Can\'t do that...')
+          .title('Can\'t do that yet...')
           .textContent('PayPal is not configured due to lack of access')
           .ok('I Understand')
           .cancel('Nevermind')

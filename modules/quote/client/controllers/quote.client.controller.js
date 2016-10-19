@@ -148,7 +148,7 @@
       var then = Date.parse(vm.quote.date);
       var now = new Date().valueOf();
       var elapsed = (now - then) / 1000; // seconds since starting quote
-      var minWait = 60 * 24; // 1 day
+      var minWait = 60 * 60 * 24; // 1 day
       var itsBeenAWhile = elapsed > minWait;
       var onQuotePage = $state.is('service.quote') || $state.is('quote');
       if (itsBeenAWhile && onQuotePage) {

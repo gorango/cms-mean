@@ -28,3 +28,7 @@ md-list.md-dense.quote-selection md-list-item .md-list-item-inner > md-icon {
   position: relative;
   top: -3px;
 }
+
+@media screen and (max-width: 40em) {
+  .reset-quote { top: -60px; top: -3.75rem; }
+}

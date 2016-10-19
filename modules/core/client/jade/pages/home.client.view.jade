@@ -44,8 +44,8 @@ section.z1.bg-blue.border-top.border-bottom.border-navy
     md-button.md-raised.md-primary.px3.py2.larger(ui-sref='service.quote' md-no-ink='') Snow Removal Quote
 section.z2.bg-center.bg-cover.py4.sm-py6(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-1.jpg)')
   .max-width-5.mx-auto
-    .row.flex.flex-wrap
-      .md-col.md-col-4.p2.flex
+    .flex-wrap(layout-gt-sm='row')
+      .md-col-4.p2.flex.width-100
         md-card.px1
           md-card-title
             md-card-title-text
@@ -57,7 +57,7 @@ section.z2.bg-center.bg-cover.py4.sm-py6(style='background-image: url(https://s3
           md-card-actions.pb1(layout='row', layout-align='end center')
             md-button.md-raised.md-hue-4(md-no-ink='', ui-sref='service.process') Process
             md-button.md-raised.md-hue-4(md-no-ink='', ui-sref='service.benefits') Benefits
-      .md-col.md-col-4.p2.flex
+      .md-col-4.p2.flex.width-100
         md-card.px1
           md-card-title
             md-card-title-text
@@ -68,7 +68,7 @@ section.z2.bg-center.bg-cover.py4.sm-py6(style='background-image: url(https://s3
               | Make sure that your property is within our service area before deciding to sign up.
           md-card-actions.pb1(layout='row', layout-align='end center')
             md-button.md-raised.md-hue-4(md-no-ink='', ui-sref='service.area') Verify
-      .md-col.md-col-4.p2.flex
+      .md-col-4.p2.flex.width-100
         md-card.px1
           md-card-title
             md-card-title-text

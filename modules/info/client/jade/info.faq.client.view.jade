@@ -1,11 +1,11 @@
 .max-width-5.mx-auto.my4
   div(layout-gt-sm='row' layout-wrap='')
-    div.p1(flex='50', layout='', ng-repeat='faq in vm.faq')
+    div.p1.flex.min-width-50(ng-repeat='faq in vm.faq')
       md-card(flex='')
         md-toolbar(md-colors="{background: 'blue-grey-500'}")
           .md-toolbar-tools(ng-bind='faq.q')
         md-content.px2.py3(ng-bind='faq.a')
-    div.p1(flex='50', layout='')
+    div.p1.flex.min-width-50
       md-card(flex='')
         md-toolbar.md-accent
           .md-toolbar-tools Haven't found an answer you were looking for?

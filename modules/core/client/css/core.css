@@ -2435,4 +2435,6 @@ main, .main {
 
 @media screen and (max-width: 40em) {
   header md-toolbar nav {
-    border-top: 1px solid rgba(0, 0, 0, 0.12); } }
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
+  main, .main {
+    margin-bottom: 54px; } }
