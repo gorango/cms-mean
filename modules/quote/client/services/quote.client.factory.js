@@ -5,9 +5,14 @@
     .module('quotes')
     .factory('QuoteFactory', QuoteFactory);
 
-  QuoteFactory.$inject = (['$q', 'localStorageService', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE']);
+  QuoteFactory.$inject = (['$q', '$http', 'localStorageService', 'uiGmapGoogleMapApi', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE']);
 
-  function QuoteFactory($q, localStorage, ACTIONS, PRICING, QUOTE_INITIAL_STATE) {
+  function QuoteFactory($q, $http, localStorage, uiGmapGoogleMapApi, ACTIONS, PRICING, QUOTE_INITIAL_STATE) {
+    var gmapsService;
+    uiGmapGoogleMapApi.then(function(map) {
+      gmapsService = new google.maps.places.AutocompleteService();
+    });
+
     return {
       calc: function(quote) {
         var defer = $q.defer();
@@ -44,61 +49,24 @@
                 new Date(new Date().valueOf() + (1000 * 60 * 60 * 24 * 7));
         }
       },
-      englishize: function(choice) {
-        switch (choice) {
-          case ACTIONS.DRIVEWAY_REGULAR:
-            return 'Regular Driveway';
-          case ACTIONS.DRIVEWAY_LARGE:
-            return 'Large Driveway';
-          case ACTIONS.DRIVEWAY_PARKING:
-            return 'Parking Lot';
-          case ACTIONS.DRIVEWAY_SALT_REGULAR:
-            return 'Regular Salt for Driveway';
-          case ACTIONS.DRIVEWAY_SALT_ECO:
-            return 'Eco Salt for Driveway';
-          case ACTIONS.DRIVEWAY_SALT_NO:
-            return 'No Salt for Driveway';
-          case ACTIONS.WALKWAY_YES:
-            return 'Walkway Shovelling';
-          case ACTIONS.WALKWAY_NO:
-            return 'No Walkway Shovelling';
-          case ACTIONS.WALKWAY_SALT_REGULAR:
-            return 'Regular Salt for Walkway';
-          case ACTIONS.WALKWAY_SALT_ECO:
-            return 'Eco Salt for Walkway';
-          case ACTIONS.WALKWAY_SALT_NO:
-            return 'No Salt for Walkway';
-          case ACTIONS.SIDEWALK_YES:
-            return 'Sidewalk Shovelling';
-          case ACTIONS.SIDEWALK_NO:
-            return 'No Sidewalk Shovelling';
-          case ACTIONS.SIDEWALK_SIZE_CORNER:
-            return 'Sidewalk Corner Lot';
-          case ACTIONS.SIDEWALK_SIZE_REGULAR:
-            return 'Sidewalk Regular Lot';
-          case ACTIONS.SIDEWALK_SALT_REGULAR:
-            return 'Regular Salt for Sidewalk';
-          case ACTIONS.SIDEWALK_SALT_ECO:
-            return 'Eco Salt for Sidewalk';
-          case ACTIONS.SIDEWALK_SALT_NO:
-            return 'No Salt for Sidewalk';
-          case ACTIONS.CLIENT_SENIOR:
-            return 'Senior Client';
-          case ACTIONS.CLIENT_REGULAR:
-            return 'Regular Client';
-          case ACTIONS.SEASON_FULL:
-            return 'Full Season';
-          case ACTIONS.SEASON_HALF:
-            return 'Half Season';
-          case ACTIONS.SEASON_HALF_FIRST:
-            return 'November 15 - February 1';
-          case ACTIONS.SEASON_HALF_SECOND:
-            return 'February 1 - April 15';
-          case ACTIONS.SEASON_SINGLE:
-            return 'Single Service';
-          case ACTIONS.SEASON_HOLIDAY:
-            return 'Holiday Season';
-        }
+      geocode: function(address) {
+        var url = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&place_id=' + address.place_id + '&key=AIzaSyCw8afM0SzdyOsDysY_k_eDzTwunNH2-NY';
+        return $http.get(url);
+      },
+      searchAddress: function (address) {
+        var deferred = $q.defer();
+        if (address.length > 2) {
+          _getSearchResults(address).then(
+            function(predictions) {
+              var results = [];
+              for (var i = 0; i < predictions.length - 1; i++) {
+                results.push(predictions[i]);
+              }
+              deferred.resolve(results);
+            }
+          );
+        } else { deferred.reject(); }
+        return deferred.promise;
       }
     };
 
@@ -156,7 +124,10 @@
       var selection = [];
       Object.keys(quote).forEach(function(key) {
         if (ACTIONS.hasOwnProperty(quote[key])) {
-          if (quote[key].indexOf('SEASON') > -1) {
+          // Because 'SEASON_XXX' type and 'CLIENT_XXX' type act as modifiers
+          // on the quote, they need to be applied at the very end.
+          // (The order of all other fields is irrelevant)
+          if (quote[key].indexOf('SEASON') > -1 || quote[key].indexOf('CLIENT') > -1) {
             selection.push(quote[key]);
           } else {
             selection.splice(0, 0, quote[key]);
@@ -175,6 +146,16 @@
       }
     }
 
+    function _getSearchResults(address) {
+      var deferred = $q.defer();
+      var options = { input: address, componentRestrictions: { country: 'ca' } };
+      gmapsService.getPlacePredictions(options, function(data) {
+        deferred.resolve(data);
+      });
+      return deferred.promise;
+    }
+
+    // The main calc function
     function _setTotal(quote, action) {
       switch (action) {
         // Salt pricing varies based on driveway size

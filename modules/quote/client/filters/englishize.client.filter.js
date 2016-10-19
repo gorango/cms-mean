@@ -8,7 +8,7 @@
   EnglishizeQuoteFilter.$inject = ['ACTIONS'];
 
   function EnglishizeQuoteFilter(ACTIONS) {
-    return function(input, uppercase) {
+    return function(input) {
       switch (input) {
         case ACTIONS.DRIVEWAY_REGULAR:
           return 'Regular Driveway';
@@ -47,7 +47,7 @@
         case ACTIONS.SIDEWALK_SALT_NO:
           return 'No Salt for Sidewalk';
         case ACTIONS.CLIENT_SENIOR:
-          return 'Senior Client';
+          return 'Senior Client (10% Discount)';
         case ACTIONS.CLIENT_REGULAR:
           return 'Regular Client';
         case ACTIONS.SEASON_FULL:

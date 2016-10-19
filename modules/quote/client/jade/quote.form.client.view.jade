@@ -37,7 +37,6 @@ form(name='vm.quoteForm' novalidate='')
               ng-change='vm.sidewalkSwitch(vm.quote.sidewalk)')
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_YES') Yes
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_NO') No
-            //- md-subheader.heavy.blue.md-no-sticky.h2 
             div(ng-if='vm.quote.sidewalk === vm.actions.SIDEWALK_YES')
               md-divider
               md-subheader.heavy.blue.md-no-sticky.h2 Is your property on a corner lot?
@@ -119,7 +118,6 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Service Details
         md-content.md-padding
           md-list
-            //- md-subheader.heavy.blue.md-no-sticky.h2 Are you a senior citizen (or purchasing for a senior)? 
             md-list-item.flex(ng-click='vm.confirm("SENIOR")')
               .md-body-2.flex-auto.heavy.blue Are you a senior citizen (or purchasing for a senior)? 
               p 65+
@@ -140,7 +138,7 @@ form(name='vm.quoteForm' novalidate='')
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_HALF')
               md-subheader.heavy.blue.md-no-sticky Select which half of the season.
               md-list-item.md-2-line
-                md-input-container.width-100
+                md-input-container.md-block(flex-gt-sm='')
                   md-radio-group.width-100.flex.justify-around(
                   name='period' 
                   ng-model='vm.quote.period', 
@@ -221,6 +219,7 @@ form(name='vm.quoteForm' novalidate='')
                   | Your email must look like an e-mail address.
                 div(ng-message-exp="['required']")
                   | We need your email address.
+            span(flex='5')
             md-input-container.md-block(flex-gt-sm='')
               label Your Phone Number
               input.md-warn(
@@ -269,10 +268,15 @@ form(name='vm.quoteForm' novalidate='')
         div.p2(md-colors="{background: 'blue-grey-500'}")
           span.md-title Breakdown
         md-content.md-padding
+          md-list.flex.flex-column.md-dense.quote-selection
+            md-subheader.heavy.blue.md-no-sticky Service Breakdown
+            md-list-item(ng-repeat='item in vm.quote.selection | orderBySelection')
+              md-icon check
+              p(ng-bind='item | englishize')
           md-list.flex.flex-column
+            md-divider
             md-subheader.heavy.blue.md-no-sticky Coverage and Duration
             md-list-item.md-2-line
-              //- md-icon.md-avatar-icon phone
               .md-list-item-text
                 h3 {{ vm.quote.coverage | englishize }}
                 p(ng-if='vm.quote.coverage === vm.actions.SEASON_FULL') 
@@ -290,21 +294,20 @@ form(name='vm.quoteForm' novalidate='')
             md-list-item.md-2-line
               .md-list-item-text
                 h3 {{ vm.quote.total * 1.13 | currency }}
-                p (Includes any early bird and/or senior discounts)
+                p (Includes all taxes and discounts)
             md-divider
             md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area.
             md-list-item
-              //- md-input-container.width-100
               md-autocomplete.width-100(
               md-no-cache='true', 
               md-selected-item='vm.selectedItem', 
-              md-selected-item-change='vm.checkAddress(item)'
-              md-search-text-change='vm.search(vm.searchText)', 
+              md-selected-item-change='vm.checkAddress(item)',
+              md-search-text-change='vm.searchAddress(vm.searchText)', 
               md-search-text='vm.searchText', 
-              md-items='item in vm.search(vm.searchText)', 
+              md-items='item in vm.searchAddress(vm.searchText)', 
               md-item-text='item.description', 
               md-min-length='0', 
-              placeholder='Type your address')
+              placeholder='Enter your service address')
                 md-item-template
                   span(md-highlight-text='vm.searchText', 
                   md-highlight-flags='^i') {{item.description}}
@@ -317,8 +320,8 @@ form(name='vm.quoteForm' novalidate='')
           .md-toolbar-tools.bg-lighten-4
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
-            md-button.md-raised.md-primary.px3(ui-sref='register', 
-            ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress'
+            md-button.md-raised.md-primary.px3(ui-sref='service.register', 
+            ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress || !vm.quote.total > 0'
             style='color: white') 
               | Register
               md-icon.ml1 keyboard_arrow_right

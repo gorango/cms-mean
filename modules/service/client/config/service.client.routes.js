@@ -25,7 +25,16 @@
         controller: 'QuoteController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Service Area'
+          pageTitle: 'Quote Calculator'
+        }
+      })
+      .state('service.register', {
+        url: '/register',
+        templateUrl: '/modules/quote/client/views/register.client.view.html',
+        controller: 'RegistrationController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Online Registration'
         }
       })
       .state('service.area', {

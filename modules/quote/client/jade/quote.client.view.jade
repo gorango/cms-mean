@@ -1,9 +1,4 @@
 div(ng-cloak='')
-  //- md-toolbar.md-whiteframe-1dp(style="background: #f6f6f6 !important; color: #202020 !important; z-index: 3;")
-  //-   .md-toolbar-tools.max-width-5.mx-auto
-  //-     span.muted.md-display-1 Service Quote
-  //-     span(flex='')
-  //-     p.muted Get a quote before you can say snowflake
 
   .hide
     img(ng-repeat="img in vm.previewImages" ng-src="/modules/quote/client/img/{{img}}")
@@ -11,7 +6,7 @@ div(ng-cloak='')
   .width-100.max-width-5.mx-auto.mt4.pb5
     .row.clearfix
       .sm-col.sm-col-7.px2.height-100.relative
-        .absolute.muted.px2(style="top: 52px; top: -3.5em; left: 0;")
+        .absolute.muted.px2.reset-quote
           md-button.md-raised.px2(
           ng-click="vm.reset()", 
           ng-if='vm.quote.selection.length > 1') 

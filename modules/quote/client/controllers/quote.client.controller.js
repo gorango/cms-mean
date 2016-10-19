@@ -5,32 +5,28 @@
     .module('quotes')
     .controller('QuoteController', QuoteController);
 
-  QuoteController.$inject = ['$q', '$mdDialog', '$http', 'uiGmapGoogleMapApi', 'localStorageService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
+  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
 
-  function QuoteController($q, $mdDialog, $http, uiGmapGoogleMapApi, localStorage, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
+  function QuoteController($scope, $state, $mdDialog, localStorage, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
     var vm = this;
     vm.quoteForm = {};
     vm.quote = localStorage.get('quote') || angular.copy(QUOTE_INITIAL_STATE);
     vm.selectedItem = vm.quote.serviceAddress ? vm.quote.serviceAddress : ''; // for Autocomplete
+    vm.searchAddress = QuoteFactory.searchAddress;
+    vm.checkAddress = checkAddress;
     vm.previewImages = PREVIEW_IMAGES;
     vm.actions = ACTIONS;
-    vm.dates = configDates();
+    vm.dates = _configDates();
     vm.select = select;
     vm.reset = reset;
     vm.step = step;
-    vm.search = search;
-    vm.checkAddress = checkAddress;
     vm.confirm = confirm;
-    vm.saltSwitch = saltSwitch;
     vm.sidewalkSwitch = sidewalkSwitch;
+    vm.saltSwitch = saltSwitch;
 
-    uiGmapGoogleMapApi.then(function(map) {
-      vm.gmapsService = new google.maps.places.AutocompleteService();
-    });
+    angular.element(document).ready(select);
 
-    angular.element(document).ready(function() {
-      vm.select();
-    });
+    $scope.$on('$stateChangeSuccess', _startOverPrompt);
 
     function select() {
       var quote = angular.copy(vm.quote);
@@ -85,14 +81,14 @@
           }
           break;
         case 'NO_CONTACT':
-          if (vm.quoteForm.clientNo.$modelValue) {
+          if (vm.quoteForm.clientNo.$modelValue && !vm.quote.noContact) {
             $mdDialog.show(
               $mdDialog.confirm()
               .clickOutsideToClose(true)
               .title('Are you sure?')
-              .textContent('We take your privacy seriously. We will never sell or reveal your information to a third party.')
+              .textContent('We take your privacy very seriously. We will never sell or reveal your information to a third party.')
               .ariaLabel('We take your privacy seriously. We will never sell or reveal your information to a third party.')
-              .ok('Just gimme my quote')
+              .ok('Just gimme the quote')
               .cancel('Fair Enough')
             ).then(function() {
               vm.quoteForm.$valid = true;
@@ -105,6 +101,13 @@
       }
     }
 
+    function sidewalkSwitch() {
+      if (vm.quote.sidewalk === ACTIONS.SIDEWALK_NO) {
+        vm.quote.corner = undefined;
+      }
+      vm.select();
+    }
+
     function saltSwitch(action) {
       vm.quote[action] = !vm.quote[action];
       if (vm.quote[action] === false) {
@@ -113,48 +116,17 @@
       }
     }
 
-    function sidewalkSwitch() {
-      if (vm.quote.sidewalk === ACTIONS.SIDEWALK_NO) {
-        vm.quote.corner = undefined;
-      }
-      vm.select();
-    }
-
-    function configDates() {
-      return {
-        serviceYear: QuoteFactory.getDate('SERVICE_YEAR'),
-        minDate: QuoteFactory.getDate('SERVICE_START_DATE'),
-        maxDate: QuoteFactory.getDate('SERVICE_END_DATE')
-      };
-    }
-
-    function search(address) {
-      var deferred = $q.defer();
-      if (address.length > 2) {
-        _getResults(address).then(
-          function(predictions) {
-            var results = [];
-            for (var i = 0; i < predictions.length - 1; i++) {
-              results.push(predictions[i]);
-            }
-            deferred.resolve(results);
-          }
-        );
-      } else { deferred.reject(); }
-      return deferred.promise;
-    }
-
-    function checkAddress(item) {
-      vm.quote.serviceAddress = item.description;
-      var url = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&place_id=' + item.place_id + '&key=AIzaSyCw8afM0SzdyOsDysY_k_eDzTwunNH2-NY';
-      $http.get(url).then(handleRes);
-
-      function handleRes(res) {
-        var location = res.data.results[0].geometry.location;
-        var verified = _isInsideServiceArea(location);
-        vm.quote.verified = verified;
-        vm.quote.serviceLatLng = location;
-        localStorage.set('quote', vm.quote);
+    function checkAddress(address) {
+      if (address) {
+        vm.quote.serviceAddress = address.description;
+        QuoteFactory.geocode(address)
+          .then(function(res) {
+            var location = res.data.results[0].geometry.location;
+            var verified = _isInsideServiceArea(location);
+            vm.quote.verified = verified;
+            vm.quote.serviceLatLng = location;
+            localStorage.set('quote', vm.quote);
+          });
       }
     }
 
@@ -164,13 +136,32 @@
       return google.maps.geometry.poly.containsLocation(latLng, serviceArea);
     }
 
-    function _getResults(address) {
-      var deferred = $q.defer();
-      var options = { input: address, componentRestrictions: { country: 'ca' } };
-      vm.gmapsService.getPlacePredictions(options, function(data) {
-        deferred.resolve(data);
-      });
-      return deferred.promise;
+    function _configDates() {
+      return {
+        serviceYear: QuoteFactory.getDate('SERVICE_YEAR'),
+        minDate: QuoteFactory.getDate('SERVICE_START_DATE'),
+        maxDate: QuoteFactory.getDate('SERVICE_END_DATE')
+      };
+    }
+
+    function _startOverPrompt() {
+      var then = Date.parse(vm.quote.date);
+      var now = new Date().valueOf();
+      var elapsed = (now - then) / 1000; // seconds since starting quote
+      var minWait = 60 * 24; // 1 day
+      var itsBeenAWhile = elapsed > minWait;
+      var onQuotePage = $state.is('service.quote') || $state.is('quote');
+      if (itsBeenAWhile && onQuotePage) {
+        $mdDialog.show(
+          $mdDialog.confirm()
+          .clickOutsideToClose(false)
+          .title('Welcome back')
+          .textContent('Would you like to continue where you left off?')
+          .ariaLabel('Would you like to continue where you left off?')
+          .ok('Yes please')
+          .cancel('No thanks')
+        ).then({}, vm.reset);
+      }
     }
   }
 }());

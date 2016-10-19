@@ -1,0 +1,140 @@
+.max-width-5.mx-auto.my4
+  .row.clearfix
+    .sm-col.sm-col-8.relative.px2
+      form(name='vm.registrationForm' novalidate='')
+        .absolute.muted.px2.reset-quote
+          md-button.md-raised.px2(
+          ng-click="vm.reset()") 
+            md-icon.mr1 settings_backup_restore
+            | Get a new quote
+        md-card
+          md-toolbar.md-accent(style="min-height: 0; border-bottom: 1px solid rgba(0,0,0,0.12);")
+            .md-toolbar-tools(style="height: 48px")
+              span.md-title.caps.h5 Registration
+          md-content.py2
+            md-list
+              md-subheader.heavy.blue.md-no-sticky Your Contact Information
+              md-list-item(layout-gt-sm='row')
+                md-input-container.md-block(flex-gt-sm='')
+                  label Your Name
+                  input.md-warn(required='', 
+                  md-autofocus=''
+                  name='clientName', 
+                  ng-model='vm.quote.clientName')
+                  div(ng-messages='vm.registrationForm.clientName.$error')
+                    div(ng-message='required') We need your name.
+                span(flex='5')
+                md-input-container.md-block(flex-gt-sm='')
+                  label Your Email
+                  input.md-warn(required='', 
+                  type='email', 
+                  name='clientEmail', 
+                  ng-model='vm.quote.clientEmail', 
+                  minlength='10', 
+                  maxlength='100', 
+                  ng-pattern='/^.+@.+\..+$/')
+                  div(ng-messages='vm.registrationForm.clientEmail.$error', 
+                  role='alert')
+                    div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
+                      | Your email must look like an e-mail address.
+                    div(ng-message-exp="['required']")
+                      | We need your email address.
+                span(flex='5')
+                md-input-container.md-block(flex-gt-sm='')
+                  label Your Phone Number
+                  input.md-warn(
+                  type='text', 
+                  name='clientPhone', 
+                  ng-model='vm.quote.clientPhone')
+              md-subheader.heavy.blue.md-no-sticky Your Billing Address
+              .px2(ng-init='sameBillingAddress = true')
+                md-checkbox.md-warn(
+                name='sameBillingAddress',
+                ng-model='sameBillingAddress', 
+                aria-label='Billing address is the same as the service address')
+                  | Billing address is the same as the service address
+              md-list-item(layout-gt-sm='row', ng-if='!sameBillingAddress')
+                md-autocomplete.width-100(
+                md-no-cache='true', 
+                md-selected-item='vm.selectedItem', 
+                md-selected-item-change='vm.updateBillingAddress(item)',
+                md-search-text-change='vm.searchAddress(vm.searchText)', 
+                md-search-text='vm.searchText', 
+                md-items='item in vm.searchAddress(vm.searchText)', 
+                md-item-text='item.description', 
+                md-min-length='0', 
+                placeholder='Enter your billing address')
+                  md-item-template
+                    span(md-highlight-text='vm.searchText', 
+                    md-highlight-flags='^i') {{item.description}}
+                  md-not-found
+                    | No matches found for &quot;{{vm.searchText}}&quot;.
+              .py2
+              md-subheader.heavy.blue.md-no-sticky Special Requests for Our Drivers 
+              md-list-item.flex.flex-row
+                md-input-container.md-block(flex='')
+                  label Service Notes
+                  input.md-warn(
+                  name='serviceNotes', 
+                  ng-model='vm.quote.serviceNotes')
+              md-subheader.heavy.blue.md-no-sticky Service Agreement
+              md-divider
+              md-content.md-block(flex='' layout-padding='', style='max-height: 350px')
+                section(ng-include='"/modules/legal/client/views/legal.agreement.client.view.html"' ng-controller='RegistrationController as vm')
+              md-divider
+              .p2
+                p By registering, you also agree to the terms outlined in our 
+                  | #[a(ui-sref="legal.terms") Terms and Conditions] and
+                  |  #[a(ui-sref="legal.privacy") Privacy Policy].
+                md-input-container.md-block(flex='')
+                  md-checkbox.md-warn(
+                  required=''
+                  name='agreement',
+                  ng-model='agreement', 
+                  aria-label='I have read, understand, and agree to the terms and conditions stated above.')
+                    | I have read, understand, and agree to the terms and conditions stated above.
+          md-toolbar.md-accent
+            .md-toolbar-tools.bg-lighten-4
+              span(flex='auto')
+              md-button.md-raised.md-primary.px3(ng-click='vm.checkout()', 
+              ng-disabled='!vm.registrationForm.$valid'
+              style='color: white') 
+                | Checkout
+    .sm-col.sm-col-4.px2
+      md-card
+        md-toolbar.md-accent(style="min-height: 0; border-bottom: 1px solid rgba(0,0,0,0.12);")
+          .md-toolbar-tools(style="height: 48px")
+            span.md-title.caps.h5 Quote Details
+        md-list.flex.flex-column.md-dense.quote-selection
+          md-subheader.heavy.blue.md-no-sticky Service Breakdown
+          md-list-item(ng-repeat='item in vm.quote.selection | orderBySelection')
+            md-icon check
+            p(ng-bind='item | englishize')
+        md-list.flex.flex-column
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Service Location
+          md-list-item.md-2-line
+            .md-list-item-text
+              h3 {{ vm.quote.serviceAddress.split(',')[0] }}
+              p {{ vm.quote.serviceAddress.split(',').slice(1).join(',') }}
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Coverage and Duration
+          md-list-item.md-2-line
+            .md-list-item-text
+              h3 {{ vm.quote.coverage | englishize }}
+              p(ng-if='vm.quote.coverage === "SEASON_FULL"') 
+                | {{ vm.dates.minDate | date: 'MMMM dd, yyyy' }} - 
+                | {{ vm.dates.maxDate | date: 'MMMM dd, yyyy' }}
+              p(ng-if='vm.quote.coverage === "SEASON_HALF"') 
+                | {{ vm.quote.period | englishize }}
+              p(ng-if='vm.quote.coverage === "SEASON_HOLIDAY"') 
+                | {{ vm.quote.holidayStartDate | date: 'MMMM dd, yyyy' }} - 
+                | {{ vm.quote.holidayEndDate | date: 'MMMM dd, yyyy' }}
+              p(ng-if='vm.quote.coverage === "SEASON_SINGLE"') 
+                | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Total with Tax
+          md-list-item.md-2-line
+            .md-list-item-text
+              h3 {{ vm.quote.total * 1.13 | currency }}
+              p (Includes all taxes and discounts)

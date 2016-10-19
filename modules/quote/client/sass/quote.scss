@@ -1,11 +1,30 @@
-.md-tab {
-  opacity: 0.5
+.md-tab { opacity: 0.5 }
+
+.md-tab.md-active { opacity: 1 }
+
+.md-tab.md-disabled { opacity: 0.25 !important }
+
+.reset-quote {
+  top: -48px;
+  top: -3rem;
+  left: 0;
 }
 
-.md-tab.md-active {
-  opacity: 1
+// Hide splinter of white space above md-subheading in selection list
+// (we do this because the selection list is at the top hugging md-toolbar)
+.quote-selection { padding-top: 0 }
+
+// Condense list hight for quote selection list
+md-list.md-dense.quote-selection md-list-item,
+md-list.md-dense.quote-selection md-list-item .md-list-item-inner {
+  min-height: 24px;
+  height: 24px;
 }
 
-.md-tab.md-disabled {
-  opacity: 0.25 !important
+// Check mark icon needs to take up less space than default
+md-list.md-dense.quote-selection md-list-item > md-icon,
+md-list.md-dense.quote-selection md-list-item .md-list-item-inner > md-icon {
+  margin-right: 0.5rem !important;
+  position: relative;
+  top: -3px;
 }

@@ -5,9 +5,9 @@
     .module('quotes')
     .constant('QUOTE_INITIAL_STATE', {
       selection: [],
-      english: {},
       coverage: 'SEASON_FULL',
       image: 'R.gif',
+      date: new Date(),
       total: 0,
       step: 0
     })
