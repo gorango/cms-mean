@@ -1,7 +1,8 @@
-.page-header
-  h1 Bad Request
-.alert.alert-danger(role='alert')
-  span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
-  span.sr-only Error:
-  span(ng-if='vm.errorMessage', ng-bind='vm.errorMessage')
-  span(ng-if='!vm.errorMessage') You made a bad request
+.max-width-3.mx-auto.flex.flex-column.justify-center(style='height: calc(100vh - (136px))')
+  md-card.p1.sm-p5.center
+    h1.md-display-3 400 - Bad Request
+    //- .alert.alert-danger(role='alert')
+    //-   span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+    //-   span.sr-only Error:
+    //-   span(ng-if='vm.errorMessage', ng-bind='vm.errorMessage')
+    //-   span(ng-if='!vm.errorMessage') You made a bad request

@@ -8,10 +8,10 @@
     applicationModuleName: applicationModuleName,
     applicationModuleVendorDependencies: [
       'ngResource',
-      'ngMaterial',
-      'ngAria',
-      'ngAnimate',
       'ngMessages',
+      'ngAnimate',
+      'ngAria',
+      'ngMaterial',
       'ui.router',
       'LocalStorageModule',
       'uiGmapgoogle-maps'

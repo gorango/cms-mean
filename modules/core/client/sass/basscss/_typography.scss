@@ -22,6 +22,8 @@ $heavy-font-weight: 800 !default;
 
 .text-decoration-none { text-decoration: none }
 
+.lead    { font-weight: $thin-font-weight; font-size: large; line-height: $line-height-4 }
+
 .thin    { font-weight: $thin-font-weight !important }
 
 .bold    { font-weight: $bold-font-weight !important /* Fallback value:  bold */ }

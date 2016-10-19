@@ -6,7 +6,7 @@
 
 .width-100.max-width-5.mx-auto.my4
   .row.clearfix
-    .sm-col.sm-col-4.px2
+    .sm-col.sm-col-4.px2.mb3
       md-card
         md-toolbar(md-colors="{background: 'blue-grey-500'}")
           .md-toolbar-tools Contact Info
@@ -60,10 +60,10 @@
       md-card
         md-toolbar(md-colors="{background: 'blue-grey-500'}")
           .md-toolbar-tools Submit a Form
-        md-content
-          p.p2 
+        md-content.p2
+          p.mt2
             | We are happy to answer any of your questions and to provide assistance any way we can.
-            br
+          p
             | You can leave us a message using this form, and we will get back to you as soon as possible.
           form(name='contactForm', novalidate='').p2
             div(layout-gt-sm='row')
