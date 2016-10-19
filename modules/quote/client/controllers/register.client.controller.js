@@ -33,15 +33,7 @@
           .textContent('PayPal is not configured due to lack of access')
           .ok('I Understand')
           .cancel('Nevermind')
-      ).then(function() {
-        $mdDialog.show(
-          $mdDialog.alert()
-            .clickOutsideToClose(true)
-            .title('Give me access!!!')
-            .textContent('Do it already...')
-            .ok('Alright...')
-        );
-      });
+      );
     }
 
     function _checkQuoteValidity() {

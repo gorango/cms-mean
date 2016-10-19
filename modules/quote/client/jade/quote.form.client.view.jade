@@ -301,7 +301,7 @@ form(name='vm.quoteForm' novalidate='')
               md-autocomplete.width-100(
               md-no-cache='true', 
               md-selected-item='vm.selectedItem', 
-              md-selected-item-change='vm.checkAddress(item)',
+              md-selected-item-change='vm.verifyAddress(item)',
               md-search-text-change='vm.searchAddress(vm.searchText)', 
               md-search-text='vm.searchText', 
               md-items='item in vm.searchAddress(vm.searchText)', 

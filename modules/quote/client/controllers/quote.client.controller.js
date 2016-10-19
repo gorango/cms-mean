@@ -5,15 +5,15 @@
     .module('quotes')
     .controller('QuoteController', QuoteController);
 
-  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
+  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'QuoteFactory', 'GeoService', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
 
-  function QuoteController($scope, $state, $mdDialog, localStorage, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
+  function QuoteController($scope, $state, $mdDialog, localStorage, QuoteFactory, GeoService, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
     var vm = this;
     vm.quoteForm = {};
     vm.quote = localStorage.get('quote') || angular.copy(QUOTE_INITIAL_STATE);
     vm.selectedItem = vm.quote.serviceAddress ? vm.quote.serviceAddress : ''; // for Autocomplete
-    vm.searchAddress = QuoteFactory.searchAddress;
-    vm.checkAddress = checkAddress;
+    vm.searchAddress = GeoService.searchAddress;
+    vm.verifyAddress = verifyAddress;
     vm.previewImages = PREVIEW_IMAGES;
     vm.actions = ACTIONS;
     vm.dates = _configDates();
@@ -145,13 +145,13 @@
       }
     }
 
-    function checkAddress(address) {
+    function verifyAddress(address) {
       if (address) {
         vm.quote.serviceAddress = address.description;
-        QuoteFactory.geocode(address)
+        GeoService.geocode(address)
           .then(function(res) {
             var location = res.data.results[0].geometry.location;
-            var verified = QuoteFactory.isInsideServiceArea(location);
+            var verified = GeoService.isInsideServiceArea(location);
             vm.quote.verified = verified;
             vm.quote.serviceLatLng = location;
             localStorage.set('quote', vm.quote);
