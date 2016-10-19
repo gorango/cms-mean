@@ -23,7 +23,7 @@ div(ng-cloak='')
             div(ng-if="vm.quoteForm.$valid || vm.quote.noContact")
               span.md-title {{ vm.quote.total | currency }}
             div(ng-if="!vm.quoteForm.$valid && !vm.quote.noContact")
-              md-tooltip(md-direction="bottom") This area will show the quote amount once you complete the form.
+              md-tooltip(md-direction="bottom") This area will show the quote once you finish
               span.md-block.md-body-2.muted(ng-if="!vm.quoteForm.$valid")
                 | Complete the steps to reveal the quote
           div

@@ -5,9 +5,9 @@
     .module('quotes')
     .factory('QuoteFactory', QuoteFactory);
 
-  QuoteFactory.$inject = (['$q', '$http', 'localStorageService', 'uiGmapGoogleMapApi', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE']);
+  QuoteFactory.$inject = (['$q', '$http', 'localStorageService', 'uiGmapGoogleMapApi', 'ACTIONS', 'PRICING', 'QUOTE_INITIAL_STATE', 'SERVICE_AREA_BOUNDS']);
 
-  function QuoteFactory($q, $http, localStorage, uiGmapGoogleMapApi, ACTIONS, PRICING, QUOTE_INITIAL_STATE) {
+  function QuoteFactory($q, $http, localStorage, uiGmapGoogleMapApi, ACTIONS, PRICING, QUOTE_INITIAL_STATE, SERVICE_AREA_BOUNDS) {
     var gmapsService;
     uiGmapGoogleMapApi.then(function(map) {
       gmapsService = new google.maps.places.AutocompleteService();
@@ -67,6 +67,11 @@
           );
         } else { deferred.reject(); }
         return deferred.promise;
+      },
+      isInsideServiceArea(location) {
+        var serviceArea = new google.maps.Polygon({ paths: SERVICE_AREA_BOUNDS });
+        var latLng = new google.maps.LatLng(location);
+        return google.maps.geometry.poly.containsLocation(latLng, serviceArea);
       }
     };
 

@@ -62,9 +62,9 @@ form(name='vm.quoteForm' novalidate='')
         md-content.md-padding
           md-list.flex-row
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your driveway?
-            md-list-item(ng-click='vm.saltSwitch("_drivesalt")')
+            md-list-item(ng-click='vm.saltSwitch("_drivesalt", true)')
               p Include Driveway Salting
-              md-switch.md-warn(ng-model='vm.quote._drivesalt')
+              md-switch.md-warn(ng-change='vm.saltSwitch("_drivesalt", false)', ng-model='vm.quote._drivesalt')
             div(ng-show="vm.quote._drivesalt")
               md-divider
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your driveway.
@@ -77,9 +77,9 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_ECO') Eco
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your walkway?
-            md-list-item(ng-click='vm.saltSwitch("_walksalt")')
+            md-list-item(ng-click='vm.saltSwitch("_walksalt", true)')
               p Include Walkway Salting
-              md-switch.md-warn(ng-model='vm.quote._walksalt')
+              md-switch.md-warn(ng-change='vm.saltSwitch("_walksalt", false)', ng-model='vm.quote._walksalt')
             div(ng-show="vm.quote._walksalt")
               md-divider
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your walkway.
@@ -92,9 +92,9 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_SALT_ECO') Eco
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your sidewalk?
-            md-list-item(ng-click='vm.saltSwitch("_sidesalt")')
+            md-list-item(ng-click='vm.saltSwitch("_sidesalt", true)')
               p Include Sidewalk Salting
-              md-switch.md-warn(ng-model='vm.quote._sidesalt')
+              md-switch.md-warn(ng-change='vm.saltSwitch("_sidesalt", false)', ng-model='vm.quote._sidesalt')
             div(ng-show="vm.quote._sidesalt")
               md-divider
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your sidewalk.
