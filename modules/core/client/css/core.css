@@ -312,13 +312,13 @@
 
 */
 .black {
-  color: #111; }
+  color: #222; }
 
 .gray {
   color: #aaa; }
 
 .silver {
-  color: #ddd; }
+  color: #ccc; }
 
 .white {
   color: #fff; }
@@ -327,7 +327,7 @@
   color: #7fdbff; }
 
 .blue {
-  color: #0074d9; }
+  color: #2196f3; }
 
 .navy {
   color: #001f3f; }
@@ -336,7 +336,7 @@
   color: #39cccc; }
 
 .green {
-  color: #2ecc40; }
+  color: #4CAF50; }
 
 .olive {
   color: #3d9970; }
@@ -351,7 +351,7 @@
   color: #ff851b; }
 
 .red {
-  color: #ff4136; }
+  color: #F44336; }
 
 .fuchsia {
   color: #f012be; }
@@ -773,7 +773,7 @@
 .highlight-dark .hljs-comment,
 .highlight-dark .diff .hljs-header,
 .highlight-dark .hljs-javadoc {
-  color: #ddd;
+  color: #ccc;
   font-style: italic; }
 
 .highlight-dark .hljs-keyword,
@@ -796,12 +796,12 @@
 .highlight-dark .hljs-phpdoc,
 .highlight-dark .hljs-dartdoc,
 .highlight-dark .tex .hljs-formula {
-  color: #ff4136; }
+  color: #F44336; }
 
 .hljs-title,
 .hljs-id,
 .scss .hljs-preprocessor {
-  color: #ff4136;
+  color: #F44336;
   font-weight: bold; }
 
 .highlight-dark .hljs-list .hljs-keyword,
@@ -848,7 +848,7 @@
 .highlight-dark .hljs-doctype,
 .highlight-dark .hljs-shebang,
 .highlight-dark .hljs-cdata {
-  color: #ddd;
+  color: #ccc;
   font-weight: bold; }
 
 .highlight-dark .hljs-deletion {
@@ -879,7 +879,7 @@
 .hljs-comment,
 .diff .hljs-header,
 .hljs-javadoc {
-  color: #ddd;
+  color: #ccc;
   font-style: italic; }
 
 .hljs-keyword,
@@ -902,12 +902,12 @@
 .hljs-phpdoc,
 .hljs-dartdoc,
 .tex .hljs-formula {
-  color: #ff4136; }
+  color: #F44336; }
 
 .hljs-title,
 .hljs-id,
 .scss .hljs-preprocessor {
-  color: #ff4136;
+  color: #F44336;
   font-weight: bold; }
 
 .hljs-list .hljs-keyword,
@@ -954,7 +954,7 @@
 .hljs-doctype,
 .hljs-shebang,
 .hljs-cdata {
-  color: #ddd;
+  color: #ccc;
   font-weight: bold; }
 
 .hljs-deletion {
@@ -1084,6 +1084,9 @@
 
 .border-box {
   box-sizing: border-box; }
+
+.min-width-50 {
+  min-width: 50% !important; }
 
 /* Basscss Lighten */
 .bg-lighten-1 {
@@ -2337,6 +2340,11 @@
 .text-decoration-none {
   text-decoration: none; }
 
+.lead {
+  font-weight: 100;
+  font-size: large;
+  line-height: 1.5; }
+
 .thin {
   font-weight: 100 !important; }
 
@@ -2425,6 +2433,6 @@ main, .main {
   background-color: #ECEFF1;
   margin-bottom: 64px; }
 
-md-icon.climacon {
-  width: 100px;
-  height: 100px; }
+@media screen and (max-width: 40em) {
+  header md-toolbar nav {
+    border-top: 1px solid rgba(0, 0, 0, 0.12); } }
