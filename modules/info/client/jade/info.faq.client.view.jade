@@ -1,1 +1,16 @@
-| FAQ
+.max-width-5.mx-auto.my4
+  div(layout-gt-sm='row' layout-wrap='')
+    div.p1(flex='50', layout='', ng-repeat='faq in vm.faq')
+      md-card(flex='')
+        md-toolbar(md-colors="{background: 'blue-grey-500'}")
+          .md-toolbar-tools(ng-bind='faq.q')
+        md-content.px2.py3(ng-bind='faq.a')
+    div.p1(flex='50', layout='')
+      md-card(flex='')
+        md-toolbar.md-accent
+          .md-toolbar-tools Haven't found an answer you were looking for?
+        md-content.px2.py3 
+          | If you have a question that we haven't answered here, feel free to 
+          | #[a(ui-sref='contact') call our office] to speak with one of our 
+          | representatives at any time during regular business hours (9-5, Mon-Fri). 
+          | You can also #[a(ui-sref='contact') email us] at any time!

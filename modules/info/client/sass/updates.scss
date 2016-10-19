@@ -16,10 +16,14 @@ skycon canvas {
 }
 
 .cms-weather-window {
-  opacity: 0.5;
-  transition: all .3s ease;
+  position: relative;
+  height: 100%;
 }
-.cms-weather-window:hover,
-md-card:hover .cms-weather-window {
-  opacity: .9;
-}
+// .cms-weather-window {
+//   opacity: 0.5;
+//   transition: all .3s ease;
+// }
+// .cms-weather-window:hover,
+// md-card:hover .cms-weather-window {
+//   opacity: .9;
+// }

@@ -1,0 +1,24 @@
+{
+  "content": [{
+    "q": "At what hours do you service?",
+    "a": "We service 24 hours a day, 7 days a week following snow storms, with the exception of Christams Day. Service on December 25th stops at 7 a.m. and resumes at 9 p.m.. We will show up within 24 hours of the end of the storm."
+  }, {
+    "q": "At what accumulation do you service?",
+    "a": "Our crews are dispatched to their routes as soon as snow accumulates above 5cm. In case of a heavier snowfall, we do return for a second visit to also clear the windrow from the city snow plows."
+  }, {
+    "q": "Do you accept payments in installments?",
+    "a": "Yes. If you would rather split your payment, we accept two installments paid by credit card or pre-authorized cheques. First payment is collected upon registrations and the second by January 15th, of the following year (only applies for a full season service package)."
+  }, {
+    "q": "Do you provide senior discounts?",
+    "a": "Yes! We offer a 10% discount to all our senior clients (65 and over)."
+  }, {
+    "q": "How do you manage my personal data?",
+    "a": "All of our customer data is stored internally and securely. We do not share or sell any of our client information to third parties."
+  }, {
+    "q": "Do you collect/store credit card information?",
+    "a": "Any credit card information that we collect from our clients is destroyed immediately after processing payment, unless the client specifies multiple installments, in which case we destroy the credit card information after the last payment has been processed."
+  }, {
+    "q": "Do you offer one time or special services?",
+    "a": "We offer a flexible range of service, from single visits, holiday coverage and half season coverage."
+  }]
+}
