@@ -12,6 +12,7 @@ var _ = require('lodash'),
   glob = require('glob'),
   gulp = require('gulp'),
   gulpLoadPlugins = require('gulp-load-plugins'),
+  gutil = require('gulp-util'),
   runSequence = require('run-sequence'),
   plugins = gulpLoadPlugins({
     rename: {
@@ -169,7 +170,7 @@ gulp.task('uglify', function () {
     .pipe(plugins.ngAnnotate())
     .pipe(plugins.uglify({
       mangle: false
-    }))
+    }).on('error', gutil.log))
     .pipe(plugins.concat('application.min.js'))
     .pipe(gulp.dest('public/dist'));
 });
