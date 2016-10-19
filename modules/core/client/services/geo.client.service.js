@@ -18,7 +18,7 @@
         var url = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&place_id=' + address.place_id + '&key=AIzaSyCw8afM0SzdyOsDysY_k_eDzTwunNH2-NY';
         return $http.get(url);
       },
-      searchAddress: function (address) {
+      searchAddress: function(address) {
         var deferred = $q.defer();
         if (address.length > 2) {
           _getSearchResults(address)
@@ -33,7 +33,7 @@
         } else { deferred.reject(); }
         return deferred.promise;
       },
-      isInsideServiceArea(location) {
+      isInsideServiceArea: function(location) {
         var serviceArea = new google.maps.Polygon({ paths: SERVICE_AREA_BOUNDS });
         var latLng = new google.maps.LatLng(location);
         return google.maps.geometry.poly.containsLocation(latLng, serviceArea);
