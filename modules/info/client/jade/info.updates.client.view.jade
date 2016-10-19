@@ -8,7 +8,7 @@
         div.p2.cms-weather-window.flex.flex-column.justify-between.items-center
           p.muted.mt0.large.center {{ vm.currentWeather.daily.data[0].summary }}
           .flex.mx-auto(style="width: 50%")
-            skycon(icon="vm.currentWeather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='80')
+            skycon.skycon(icon="vm.currentWeather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='80')
             div.flex.flex-row.items-center
               div.pl2
                 div.flex.flex-column.items-center
@@ -70,7 +70,7 @@
         .row.clearfix
           .col.col-5
             .flex
-              skycon(icon="update.weather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='50')
+              skycon.skycon(icon="update.weather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='50')
               div.flex.flex-row.items-center
                 div.pl2
                   div.flex.flex-column.items-center
