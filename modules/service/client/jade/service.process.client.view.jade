@@ -1,3 +1,64 @@
-.max-width-4.mx-auto.my4
-  md-card.p4
-    | Service Process
+div.bg-center.bg-cover(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-10.jpg); height: 60vh; opacity: 0.85')
+
+.max-width-3.mx-auto.px2.mt4
+  p.lead Clearmysnow has been operating since 2006 and the management has been providing property maintenance services for over 25 years. We are very well equipped to handle nature&rsquo;s elements and to weather any storm - with an ever-growing fleet of trucks &amp; tractors, and more than a dozen staff on-call, we can tackle every snowstorm that Canada has to offer.
+
+  md-divider
+
+  h1.md-display-1.center Our Service Process
+
+  md-card.py2.px3.mb4
+    h2.mb1.md-headline.center Routing
+    p.lead To ensure smooth season overall, we meticulously plan and organize our winter routes. All of our drivers complete several runs before a single snowflake even hits the ground in order to make necessary optimizations and improvements.
+    p.lead We also install stakes in the lawn next to your driveway to ensure that our drivers can easily spot your property on service day. The marker also indicates the edge of your driveway and helps protect your lawn from getting scraped by the plows or blowers.
+
+  md-card.py2.px3.mb4
+    h2.mb1.md-headline.center Weather Watch
+    p.lead During the winter season, we actively monitor the weather for any possible snow events. We post frequent updates whenever there is a potential of snow, so that our clients can always be certain whether we will be servicing.
+    p.lead Since our crews are dispatched only after two inches of snow has accumulated, we always take into consideration the different areas of our territory. Sometimes the lake effects causes flurries near the water, while other times, it sends the clouds further north.
+
+  md-card.py2.px3.mb4
+    h2.mb1.md-headline.center Dispatch
+    p.lead Once two inches of snow has fallen, our crews are sent to their routes. Each route is covered by a dedicated plow driver and a shoveller. We continuously update and optimize our routes to ensure efficient service and the fastest possible service times.
+    p.lead Our office staff monitor our crews’ progress with GPS tracking installed in all vehicles. In case of any slowdowns or breakdowns, our staff are able to assign nearby vehicles to service any outstanding properties.
+
+  md-card.py2.px3.mb4
+    h2.mb1.md-headline.center Communication and Followup
+    p.lead As soon as a property has been serviced, the client is sent an automated email - provided that an email exists on file. We post all service updates online as soon as they become available, including potential storms, partial service days, and full service updates.
+    p.lead In cases of severe weather and extraneous circumstances, we post more detailed and more frequent updates regarding any relevant information. In any event, our call center is available around the clock to address any questions or concerns directly over the phone.
+
+  md-divider
+
+.max-width-4.mx-auto.mb4
+
+  h3.md-display-1.center Learn More
+
+  div(layout-gt-sm='')
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Benefits
+        .p2
+          p Learn more about the benefits of our service, including live vehicle tracking, automated email notifications, 24-hour call center, and more.
+          md-button.right.md-raised(ui-sref='service.benefits') View Benefits
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Frequently Asked Questions
+        .p2
+          p Read through some of the most frequently asked questions relating to our service, collection of information, and payment security.
+          md-button.right.md-raised(ui-sref='info.faq') Read More
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Updates
+        .p2
+          p Browse through our updates section to see what we've been up to and view the latest announcements. You can also check the weather!
+          md-button.right.md-raised(ui-sref='info.updates') View Updates
+
+section.z1.bg-blue.border-top.border-bottom.border-navy
+  .center.py3(md-colors="{background: 'blue-800'}")
+    md-button.md-raised.md-primary.px3.py2.larger(ui-sref='service.quote' md-no-ink='') Get a Quote

@@ -1,3 +1,50 @@
-.max-width-4.mx-auto.my4
-  md-card.p4
-    | Service Benefits
+div.bg-center.bg-cover(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-11.jpg); height: 60vh; opacity: 0.85')
+
+.max-width-3.mx-auto.px2.mt4
+  p.lead We are always striving to provide the best service to our clients. We are constantly working to streamline our processes and increase our efficiency - particularly during snow storms. Below are a few noteworthy reasons for hiring us for your winter maintenance needs.
+  
+  md-divider
+
+.max-width-4.mx-auto.mb4
+
+  h1.md-display-1.center Our Service Benefits
+  
+  div.flex-wrap(layout-gt-sm='')
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Live Vehicle Tracking
+        p.lead All of our vehicles are outfitted with mobile GPS tracking technology, which allows us to track their progress and provide accurate updates and notifications to our clients. This also helps to improve our service times as we can effectively re-assign different crews in case of unexpected events.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Email Notificiations
+        p.lead Once a property has been serviced, the homeowner is automatically sent a notification email for reference and reassurance. We also post frequent 
+          a.black(ui-sref='info.updates') service updates
+          |  during snow-storms and clients can subscribe to receive theseupdates directly to their inbox.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Call Center
+        p.lead During service, our phone lines are open 24 hours a day. Our office staff work tirelessly to orchestrate the crews and ensure the best service. On all other days, regular business hours apply - Monday-Friday, 9 am to 5 pm.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Discounts &amp; Bonuses
+        p.lead All of our senior clients receive a 10% discount on top all other ongoing promotions. We also offer a $75.00 referral bonus, which is reimbursed once the referral signs up for half-season or full-season service.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Freezing Event Coverage
+        p.lead While we usually dispatch our plows at 2&apos; (5cm), we dispatch salting crews in any potetntially freezing event, such as rain or even light snow.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Eco-Friendly Deicing
+        p.lead Besides offering a regular salt option for melting and preventing ice buildup on driveways and walkways, we also offer more eco-friendly solutions, that are guaranteed not to harm your plants or soil.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Multiple Visits Per Storm
+        p.lead In case of heavy accumulation our crews are dispatched before the snow stops falling and return for a followup after the storm. We also return to clean up after city plows when they leave a windrow at the bottom of the driveway.
+    .flex.p1.min-width-50
+      md-card.py2.px3.mb2
+        h2.mb1.md-headline.center Professional Crews
+        p.lead To ensure smooth season overall, we meticulously plan and organize our winter routes. All of our drivers complete several runs before a single snowflake even hits the ground in order to make necessary optimizations and improvements.
+        
+section.z1.bg-blue.border-top.border-bottom.border-navy
+  .center.py3(md-colors="{background: 'blue-800'}")
+    md-button.md-raised.md-primary.px3.py2.larger(ui-sref='service.quote' md-no-ink='') Get a Quote
