@@ -45,6 +45,7 @@
 
   function bootstrapRun($rootScope, $state, $templateRequest) {
     $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+      document.body.scrollTop = 0;
       if (to.redirectTo) {
         evt.preventDefault();
         $state.go(to.redirectTo, params, { location: 'replace' });

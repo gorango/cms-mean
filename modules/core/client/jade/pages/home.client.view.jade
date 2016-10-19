@@ -39,10 +39,10 @@ section.z2
 
       .md-col.md-col-6.p1.pl1.md-pl3.feat-img.relative
         img.fit.md-whiteframe-8dp(src='/modules/core/client/img/feature.png')
-section.z1.bg-blue.border-top.border-bottom.border-navy
-  .center.py3(md-colors="{background: 'blue-800'}")
+section(md-colors="{background: 'blue-800'}")
+  .center.py3
     md-button.md-raised.md-primary.px3.py2.larger(ui-sref='service.quote' md-no-ink='') Snow Removal Quote
-section.z2.bg-center.bg-cover.py4.sm-py6(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-1.jpg)')
+section.z2.bg-center.bg-cover.py4.sm-py6(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-1.jpg); opacity: 0.85')
   .max-width-5.mx-auto
     .flex-wrap(layout-gt-sm='row')
       .md-col-4.p2.flex.width-100

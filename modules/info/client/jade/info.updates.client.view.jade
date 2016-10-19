@@ -21,7 +21,7 @@
           .md-toolbar-tools
             .md-subhead Subscribe to receive live service updates
         div.p2.flex
-          .md-title.self-center.center.muted(ng-if='vm.subscribed') You are now subscribed to receive our service updates!
+          .md-title.self-center.center.muted(ng-if='vm.subscribed') You are now subscribed to receive our service updates
           form.flex.flex-column.justify-center(ng-if='!vm.subscribed', novalidate='', name='vm.subscribeForm', ng-submit='vm.subscribe()')
             md-input-container.md-block
               label Your Email
