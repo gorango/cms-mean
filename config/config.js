@@ -98,28 +98,6 @@ var validateSecureMode = function (config) {
 };
 
 /**
- * Validate Session Secret parameter is not set to default in production
- */
-var validateSessionSecret = function (config, testing) {
-
-  if (process.env.NODE_ENV !== 'production') {
-    return true;
-  }
-
-  if (config.sessionSecret === 'MEAN') {
-    if (!testing) {
-      console.log(chalk.red('+ WARNING: It is strongly recommended that you change sessionSecret config while running in production!'));
-      console.log(chalk.red('  Please add `sessionSecret: process.env.SESSION_SECRET || \'super amazing secret\'` to '));
-      console.log(chalk.red('  `config/env/production.js` or `config/env/local.js`'));
-      console.log();
-    }
-    return false;
-  } else {
-    return true;
-  }
-};
-
-/**
  * Initialize global configuration files
  */
 var initGlobalConfigFolders = function (config, assets) {
@@ -196,6 +174,7 @@ var initGlobalConfig = function () {
   // read package.json for MEAN.JS project information
   var pkg = require(path.resolve('./package.json'));
   config.meanjs = pkg;
+  config.clearmysnow = pkg;
 
   // Extend the config object with the local-NODE_ENV.js custom/local environment. This will override any settings present in the local configuration.
   config = _.merge(config, (fs.existsSync(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js')) && require(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js'))) || {});
@@ -209,16 +188,12 @@ var initGlobalConfig = function () {
   // Validate Secure SSL mode can be used
   validateSecureMode(config);
 
-  // Validate session secret
-  validateSessionSecret(config);
-
   // Print a warning if config.domain is not set
   validateDomainIsSet(config);
 
   // Expose configuration utilities
   config.utils = {
-    getGlobbedPaths: getGlobbedPaths,
-    validateSessionSecret: validateSessionSecret
+    getGlobbedPaths: getGlobbedPaths
   };
 
   return config;

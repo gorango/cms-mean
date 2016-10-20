@@ -3,18 +3,16 @@
 module.exports = {
   app: {
     title: 'ClearMySnow',
+    domain: 'https://staging.clearmysnow.com',
     description: 'Residential Snow Clearing',
     keywords: 'snow removal, snow clearing, residential snow removal, residential snow clearing',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID
   },
   db: {
     promise: global.Promise
   },
   port: process.env.PORT || 3000,
   host: process.env.HOST || '0.0.0.0',
-  // DOMAIN config should be set to the fully qualified application accessible
-  // URL. For example: https://www.myapp.com (including port if required).
-  domain: 'https://staging.clearmysnow.com',
   // Session Cookie settings
   sessionCookie: {
     // session expiration is set by default to 24 hours
@@ -28,7 +26,7 @@ module.exports = {
     secure: false
   },
   // sessionSecret should be changed for security measures and concerns
-  sessionSecret: process.env.SESSION_SECRET || 'Winterous',
+  sessionSecret: process.env.SESSION_SECRET,
   // sessionKey is the cookie session name
   sessionKey: 'sessionId',
   sessionCollection: 'sessions',
@@ -51,13 +49,13 @@ module.exports = {
     }
   },
   shared: {
-    owasp: {
-      allowPassphrases: true,
-      maxLength: 128,
-      minLength: 10,
-      minPhraseLength: 20,
-      minOptionalTestsToPass: 4
-    }
+    // owasp: {
+    //   allowPassphrases: true,
+    //   maxLength: 128,
+    //   minLength: 10,
+    //   minPhraseLength: 20,
+    //   minOptionalTestsToPass: 4
+    // }
   }
 
 };
