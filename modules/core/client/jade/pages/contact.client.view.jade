@@ -65,26 +65,32 @@
             | We are happy to answer any of your questions and to provide assistance any way we can.
           p
             | You can leave us a message using this form, and we will get back to you as soon as possible.
-          form(name='contactForm', novalidate='').p2
+          form.p2(name='vm.contactForm', 
+          ng-submit='vm.submitForm()', 
+          style="transition: all 1s ease;"
+          ng-class="{'bg-darken-1': vm.submitted}"
+          novalidate='')
             div(layout-gt-sm='row')
               md-input-container.md-block(flex-gt-sm)
                 label Your Name
                 input(required='', 
+                ng-disabled='vm.submitted',
                 name='clientName', 
-                ng-model='contact.clientName')
-                div(ng-messages='contactForm.clientName.$error')
+                ng-model='vm.contact.clientName')
+                div(ng-messages='vm.contactForm.clientName.$error')
                   div(ng-message='required') We need your name.
               span(flex='5')
               md-input-container.md-block(flex-gt-sm)
                 label Your Email
                 input(required='', 
+                ng-disabled='vm.submitted',
                 type='email', 
                 name='clientEmail', 
-                ng-model='contact.clientEmail', 
+                ng-model='vm.contact.clientEmail', 
                 minlength='10', 
                 maxlength='100', 
                 ng-pattern='/^.+@.+\..+$/')
-                div(ng-messages='contactForm.clientEmail.$error', 
+                div(ng-messages='vm.contactForm.clientEmail.$error', 
                 role='alert')
                   div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
                     | Your email must look like an e-mail address.
@@ -94,23 +100,28 @@
               md-input-container.md-block(flex-gt-sm)
                 label Address
                 input(name='clientAddress', 
-                ng-model='contact.clientAddress')
+                ng-disabled='vm.submitted',
+                ng-model='vm.contact.clientAddress')
               span(flex='5')
               md-input-container.md-block(flex-gt-sm)
                 label Phone Number
                 input(name='clientPhone', 
-                ng-model='contact.clientPhone')
+                ng-disabled='vm.submitted',
+                ng-model='vm.contact.clientPhone')
             div(layout-gt-sm='row')
               md-input-container.md-block(flex-gt-sm)
                 label Message
-                textarea(required=''
+                textarea(required='',
+                ng-disabled='vm.submitted',
                 name='message'
-                ng-model='contact.message', 
+                ng-model='vm.contact.message', 
                 rows='5', 
                 md-select-on-focus='')
-                div(ng-messages='contactForm.message.$error')
+                div(ng-messages='vm.contactForm.message.$error')
                   div(ng-message='required') You left the message blank.
-            div
-              md-button.md-raised(type="submit") Submit
+            div(ng-if='!vm.submitted')
+              md-button.md-raised(ng-disabled='vm.contactForm.$invalid' type="submit") Submit
+            div(ng-if='vm.submitted').center
+              p.bold Your message has been sent. Thank you for getting in touch!
         div(md-colors="{background: 'blue-grey-50'}").p1
           p.center.small.muted We generally follow up within one business day.

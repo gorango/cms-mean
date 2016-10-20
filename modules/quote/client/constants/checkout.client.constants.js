@@ -16,8 +16,8 @@
         payment_method: 'paypal'
       },
       redirect_urls: {
-        return_url: 'http://localhost:3000/checkout/confirm',
-        cancel_url: 'http://localhost:3000/service/register'
+        return_url: 'http://52.4.188.163/checkout/confirm',
+        cancel_url: 'http://52.4.188.163/service/register'
       },
       transactions: [{
         amount: {

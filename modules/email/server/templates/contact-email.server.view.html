@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <p>{{quote.clientName}} has submitted a contact for on the website.</p>
+  <p></p>
+  <p>
+    <b>Email:</b> {{quote.clientEmail}}<br>
+    {{#if quote.clientPhone}}
+    <b>Phone:</b> {{quote.clientPhone}}<br>
+    {{/if}}
+    {{#if quote.clientAddress}}
+    <b>Address:</b> {{quote.clientAddress}}<br>
+    {{/if}}
+  </p>
+  <p></p>
+  <p>{{quote.message}}</p>
+</body>
+
+</html>

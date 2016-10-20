@@ -16,6 +16,11 @@
           recipient: quote.clientEmail
         };
         switch (type) {
+          case 'CONTACT':
+            payload.recipient = 'sales@clearmysnow.com';
+            payload.template = 'contact-email';
+            payload.title = 'Website Contact Form';
+            break;
           case 'QUOTE':
             payload.template = 'quote-email';
             payload.title = 'Snow Clearing Quote';
@@ -35,12 +40,8 @@
       }
     };
 
-    function _handleEmailResponse(res) {
-      console.log(res);
-    }
+    function _handleEmailResponse(res) { }
 
-    function _handleEmailError(err) {
-      console.log(err);
-    }
+    function _handleEmailError(err) { }
   }
 }());
