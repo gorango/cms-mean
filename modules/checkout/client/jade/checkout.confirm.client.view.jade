@@ -1,0 +1,62 @@
+.max-width-4.mx-auto.my4
+  .flex
+    .sm-col-7.flex.flex-column
+      md-card.m0.flex.flex-column
+        md-toolbar.md-accent(style="min-height: 0; border-bottom: 1px solid rgba(0,0,0,0.12)")
+          .md-toolbar-tools(style="height: 48px")
+            .md-title.caps.h5 Payment Confirmation
+        .p3.flex-auto.flex.flex-column.justify-center.center
+          div.flex-auto.flex.justify-center
+            div(ng-if='vm.approved').self-center
+              md-icon(style='font-size: 64px; height: 64px; width: 64px;') thumb_up
+              p.md-title The transaction was successful.
+              p.lead You will receive a receipt of your payment by email and we will have you on one of our routes within 48 hours.
+            div(ng-if='vm.declined').self-center
+              p.md-title Oops!
+              p.lead The transaction did not complete successfully.
+              p(ng-if='vm.response.message' ng-bind='vm.response.message')
+          div(ng-if='vm.approved')
+            p.lead.center: strong Thank you for your business! #[br]We look forward to servicing you this winter season.
+          div(ng-if='vm.declined')
+            p.lead You can return to the registration page #[br]and try another method of payment.
+            md-button.md-raised(ui-sref='service.register') 
+              md-icon.mr1 keyboard_arrow_left
+              | Registration
+          
+    .sm-col-5
+      md-card.m0
+        md-toolbar.md-accent(style="min-height: 0; border-bottom: 1px solid rgba(0,0,0,0.12)")
+          .md-toolbar-tools(style="height: 48px")
+            .md-title.caps.h5 Service Details
+        md-list.flex.flex-column.md-dense.quote-selection
+          md-subheader.heavy.blue.md-no-sticky Service Breakdown
+          md-list-item(ng-repeat='item in vm.quote.selection | orderBySelection')
+            md-icon check
+            p(ng-bind='item | englishize')
+        md-list.flex.flex-column
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Service Location
+          md-list-item.md-2-line
+            .md-list-item-text
+              h3 {{ vm.quote.serviceAddress.split(',')[0] }}
+              p {{ vm.quote.serviceAddress.split(',').slice(1).join(',') }}
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Coverage and Duration
+          md-list-item.md-2-line
+            .md-list-item-text
+              h3 {{ vm.quote.coverage | englishize }}
+              p(ng-if='vm.quote.coverage === "SEASON_FULL"') 
+                | {{ vm.dates.minDate | date: 'MMMM dd, yyyy' }} - 
+                | {{ vm.dates.maxDate | date: 'MMMM dd, yyyy' }}
+              p(ng-if='vm.quote.coverage === "SEASON_HALF"') 
+                | {{ vm.quote.period | englishize }}
+              p(ng-if='vm.quote.coverage === "SEASON_HOLIDAY"') 
+                | {{ vm.quote.holidayStartDate | date: 'MMMM dd, yyyy' }} - 
+                | {{ vm.quote.holidayEndDate | date: 'MMMM dd, yyyy' }}
+              p(ng-if='vm.quote.coverage === "SEASON_SINGLE"') 
+                | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
+          md-divider
+          md-subheader.heavy.blue.md-no-sticky Total with Tax
+          md-list-item
+            .md-list-item-text
+              h3 {{ vm.quote.total * 1.13 | currency }}

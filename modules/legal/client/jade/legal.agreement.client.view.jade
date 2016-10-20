@@ -30,9 +30,11 @@ ol
     u
       | Service will not be provided after 7 AM, Christmas Day, December 25th. Service will resume after 9 PM.
   li
-    | The Owner hereby confirms that the Service to be performed at the Premises shall be described as follows:
+    | The Owner hereby confirms that the Service to be performed at the Premises shall include as follows:
     br
-    | A Large Driveway // Front step clearing - No // City sidewalk clearing - No
+    span.bold(ng-if='!vm.quote.selection') [List of selected services]
+    ul
+      li.bold(ng-repeat='item in vm.quote.selection | orderBySelection', ng-bind='item | englishize')
   li
     | In consideration for performing the Service the Contractor shall be paid a total sum of 
     span.bold(ng-bind='(vm.quote.total * 1.13 | currency) || "[grand total price]"') 

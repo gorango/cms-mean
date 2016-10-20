@@ -5,9 +5,9 @@
     .module('quotes')
     .controller('RegistrationController', RegistrationController);
 
-  RegistrationController.$inject = ['$state', 'localStorageService', 'QuoteFactory', '$mdDialog', 'PREVIEW_IMAGES', 'ACTIONS'];
+  RegistrationController.$inject = ['$state', '$http', '$filter', '$mdDialog', 'localStorageService', 'QuoteFactory', 'PREVIEW_IMAGES', 'ACTIONS', 'PAYPAL_CHECKOUT_DEFAULTS'];
 
-  function RegistrationController($state, localStorage, QuoteFactory, $mdDialog, PREVIEW_IMAGES, ACTIONS) {
+  function RegistrationController($state, $http, $filter, $mdDialog, localStorage, QuoteFactory, PREVIEW_IMAGES, ACTIONS, PAYPAL_CHECKOUT_DEFAULTS) {
     var vm = this;
     vm.registrationForm = {};
     vm.quote = localStorage.get('quote');
@@ -26,14 +26,22 @@
     }
 
     function checkout() {
-      $mdDialog.show(
-        $mdDialog.confirm()
-          .clickOutsideToClose(true)
-          .title('Can\'t do that yet...')
-          .textContent('PayPal is not configured due to lack of access')
-          .ok('I Understand')
-          .cancel('Nevermind')
-      );
+      var payment = {
+        total: $filter('number')(vm.quote.total * 1.13, 2),
+        subtotal: $filter('number')(vm.quote.total, 2),
+        tax: $filter('number')(vm.quote.total * 0.13, 2)
+      };
+      var paymentOpts = PAYPAL_CHECKOUT_DEFAULTS;
+      paymentOpts.transactions[0].amount.total = payment.total;
+      paymentOpts.transactions[0].description = vm.dates.serviceYear + '-' + (vm.dates.serviceYear + 1) + ' Season Snow Clearing Service';
+
+      localStorage.set('quote', vm.quote);
+      localStorage.set('payment', payment);
+
+      $http.post('/api/checkout/create', paymentOpts)
+        .then(function(response) {
+          window.location.href = response.data;
+        });
     }
 
     function _checkQuoteValidity() {
@@ -45,6 +53,7 @@
     function updateBillingAddress(address) {
       if (address) {
         vm.quote.billingAddress = address.description;
+        localStorage.set('quote', vm.quote);
       }
     }
 

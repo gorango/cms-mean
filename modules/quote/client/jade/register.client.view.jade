@@ -78,6 +78,7 @@
                   name='serviceNotes', 
                   ng-model='vm.quote.serviceNotes')
               md-subheader.heavy.blue.md-no-sticky Service Agreement
+                //- br: span.md-caption.black.muted  (You will receive a copy of this agreement with your confirmation)
               md-divider
               md-content.md-block(flex='' layout-padding='', style='max-height: 350px')
                 section(ng-include='"/modules/legal/client/views/legal.agreement.client.view.html"' ng-controller='RegistrationController as vm')
@@ -96,6 +97,7 @@
           md-toolbar.md-accent
             .md-toolbar-tools.bg-lighten-4
               span(flex='auto')
+              img.fit.mr2(src="/modules/core/client/img/payment-options.png", alt="Payment options" style='height: 40px')
               md-button.md-raised.md-primary.px3(ng-click='vm.checkout()', 
               ng-disabled='!vm.registrationForm.$valid'
               style='color: white') 
@@ -134,7 +136,6 @@
                 | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
           md-divider
           md-subheader.heavy.blue.md-no-sticky Total with Tax
-          md-list-item.md-2-line
+          md-list-item
             .md-list-item-text
               h3 {{ vm.quote.total * 1.13 | currency }}
-              p (Includes all taxes and discounts)

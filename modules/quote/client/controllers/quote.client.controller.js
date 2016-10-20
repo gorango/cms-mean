@@ -5,9 +5,9 @@
     .module('quotes')
     .controller('QuoteController', QuoteController);
 
-  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'QuoteFactory', 'GeoService', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
+  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'GeoService', 'EmailService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
 
-  function QuoteController($scope, $state, $mdDialog, localStorage, QuoteFactory, GeoService, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
+  function QuoteController($scope, $state, $mdDialog, localStorage, GeoService, EmailService, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
     var vm = this;
     vm.quoteForm = {};
     vm.quote = localStorage.get('quote') || angular.copy(QUOTE_INITIAL_STATE);
@@ -20,6 +20,7 @@
     vm.select = select;
     vm.reset = reset;
     vm.step = step;
+    vm.finalStep = finalStep;
     vm.confirm = confirm;
     vm.sidewalkSwitch = sidewalkSwitch;
     vm.saltSwitch = saltSwitch;
@@ -139,8 +140,20 @@
       } else {
         switch (action) {
           case '_drivesalt': vm.quote.drivesalt = ACTIONS.DRIVEWAY_SALT_REGULAR; vm.select(); break;
-          case '_walksalt': vm.confirm(action); break;
-          case '_sidesalt': vm.confirm(action); break;
+          case '_walksalt':
+            if (!vm.quote.walkway === ACTIONS.WALKWAY_YES) {
+              vm.confirm(action);
+            } else {
+              vm.quote.walksalt = ACTIONS.WALKWAY_SALT_REGULAR;
+            }
+            break;
+          case '_sidesalt':
+            if (!vm.quote.sidewalk === ACTIONS.SIDEWALK_YES) {
+              vm.confirm(action);
+            } else {
+              vm.quote.sidesalt = ACTIONS.SIDEWALK_SALT_REGULAR;
+            }
+            break;
         }
       }
     }
@@ -157,6 +170,18 @@
             localStorage.set('quote', vm.quote);
           });
       }
+    }
+
+    function finalStep() {
+      if (!vm.emailSent && !vm.quote.clientNo) {
+        sendEmail(angular.copy(vm.quote));
+      }
+      vm.step('next');
+    }
+
+    function sendEmail(quote) {
+      vm.emailSent = true;
+      if (!quote.clientNo) EmailService.send('QUOTE_OFFICE', quote);
     }
 
     function _configDates() {

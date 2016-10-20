@@ -234,12 +234,12 @@ form(name='vm.quoteForm' novalidate='')
             ng-model='vm.quote.clientFollowup', 
             aria-label='I don\'t mind being contacted for a follow-up')
               | I don't mind being contacted for a follow-up
-            md-checkbox.md-warn(
-            name='clientUpdates',
-            ng-disabled='vm.quote.clientNo',
-            ng-model='vm.quote.clientUpdates', 
-            aria-label='I would like to receive occasional updates from ClearMySnow')
-              | I would like to receive occasional updates from ClearMySnow
+            //- md-checkbox.md-warn(
+            //- name='clientUpdates',
+            //- ng-disabled='vm.quote.clientNo',
+            //- ng-model='vm.quote.clientUpdates', 
+            //- aria-label='I would like to receive occasional updates from ClearMySnow')
+            //-   | I would like to receive occasional updates from ClearMySnow
             md-checkbox.md-warn(
             name='clientNo'
             ng-change='vm.confirm("NO_CONTACT")'
@@ -257,7 +257,7 @@ form(name='vm.quoteForm' novalidate='')
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
             md-button.md-raised(
-            ng-click='vm.step("next")', 
+            ng-click='vm.finalStep()', 
             ng-disabled='vm.quoteForm.$invalid && !vm.quote.clientNo') Next
     md-tab(
     md-active='bold', 
@@ -291,12 +291,11 @@ form(name='vm.quoteForm' novalidate='')
                   | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
             md-divider
             md-subheader.heavy.blue.md-no-sticky Total with Tax
-            md-list-item.md-2-line
+            md-list-item
               .md-list-item-text
-                h3 {{ vm.quote.total * 1.13 | currency }}
-                p (Includes all taxes and discounts)
+                p.mt0.md-title {{ vm.quote.total * 1.13 | currency }}
             md-divider
-            md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area.
+            md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area
             md-list-item
               md-autocomplete.width-100(
               md-no-cache='true', 

@@ -6,6 +6,7 @@
     .constant('QUOTE_INITIAL_STATE', {
       selection: [],
       coverage: 'SEASON_FULL',
+      clientFollowup: true,
       image: 'R.gif',
       date: new Date(),
       total: 0,
