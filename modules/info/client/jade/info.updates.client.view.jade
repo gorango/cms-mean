@@ -25,7 +25,8 @@
           form.flex.flex-column.justify-center(ng-if='!vm.subscribed', novalidate='', name='vm.subscribeForm', ng-submit='vm.subscribe()')
             md-input-container.md-block
               label Your Email
-              input.md-warn(required='', 
+              input(required='', 
+              ng-disabled='true'
               type='email', 
               name='clientEmail', 
               ng-focus='subscribing = true',
@@ -41,7 +42,8 @@
                   | We need your email address.
             md-input-container.mt0.md-block(ng-show='subscribing')
               label Your Name
-              input.md-warn(required='', 
+              input(required='', 
+              ng-disabled='true'
               type='name', 
               name='clientName', 
               ng-model='vm.subscriber.clientName')
