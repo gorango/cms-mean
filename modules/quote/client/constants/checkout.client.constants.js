@@ -16,8 +16,8 @@
         payment_method: 'paypal'
       },
       redirect_urls: {
-        return_url: 'http://52.4.188.163/checkout/confirm',
-        cancel_url: 'http://52.4.188.163/service/register'
+        return_url: 'https://staging.clearmysnow.com/checkout/confirm',
+        cancel_url: 'https://staging.clearmysnow.com/service/register'
       },
       transactions: [{
         amount: {
