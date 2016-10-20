@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <p>Another person has completed an online quote.</p>
+  {{#unless quote.clientFollowup}}
+  <p><b>But they don't want to be contacted!</b></p>
+  {{/unless}}
+  <p></p>
+  <p>
+    <b>Name:</b> {{quote.clientName}}<br>
+    <b>Email:</b> {{quote.clientEmail}}<br>
+    <b>Phone:</b> {{quote.clientPhone}}<br>
+    {{#if quote.serviceAddress}}
+    <b>Address:</b> {{quote.serviceAddress}}
+    {{/if}}
+  </p>
+  <p></p>
+  <p><b>Selection:</b>
+    {{#each quote.selection}}<br>&nbsp;&nbsp;&nbsp;&nbsp;{{this}}{{/each}}
+  <p><b>Total:</b> ${{quote.total}}</p>
+</body>
+
+</html>
