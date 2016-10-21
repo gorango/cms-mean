@@ -14,7 +14,9 @@
       'ngMaterial',
       'ui.router',
       'LocalStorageModule',
-      'uiGmapgoogle-maps'
+      'uiGmapgoogle-maps',
+      'angulartics',
+      'angulartics.google.analytics'
     ],
     registerModule: registerModule
   };

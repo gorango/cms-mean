@@ -18,7 +18,7 @@ form(name='vm.quoteForm' novalidate='')
               ng-model='vm.quote.driveway', 
               ng-change='vm.select(vm.quote.driveway)')
                 md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_REGULAR') Fewer than 5
-                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') More than 5
+                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') More than 4
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like your front walkway cleared?
             md-list-item.md-2-line
@@ -319,7 +319,12 @@ form(name='vm.quoteForm' novalidate='')
           .md-toolbar-tools.bg-lighten-4
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
-            md-button.md-raised.md-primary.px3(ui-sref='service.register', 
+            md-button.md-raised.md-primary.px3(
+            analytics-on='click',
+            analytics-event='Going to registration',
+            analytics-category='sales',
+            analytics-label='{{vm.quote.total}}',
+            ui-sref='service.register', 
             ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress || !vm.quote.total > 0'
             style='color: white') 
               | Register

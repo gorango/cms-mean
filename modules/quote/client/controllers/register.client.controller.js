@@ -5,14 +5,14 @@
     .module('quotes')
     .controller('RegistrationController', RegistrationController);
 
-  RegistrationController.$inject = ['$state', '$http', '$filter', '$mdDialog', 'localStorageService', 'QuoteFactory', 'PREVIEW_IMAGES', 'ACTIONS', 'PAYPAL_CHECKOUT_DEFAULTS'];
+  RegistrationController.$inject = ['$state', '$http', '$filter', '$mdDialog', '$analytics', 'localStorageService', 'QuoteFactory', 'PREVIEW_IMAGES', 'ACTIONS', 'PAYPAL_CHECKOUT_DEFAULTS'];
 
-  function RegistrationController($state, $http, $filter, $mdDialog, localStorage, QuoteFactory, PREVIEW_IMAGES, ACTIONS, PAYPAL_CHECKOUT_DEFAULTS) {
+  function RegistrationController($state, $http, $filter, $mdDialog, $analytics, localStorage, QuoteFactory, PREVIEW_IMAGES, ACTIONS, PAYPAL_CHECKOUT_DEFAULTS) {
     var vm = this;
     vm.registrationForm = {};
+    vm.dates = _configDates();
     vm.quote = localStorage.get('quote');
     vm.searchAddress = QuoteFactory.searchAddress;
-    vm.dates = _configDates();
     vm.updateBillingAddress = updateBillingAddress;
     vm.reset = reset;
     vm.checkout = checkout;
@@ -20,6 +20,7 @@
     angular.element(document).ready(_checkQuoteValidity);
 
     function reset() {
+      $analytics.eventTrack('Leaving registration for new quote', { category: 'sales', label: angular.copy(vm.quote.total) });
       localStorage.remove('quote');
       vm.quote = {};
       _checkQuoteValidity();
@@ -44,16 +45,16 @@
         });
     }
 
-    function _checkQuoteValidity() {
-      if (!vm.quote || !vm.quote.verified || !vm.quote.total > 0) {
-        $state.go('service.quote');
-      }
-    }
-
     function updateBillingAddress(address) {
       if (address) {
         vm.quote.billingAddress = address.description;
         localStorage.set('quote', vm.quote);
+      }
+    }
+
+    function _checkQuoteValidity() {
+      if (!vm.quote || !vm.quote.verified || !vm.quote.total > 0) {
+        $state.go('service.quote');
       }
     }
 

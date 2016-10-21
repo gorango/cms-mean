@@ -26,6 +26,7 @@ exports.renderIndex = function (req, res) {
 
   res.render('modules/core/server/views/index', {
     user: JSON.stringify(safeUserObject),
+    prod: process.env.NODE_ENV === 'production',
     sharedConfig: JSON.stringify(config.shared)
   });
 };

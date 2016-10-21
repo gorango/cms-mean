@@ -5,9 +5,9 @@
     .module('quotes')
     .controller('QuoteController', QuoteController);
 
-  QuoteController.$inject = ['$scope', '$state', '$mdDialog', 'localStorageService', 'GeoService', 'EmailService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
+  QuoteController.$inject = ['$scope', '$state', '$mdDialog', '$analytics', 'localStorageService', 'GeoService', 'EmailService', 'QuoteFactory', 'QUOTE_INITIAL_STATE', 'PREVIEW_IMAGES', 'ACTIONS', 'SERVICE_AREA_BOUNDS'];
 
-  function QuoteController($scope, $state, $mdDialog, localStorage, GeoService, EmailService, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
+  function QuoteController($scope, $state, $mdDialog, $analytics, localStorage, GeoService, EmailService, QuoteFactory, QUOTE_INITIAL_STATE, PREVIEW_IMAGES, ACTIONS, SERVICE_AREA_BOUNDS) {
     var vm = this;
     vm.quoteForm = {};
     vm.quote = localStorage.get('quote') || angular.copy(QUOTE_INITIAL_STATE);
@@ -74,10 +74,12 @@
               vm.quote._senior = true;
               vm.quote.senior = ACTIONS.CLIENT_SENIOR;
               vm.select();
+              $analytics.eventTrack('Selected senior option', { category: 'sales', label: vm.quote.total });
             }, function() {
               vm.quote._senior = false;
               vm.quote.senior = ACTIONS.CLIENT_REGULAR;
               vm.select();
+              $analytics.eventTrack('Deselected senior option', { category: 'sales', label: vm.quote.total });
             });
           }
           break;
@@ -91,8 +93,10 @@
               vm.quoteForm.$valid = true;
               vm.quote.noContact = true;
               vm.step('next');
+              $analytics.eventTrack('Quote no contact', { category: 'sales', label: vm.quote.total });
             }, function() {
               vm.quote.clientNo = false;
+              $analytics.eventTrack('Quote no contact reconsidered', { category: 'sales', label: vm.quote.total });
             });
           }
           break;
@@ -168,12 +172,23 @@
             vm.quote.verified = verified;
             vm.quote.serviceLatLng = location;
             localStorage.set('quote', vm.quote);
+            // Analytics tracking
+            if (verified) {
+              $analytics.eventTrack('Eligible address', { category: 'area', label: 'Quote page - ' + address.description });
+            } else {
+              $analytics.eventTrack('Ineligible address', { category: 'area', label: 'Quote page - ' + address.description });
+            }
           });
       }
     }
 
     function finalStep() {
       if (!vm.emailSent && !vm.quote.clientNo) {
+        if (vm.quote.clientFollowup) {
+          $analytics.eventTrack('Send quote with followup', { category: 'sales', label: vm.quote.total });
+        } else {
+          $analytics.eventTrack('Send quote without followup', { category: 'sales', label: vm.quote.total });
+        }
         sendEmail(angular.copy(vm.quote));
       }
       vm.step('next');
@@ -201,10 +216,15 @@
       var onQuotePage = $state.is('service.quote') || $state.is('quote');
       if (itsBeenAWhile && onQuotePage) {
         $mdDialog.show(
-          $mdDialog.confirm().clickOutsideToClose(false).title('Welcome back')
+          $mdDialog.confirm().clickOutsideToClose(false).title('You have a quote already started')
           .textContent('Would you like to continue where you left off?').ariaLabel('Would you like to continue where you left off?')
           .ok('Yes please').cancel('No thanks')
-        ).then({}, vm.reset);
+        ).then(function() {
+          $analytics.eventTrack('Returned to old quote', { category: 'sales', label: angular.copy(vm.quote.total) });
+        }, function() {
+          $analytics.eventTrack('Returned to new quote', { category: 'sales', label: angular.copy(vm.quote.total) });
+          vm.reset();
+        });
       }
     }
   }

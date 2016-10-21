@@ -9,7 +9,7 @@
 
   ServiceAreaController.$inject = ['$mdDialog', 'GeoService', 'SERVICE_AREA_MAP_CONFIG', 'SERVICE_AREA_STYLES', 'INNER_SERVICE_AREA_COORDS', 'POSTAL_CODES'];
   PostalDialogController.$inject = ['POSTAL_CODES'];
-  AddressDialogController.$inject = ['$mdDialog', 'GeoService'];
+  AddressDialogController.$inject = ['$mdDialog', '$analytics', 'GeoService'];
 
   function ServiceAreaController($mdDialog, GeoService, SERVICE_AREA_MAP_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS, POSTAL_CODES) {
     var vm = this;
@@ -60,7 +60,7 @@
     vm.postalCodes = POSTAL_CODES;
   }
 
-  function AddressDialogController($mdDialog, GeoService, SERVICE_AREA_MAP_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS, POSTAL_CODES) {
+  function AddressDialogController($mdDialog, $analytics, GeoService) {
     var vm = this;
     vm.searchAddress = GeoService.searchAddress;
     vm.verifyAddress = verifyAddress;
@@ -71,11 +71,16 @@
           .then(function(res) {
             var location = res.data.results[0].geometry.location;
             var verified = GeoService.isInsideServiceArea(location);
-            vm.verified = verified;
             $mdDialog.hide({
               location: location,
               verified: verified
             });
+            // Analytics
+            if (verified) {
+              $analytics.eventTrack('Eligible address', { category: 'area', label: 'Service area page - ' + address.description });
+            } else {
+              $analytics.eventTrack('Ineligible address', { category: 'area', label: 'Service area page - ' + address.description });
+            }
           });
       }
     }
