@@ -28,12 +28,15 @@
           pageTitle: 'Dashboard'
         }
       })
-      // .state('office.routing', {
-      //   url: '/routing',
-      //   templateUrl: '/modules/routing/client/views/routing.client.view.html',
-      //   controller: 'RoutingController',
-      //   controllerAs: 'vm'
-      // })
+      .state('office.routing', {
+        url: '/routing',
+        templateUrl: '/modules/routing/client/views/routing.client.view.html',
+        controller: 'RoutingController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Routing'
+        }
+      });
       // .state('office.updates', {
       //   url: '/updates',
       //   templateUrl: '/modules/updates/client/views/admin/updates.client.view.html',

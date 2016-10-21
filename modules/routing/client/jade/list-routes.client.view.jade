@@ -1,0 +1,13 @@
+section
+  .page-header
+    h1 Routes
+  .list-group
+    a.list-group-item(ng-repeat='route in vm.routes', ui-sref='routes.view({ routeId: route._id })')
+      small.list-group-item-text
+        | Posted on
+        span(ng-bind="route.created | date:'mediumDate'")
+        | by
+        span(ng-if='route.user', ng-bind='route.user.displayName')
+        span(ng-if='!route.user') Deleted User
+      h4.list-group-item-heading(ng-bind='route.title')
+      p.list-group-item-text(ng-bind='route.content')
