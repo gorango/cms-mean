@@ -1,0 +1,25 @@
+section#office
+
+  md-button.md-icon-button.absolute(ng-click='vm.toggleSidenav()',
+  style='top: -52px') 
+    md-icon.white menu
+
+  ui-view
+
+  md-sidenav.md-sidenav-left(md-component-id='sidenav')
+    md-list
+      md-list-item.md-2-line(ui-sref='office.dashboard')
+        md-icon dashboard
+        .md-list-item-text
+          h3 Dashboard
+          p General Overview
+      md-list-item.md-2-line(ui-sref='office.routing')
+        md-icon pin_drop
+        .md-list-item-text
+          h3 Routing
+          p Fleet Management
+      md-list-item.md-2-line(ui-sref='office.servicing')
+        md-icon notifications
+        .md-list-item-text
+          h3 Updates
+          p Publishing &amp; Notifications
