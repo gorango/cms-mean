@@ -25,7 +25,7 @@
         controller: 'QuoteController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Quote Calculator'
+          pageTitle: 'Service Estimate and Quote'
         }
       })
       .state('service.register', {
