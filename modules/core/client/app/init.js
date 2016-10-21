@@ -44,11 +44,11 @@
   }
 
   function bootstrapRun($rootScope, $state, $templateRequest) {
-    $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+    $rootScope.$on('$stateChangeStart', function(e, toState, params) {
       document.body.scrollTop = 0;
-      if (to.redirectTo) {
-        evt.preventDefault();
-        $state.go(to.redirectTo, params, { location: 'replace' });
+      if (toState.redirectTo) {
+        e.preventDefault();
+        $state.go(toState.redirectTo, params, { location: 'replace' });
       }
     });
   }

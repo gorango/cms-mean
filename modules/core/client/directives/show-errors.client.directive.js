@@ -19,15 +19,7 @@
     return directive;
 
     function compile(elem, attrs) {
-      if (attrs.showErrors.indexOf('skipFormGroupCheck') === -1) {
-        if (!(elem.hasClass('form-group') || elem.hasClass('input-group'))) {
-          throw new Error('show-errors element does not have the \'form-group\' or \'input-group\' class');
-        }
-      }
-
-      return linkFn;
-
-      function linkFn(scope, el, attrs, formCtrl) {
+      return function(scope, el, attrs, formCtrl) {
         var inputEl,
           inputName,
           inputNgEl,
@@ -38,7 +30,7 @@
 
         options = scope.$eval(attrs.showErrors) || {};
         showSuccess = options.showSuccess || false;
-        inputEl = el[0].querySelector('.form-control[name]') || el[0].querySelector('[name]');
+        inputEl = el[0].querySelector('md-input-container[name]') || el[0].querySelector('[name]');
         inputNgEl = angular.element(inputEl);
         inputName = $interpolate(inputNgEl.attr('name') || '')(scope);
 
@@ -79,7 +71,7 @@
             return el.toggleClass('has-success', showValidationMessages && !invalid);
           }
         }
-      }
+      };
     }
   }
 }());

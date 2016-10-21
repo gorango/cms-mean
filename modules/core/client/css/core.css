@@ -2423,18 +2423,29 @@
   padding-left: 0; }
 
 body {
-  background-color: #ECEFF1;
-  font-size: 15px; }
+  background-color: #ECEFF1; }
 
 [ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
-main, .main {
+.md-center {
+  left: 50%;
+  margin-top: 68px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
+
+#main {
   background-color: #ECEFF1;
   margin-bottom: 64px; }
 
+#session #main {
+  margin: 0; }
+
+/*
+ * Mobile view
+ */
 @media screen and (max-width: 40em) {
   header md-toolbar nav {
     border-top: 1px solid rgba(0, 0, 0, 0.12); }
-  main, .main {
+  #main {
     margin-bottom: 54px; } }

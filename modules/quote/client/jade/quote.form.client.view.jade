@@ -213,8 +213,7 @@ form(name='vm.quoteForm' novalidate='')
               minlength='10', 
               maxlength='100', 
               ng-pattern='/^.+@.+\..+$/')
-              div(ng-messages='vm.quoteForm.clientEmail.$error', 
-              role='alert')
+              div(ng-messages='vm.quoteForm.clientEmail.$error', role='alert')
                 div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
                   | Your email must look like an e-mail address.
                 div(ng-message-exp="['required']")
