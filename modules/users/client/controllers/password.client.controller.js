@@ -5,15 +5,14 @@
     .module('users')
     .controller('PasswordController', PasswordController);
 
-  PasswordController.$inject = ['$scope', '$stateParams', 'UsersService', '$location', 'Authentication', 'PasswordValidator', 'Notification'];
+  PasswordController.$inject = ['$scope', '$stateParams', 'UsersService', '$location', 'Authentication', '$mdToast'];
 
-  function PasswordController($scope, $stateParams, UsersService, $location, Authentication, PasswordValidator, Notification) {
+  function PasswordController($scope, $stateParams, UsersService, $location, Authentication, $mdToast) {
     var vm = this;
 
     vm.resetUserPassword = resetUserPassword;
     vm.askForPasswordReset = askForPasswordReset;
     vm.authentication = Authentication;
-    vm.getPopoverMsg = PasswordValidator.getPopoverMsg;
 
     // If user is signed in then redirect back home
     if (vm.authentication.user) {
@@ -53,13 +52,13 @@
     function onRequestPasswordResetSuccess(response) {
       // Show user success message and clear form
       vm.credentials = null;
-      Notification.success({ message: response.message, title: '<i class="glyphicon glyphicon-ok"></i> Password reset email sent successfully!' });
+      _showToast('success', 'Password reset email sent successfully!');
     }
 
     function onRequestPasswordResetError(response) {
       // Show user error message and clear form
       vm.credentials = null;
-      Notification.error({ message: response.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Failed to send password reset email!', delay: 4000 });
+      _showToast('error', 'Failed to send password reset email: ' + response.data.message);
     }
 
     function onResetPasswordSuccess(response) {
@@ -68,13 +67,22 @@
 
       // Attach user profile
       Authentication.user = response;
-      Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Password reset successful!' });
+      _showToast('success', 'Password reset successful!');
       // And redirect to the index page
       $location.path('/password/reset/success');
     }
 
     function onResetPasswordError(response) {
-      Notification.error({ message: response.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Password reset failed!', delay: 4000 });
+      _showToast('error', 'Password reset failed!: ' + response.data.message);
+    }
+
+    function _showToast(type, message) {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent(message)
+          .position('top center')
+          .hideDelay(3000)
+      );
     }
   }
 }());

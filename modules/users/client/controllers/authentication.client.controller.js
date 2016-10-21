@@ -5,20 +5,19 @@
     .module('users')
     .controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification'];
+  AuthenticationController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', '$mdToast'];
 
-  function AuthenticationController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification) {
+  function AuthenticationController($scope, $state, UsersService, $location, $window, Authentication, $mdToast) {
     var vm = this;
 
     vm.authentication = Authentication;
-    vm.getPopoverMsg = PasswordValidator.getPopoverMsg;
     vm.signup = signup;
     vm.signin = signin;
     vm.callOauthProvider = callOauthProvider;
 
     // Get an eventual error defined in the URL query string:
     if ($location.search().err) {
-      Notification.error({ message: $location.search().err });
+      _showToast('error', $location.search().err);
     }
 
     // If user is signed in then redirect back home
@@ -30,7 +29,6 @@
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
         return false;
       }
 
@@ -43,7 +41,6 @@
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
         return false;
       }
 
@@ -67,25 +64,34 @@
     function onUserSignupSuccess(response) {
       // If successful we assign the response to the global user model
       vm.authentication.user = response;
-      Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Signup successful!' });
+      _showToast('success', 'Signup successful!');
       // And redirect to the previous or home page
       $state.go($state.previous.state.name || 'home', $state.previous.params);
     }
 
     function onUserSignupError(response) {
-      Notification.error({ message: response.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Signup Error!', delay: 6000 });
+      _showToast('error', 'Signup Error: ' + response.data.message);
     }
 
     function onUserSigninSuccess(response) {
       // If successful we assign the response to the global user model
       vm.authentication.user = response;
-      Notification.info({ message: 'Welcome ' + response.firstName });
+      _showToast('info', 'Welcome ' + response.firstName);
       // And redirect to the previous or home page
       $state.go($state.previous.state.name || 'home', $state.previous.params);
     }
 
     function onUserSigninError(response) {
-      Notification.error({ message: response.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Signin Error!', delay: 6000 });
+      _showToast('error', 'Signin Error: ' + response.data.message);
+    }
+
+    function _showToast(type, message) {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent(message)
+          .position('top center')
+          .hideDelay(3000)
+      );
     }
   }
 }());

@@ -9,11 +9,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   crypto = require('crypto'),
   validator = require('validator'),
-  generatePassword = require('generate-password'),
-  owasp = require('owasp-password-strength-test');
-
-owasp.config(config.shared.owasp);
-
+  generatePassword = require('generate-password');
 
 /**
  * A Validation function for local strategy properties
@@ -121,21 +117,6 @@ UserSchema.pre('save', function (next) {
 });
 
 /**
- * Hook a pre validate method to test the local password
- */
-UserSchema.pre('validate', function (next) {
-  if (this.provider === 'local' && this.password && this.isModified('password')) {
-    var result = owasp.test(this.password);
-    if (result.errors.length) {
-      var error = result.errors.join(' ');
-      this.invalidate('password', error);
-    }
-  }
-
-  next();
-});
-
-/**
  * Create instance method for hashing a password
  */
 UserSchema.methods.hashPassword = function (password) {
@@ -180,6 +161,7 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 * Returns a promise that resolves with the generated passphrase, or rejects with an error if something goes wrong.
 * NOTE: Passphrases are only tested against the required owasp strength tests, and not the optional tests.
 */
+
 UserSchema.statics.generateRandomPassphrase = function () {
   return new Promise(function (resolve, reject) {
     var password = '';
@@ -200,14 +182,8 @@ UserSchema.statics.generateRandomPassphrase = function () {
       // check if we need to remove any repeating characters
       password = password.replace(repeatingCharacters, '');
     }
-
-    // Send the rejection back if the passphrase fails to pass the strength test
-    if (owasp.test(password).errors.length) {
-      reject(new Error('An unexpected problem occured while generating the random passphrase'));
-    } else {
-      // resolve with the validated passphrase
-      resolve(password);
-    }
+    // resolve with the validated passphrase
+    resolve(password);
   });
 };
 
