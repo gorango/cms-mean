@@ -5,15 +5,17 @@
     .module('checkout')
     .controller('CheckoutController', CheckoutController);
 
-  CheckoutController.$inject = ['$scope', '$http', '$location', 'localStorageService', 'EmailService'];
+  CheckoutController.$inject = ['$timeout', '$state', '$http', '$location', '$analytics', 'localStorageService', 'EmailService'];
 
-  function CheckoutController($scope, $http, $location, localStorage, EmailService) {
+  function CheckoutController($timeout, $state, $http, $location, $analytics, localStorage, EmailService) {
     var vm = this;
     var params = $location.search();
     var payment = localStorage.get('payment');
     vm.quote = localStorage.get('quote');
 
-    $scope.$on('$stateChangeSuccess', function() {
+    _enforceConfirmationPolicy();
+
+    function _processPayment() {
       if (!payment) { return $location.path('/').replace(); }
       var execute = {
         paymentId: params.paymentId,
@@ -34,18 +36,32 @@
             response = JSON.parse(response);
           }
           if (response.state === 'approved') {
-            sendEmail(angular.copy(vm.quote));
+            _sendEmail(angular.copy(vm.quote));
             vm.approved = true;
+            $analytics.eventTrack('Registration confirmed', { category: 'sales', label: angular.copy(vm.quote.total) });
             localStorage.clearAll();
           } else {
             vm.declined = true;
             vm.response = response;
+            $analytics.eventTrack('Registration declined', { category: 'sales', label: response.message });
           }
         });
-    });
+    }
 
-    function sendEmail(quote) {
+    function _sendEmail(quote) {
       EmailService.send('PURCHASE', quote);
+    }
+
+    function _enforceConfirmationPolicy() {
+      if (!Object.keys(params).length) {
+        if (vm.quote) {
+          $state.go('service.quote');
+        } else {
+          $state.go('home');
+        }
+      } else {
+        _processPayment();
+      }
     }
   }
 }());
