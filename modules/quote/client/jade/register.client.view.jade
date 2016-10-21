@@ -3,8 +3,7 @@
     .sm-col.sm-col-8.relative.px2
       form(name='vm.registrationForm' novalidate='')
         .absolute.muted.px2.reset-quote
-          md-button.md-raised.px2(
-          ng-click="vm.reset()") 
+          md-button.md-raised.px2(ng-click="vm.reset()") 
             md-icon.mr1 settings_backup_restore
             | Get a new quote
         md-card
@@ -81,7 +80,7 @@
                 //- br: span.md-caption.black.muted  (You will receive a copy of this agreement with your confirmation)
               md-divider
               md-content.md-block(flex='' layout-padding='', style='max-height: 350px')
-                section(ng-include='"/modules/legal/client/views/legal.agreement.client.view.html"' ng-controller='RegistrationController as vm')
+                section(ng-include='"/modules/legal/client/views/legal.agreement.client.view.html"')
               md-divider
               .p2
                 p By registering, you also agree to the terms outlined in our 
