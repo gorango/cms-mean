@@ -5,22 +5,14 @@
     .module('core')
     .controller('HeaderController', HeaderController);
 
-  HeaderController.$inject = ['$scope', '$state', 'Authentication', 'menuService'];
+  HeaderController.$inject = ['Authentication', 'menuService'];
 
-  function HeaderController($scope, $state, Authentication, menuService) {
+  function HeaderController(Authentication, menuService) {
     var vm = this;
 
-    vm.accountMenu = menuService.getMenu('account').items[0];
     vm.authentication = Authentication;
-    vm.isCollapsed = false;
+    vm.accountMenu = menuService.getMenu('account').items[0];
     vm.menu = menuService.getMenu('topbar');
     vm.year = new Date().getFullYear();
-
-    $scope.$on('$stateChangeSuccess', stateChangeSuccess);
-
-    function stateChangeSuccess() {
-      // Collapsing the menu after navigation
-      vm.isCollapsed = false;
-    }
   }
 }());

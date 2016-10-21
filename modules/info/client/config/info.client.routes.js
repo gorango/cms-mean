@@ -40,18 +40,12 @@
           pageTitle: 'Opportunities'
         }
       })
+      // TODO: get rid of this route or publish it
       .state('info.about', {
         url: '/about',
         templateUrl: '/modules/info/client/views/info.about.client.view.html',
         data: {
           pageTitle: 'About Us'
-        }
-      })
-      .state('info.weather', {
-        url: '/weather',
-        templateUrl: '/modules/info/client/views/info.weather.client.view.html',
-        data: {
-          pageTitle: 'Weather Icons'
         }
       });
   }
