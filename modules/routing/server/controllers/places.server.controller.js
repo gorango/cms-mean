@@ -11,11 +11,11 @@ var path = require('path'),
 /**
  * Create an place
  */
-exports.create = function (req, res) {
+exports.create = function(req, res) {
   var place = new Place(req.body);
   place.user = req.user;
 
-  place.save(function (err) {
+  place.save(function(err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -29,7 +29,7 @@ exports.create = function (req, res) {
 /**
  * Show the current place
  */
-exports.read = function (req, res) {
+exports.read = function(req, res) {
   // convert mongoose document to JSON
   var place = req.place ? req.place.toJSON() : {};
 
@@ -43,13 +43,13 @@ exports.read = function (req, res) {
 /**
  * Update an place
  */
-exports.update = function (req, res) {
+exports.update = function(req, res) {
   var place = req.place;
 
   place.title = req.body.title;
   place.content = req.body.content;
 
-  place.save(function (err) {
+  place.save(function(err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -63,10 +63,10 @@ exports.update = function (req, res) {
 /**
  * Delete an place
  */
-exports.delete = function (req, res) {
+exports.delete = function(req, res) {
   var place = req.place;
 
-  place.remove(function (err) {
+  place.remove(function(err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -80,8 +80,8 @@ exports.delete = function (req, res) {
 /**
  * List of Places
  */
-exports.list = function (req, res) {
-  Place.find().sort('-created').populate('user', 'displayName').exec(function (err, places) {
+exports.list = function(req, res) {
+  Place.find().sort('-created').populate('user', 'displayName').exec(function(err, places) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -95,7 +95,7 @@ exports.list = function (req, res) {
 /**
  * Place middleware
  */
-exports.placeByID = function (req, res, next, id) {
+exports.placeByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
@@ -103,7 +103,7 @@ exports.placeByID = function (req, res, next, id) {
     });
   }
 
-  Place.findById(id).populate('user', 'displayName').exec(function (err, place) {
+  Place.findById(id).populate('user', 'displayName').exec(function(err, place) {
     if (err) {
       return next(err);
     } else if (!place) {
