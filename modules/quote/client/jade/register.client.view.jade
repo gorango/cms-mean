@@ -16,7 +16,7 @@
               md-list-item(layout-gt-sm='row')
                 md-input-container.md-block(flex-gt-sm='')
                   label Your Name
-                  input.md-warn(required='', 
+                  input(required='', 
                   md-autofocus=''
                   name='clientName', 
                   ng-model='vm.quote.clientName')
@@ -25,7 +25,7 @@
                 span(flex='5')
                 md-input-container.md-block(flex-gt-sm='')
                   label Your Email
-                  input.md-warn(required='', 
+                  input(required='', 
                   type='email', 
                   name='clientEmail', 
                   ng-model='vm.quote.clientEmail', 
@@ -41,7 +41,7 @@
                 span(flex='5')
                 md-input-container.md-block(flex-gt-sm='')
                   label Your Phone Number
-                  input.md-warn(
+                  input(
                   type='text', 
                   name='clientPhone', 
                   ng-model='vm.quote.clientPhone')
@@ -73,7 +73,7 @@
               md-list-item.flex.flex-row
                 md-input-container.md-block(flex='')
                   label Service Notes
-                  input.md-warn(
+                  input(
                   name='serviceNotes', 
                   ng-model='vm.quote.serviceNotes')
               md-subheader.heavy.blue.md-no-sticky Service Agreement

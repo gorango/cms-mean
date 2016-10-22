@@ -21,7 +21,9 @@
       })
       .state('info.updates', {
         url: '/updates',
-        templateUrl: '/modules/info/client/views/info.updates.client.view.html',
+        templateUrl: '/modules/updates/client/views/updates.client.view.html',
+        controller: 'UpdatesController',
+        controllerAs: 'vm',
         data: {
           pageTitle: 'Service Updates'
         }
