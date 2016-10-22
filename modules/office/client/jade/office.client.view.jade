@@ -1,10 +1,11 @@
-section#office
+section#office.flex
 
   md-button.md-icon-button.absolute(ng-click='vm.toggleSidenav()',
   style='top: -52px') 
     md-icon.white menu
 
-  ui-view
+  div.width-100.block
+    ui-view.flex.relative.height-100
 
   md-sidenav.md-sidenav-left(md-component-id='sidenav')
     md-list
@@ -18,8 +19,8 @@ section#office
         .md-list-item-text
           h3 Routing
           p Fleet Management
-      md-list-item.md-2-line(ui-sref='office.servicing')
+      md-list-item.md-2-line(ui-sref='office.updates')
         md-icon notifications
         .md-list-item-text
           h3 Updates
-          p Publishing &amp; Notifications
+          p Service Notifications

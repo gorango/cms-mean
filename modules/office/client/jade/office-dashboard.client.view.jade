@@ -1,0 +1,15 @@
+.max-width-1.width-100.mx-auto.my4
+
+  md-card.width-100
+    md-toolbar.md-accent
+      .md-toolbar-tools
+        p.md-subhead Current weather conditions
+    div.px2.py4.cms-weather-window.flex.flex-column.justify-between.items-center
+      p.muted.mt0.large.center {{ vm.currentWeather.daily.data[0].summary }}
+      .flex.mx-auto(style="width: 50%")
+        skycon.skycon(icon="vm.currentWeather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='80')
+        div.flex.flex-row.items-center
+          div.pl2
+            div.flex.flex-column.items-center
+              .md-headline.m0.heavy.blue.mb1 {{ vm.currentWeather.daily.data[0].temperatureMax | number: 0 }}
+              .md-headline.m0.heavy.blue {{ vm.currentWeather.daily.data[0].temperatureMin | number: 0 }}

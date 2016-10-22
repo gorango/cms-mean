@@ -36,12 +36,12 @@
         data: {
           pageTitle: 'Routing'
         }
+      })
+      .state('office.updates', {
+        url: '/updates',
+        templateUrl: '/modules/updates/client/views/admin/manage-updates.client.view.html',
+        controller: 'ManageUpdatesController',
+        controllerAs: 'vm'
       });
-      // .state('office.updates', {
-      //   url: '/updates',
-      //   templateUrl: '/modules/updates/client/views/admin/updates.client.view.html',
-      //   controller: 'UpdatesController',
-      //   controllerAs: 'vm'
-      // });
   }
 }());

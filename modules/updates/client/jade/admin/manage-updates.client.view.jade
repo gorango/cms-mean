@@ -1,0 +1,47 @@
+.flex
+  .max-width-2
+    md-content.height-100
+      
+      md-list
+        md-list-item(
+        ng-click='vm.add()')
+          .md-list-item-text
+            h3 Create new update
+          md-divider
+        md-list-item.md-3-line(
+        ng-click='vm.select(update)'
+        ng-repeat='update in vm.updates | orderBy:"date":true')
+          md-icon(ng-if='update.link') music_video
+          .md-list-item-text.py2
+            h3.md-subhead {{ update.date | date: 'MMM dd, yyyy @ HH:mm' }}
+            p.muted {{ update.weather.daily.data[0].summary }}
+            p(ng-bind-html='update.content')
+          md-divider
+
+  .flex-auto.max-width-2
+    md-content.height-100
+      form.p3(name='vm.updateForm', novalidate='')
+        md-input-container.md-block
+          label Publish Date
+          md-datepicker(
+          name='date',
+          ng-model='vm.update.date', 
+          aria-label='Publish Date'
+          md-placeholder='Publish Date')
+        md-input-container.md-block
+          label Content
+          textarea(name='conent'
+          ng-model='vm.update.content', 
+          rows='2', 
+          md-select-on-focus='')
+        md-input-container.md-block
+          label Weather Summary
+          input(name='weatherSummary', 
+          ng-model='vm.update.weather.daily.data[0].summary')
+        md-input-container.md-block
+          md-button.md-raised(ng-click='vm.create(vm.update)', ng-if='!vm.update._id') Create
+          md-button.md-raised(ng-click='vm.save(vm.update)', ng-if='vm.update._id') Update
+          md-button.md-raised(ng-click='vm.remove(vm.update)', ng-if='vm.update._id') Delete
+
+md-button.md-warn.md-fab.absolute.bottom-0.right-0.m2(ng-click='vm.add()')
+  md-icon add
