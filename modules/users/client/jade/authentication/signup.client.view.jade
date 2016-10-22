@@ -8,7 +8,7 @@
     ng-submit='vm.signup(vm.userForm.$valid)', 
     novalidate='', 
     autocomplete='off')
-      md-input-container.md-block
+      md-input-container.md-block(md-no-float='')
         label(for='firstName') First Name
         input.form-control(type='text', 
         name='firstName', 
@@ -18,7 +18,7 @@
         div(ng-messages='vm.userForm.firstName.$error', 
         role='alert')
           p.help-block.error-text(ng-message='required') First name is required.
-      md-input-container.md-block
+      md-input-container.md-block(md-no-float='')
         label(for='lastName') Last Name
         input.form-control(type='text', 
         name='lastName', 
@@ -28,7 +28,7 @@
         div(ng-messages='vm.userForm.lastName.$error', 
         role='alert')
           p.help-block.error-text(ng-message='required') Last name is required.
-      md-input-container.md-block
+      md-input-container.md-block(md-no-float='')
         label(for='email') Email
         input.form-control(type='email', 
         name='email', 
@@ -39,7 +39,7 @@
         div(ng-messages='vm.userForm.email.$error', role='alert')
           p.help-block.error-text(ng-message='required') Email address is required.
           p.help-block.error-text(ng-message='email') Email address is invalid.
-      md-input-container.md-block
+      md-input-container.md-block(md-no-float='')
         label(for='username') Username
         input.form-control(type='text', 
         name='username', 
@@ -49,7 +49,7 @@
         required='')
         div(ng-messages='vm.userForm.username.$error', role='alert')
           p.help-block.error-text(ng-message='required') Username is required.
-      md-input-container.md-block
+      md-input-container.md-block(md-no-float='')
         label(for='password') Password
         input.form-control(type='password', 
         name='password', 

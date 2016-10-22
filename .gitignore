@@ -22,19 +22,17 @@ app/tests/coverage/
 coverage/
 .coveralls.yml
 
-# MEAN.js app and assets
+# App and assets
 # ======================
 public/dist/
 uploads
 modules/**/client/views
+modules/**/client/**/*.html
 modules/**/client/css
 modules/users/client/img/profile/uploads
 config/env/local.js
 config/env/local-*.js
 *.pem
-
-# Ignoring MEAN.JS's gh-pages branch for documenation
-_site/
 
 # General
 # =======

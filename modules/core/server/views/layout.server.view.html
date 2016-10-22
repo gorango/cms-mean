@@ -38,7 +38,7 @@
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
 </head>
 
-<body class="ng-cloak" {{#if user}}id="session"{{/if}}>
+<body class="ng-cloak"{{#if user}} id="session"{{/if}}>
   <header ng-include="'/modules/core/client/views/partials/header.client.view.html'"></header>
   <section id="main" class="z2 relative clearfix">
     {{{block "content"}}}

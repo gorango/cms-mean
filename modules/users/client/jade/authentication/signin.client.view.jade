@@ -8,7 +8,8 @@
     ng-submit='vm.signin(vm.userForm.$valid)', 
     novalidate='', 
     autocomplete='off')
-      md-input-container.md-block()
+      md-input-container.md-block(md-no-float='')
+        label Username
         input(type='text',
         name='username', 
         ng-model='vm.credentials.username', 
@@ -17,7 +18,8 @@
         required='')
         div(ng-messages='vm.userForm.username.$error', role='alert')
           p(ng-message='required') Username is required.
-      md-input-container.md-block()
+      md-input-container.md-block(md-no-float='')
+        label Password
         input(type='password', 
         name='password', 
         ng-model='vm.credentials.password', 
