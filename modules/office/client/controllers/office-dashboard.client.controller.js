@@ -5,15 +5,15 @@
     .module('office')
     .controller('OfficeDashboardController', OfficeDashboardController);
 
-  OfficeDashboardController.$inject = ['$http'];
+  OfficeDashboardController.$inject = ['$http', 'WeatherService'];
 
-  function OfficeDashboardController($http) {
+  function OfficeDashboardController($http, WeatherService) {
     var vm = this;
 
-    $http.get('/api/current-weather').then(handleWeather);
+    WeatherService.query().$promise.then(handleWeather);
 
     function handleWeather(res) {
-      vm.currentWeather = JSON.parse(res.data);
+      vm.currentWeather = res[0];
     }
   }
 }());

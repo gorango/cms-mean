@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 var UpdateSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now
+    default: new Date
   },
   user: {
     type: Schema.ObjectId,
@@ -32,6 +32,8 @@ var UpdateSchema = new Schema({
     longitude: Number,
     timezone: String,
     daily: {
+      summary: String,
+      icon: String,
       data: [{
         type: Schema.Types.Mixed
       }]

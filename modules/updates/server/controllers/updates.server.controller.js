@@ -42,8 +42,10 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var update = req.update;
 
-  update.title = req.body.title;
+  update.date = req.body.date;
   update.content = req.body.content;
+  update.link = req.body.link;
+  update.weather = req.body.weather;
 
   update.save(function (err) {
     if (err) {
@@ -77,7 +79,7 @@ exports.delete = function (req, res) {
  * List of Updates
  */
 exports.list = function (req, res) {
-  Update.find().sort('-created').populate('user', 'displayName').exec(function (err, updates) {
+  Update.find().sort('-date').populate('user', 'displayName').exec(function (err, updates) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

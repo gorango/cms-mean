@@ -5,16 +5,19 @@
     .module('updates')
     .controller('UpdatesController', UpdatesController);
 
-  UpdatesController.$inject = ['$sce', '$http', 'UpdatesService', 'Authentication'];
+  UpdatesController.$inject = ['$sce', '$http', 'UpdatesService', 'WeatherService', 'Authentication'];
 
-  function UpdatesController($sce, $http, UpdatesService, Authentication) {
+  function UpdatesController($sce, $http, UpdatesService, WeatherService, Authentication) {
     var vm = this;
 
     vm.authentication = Authentication;
 
-    UpdatesService.query().$promise.then(handleUpdates);
+    init();
 
-    $http.get('/api/current-weather').then(handleWeather);
+    function init() {
+      UpdatesService.query().$promise.then(handleUpdates);
+      WeatherService.query().$promise.then(handleWeather);
+    }
 
     function handleUpdates(updates) {
       angular.forEach(updates, function(update) {
@@ -23,11 +26,12 @@
           update.link = $sce.trustAsHtml(update.link);
         }
       });
-      vm.updates = updates.slice(updates.length - 50);
+      vm.updates = updates;
+      // TODO: Add pagination and infinite scroll
     }
 
     function handleWeather(res) {
-      vm.currentWeather = JSON.parse(res.data);
+      vm.currentWeather = res[0];
     }
   }
 }());
