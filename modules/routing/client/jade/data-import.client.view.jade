@@ -1,0 +1,10 @@
+md-progress-circular.md-warn.absolute.center-center(ng-if='vm.progress', md-mode='indeterminate')
+
+.flex.justify-center.align-center.p2(ng-if='!vm.loading')
+  md-button.md-raised(ngf-select="vm.upload($file, $invalidFiles)")
+    | Select a file
+
+md-list
+  md-list-item(ng-repeat='place in vm.places')
+    .md-list-item-text
+      p {{$index}}

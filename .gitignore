@@ -25,9 +25,8 @@ coverage/
 # App and assets
 # ======================
 public/dist/
-uploads
+uploads/*
 modules/**/client/views
-modules/**/client/**/*.html
 modules/**/client/css
 modules/users/client/img/profile/uploads
 config/env/local.js

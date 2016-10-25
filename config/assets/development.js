@@ -25,6 +25,7 @@ module.exports = {
         'public/lib/angular-aria/angular-aria.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-local-storage/dist/angular-local-storage.js',
+        'public/lib/ng-file-upload/ng-file-upload.js',
         'public/lib/lodash/dist/lodash.js',
         'public/lib/skycons/skycons.js',
         'public/lib/angular-simple-logger/dist/angular-simple-logger.js',

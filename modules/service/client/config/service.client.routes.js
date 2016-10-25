@@ -31,7 +31,7 @@
       .state('service.register', {
         url: '/register',
         templateUrl: '/modules/quote/client/views/register.client.view.html',
-        controller: 'RegistrationController',
+        controller: 'RegisterController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Online Registration'

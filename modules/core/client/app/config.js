@@ -14,6 +14,7 @@
       'ngMaterial',
       'ui.router',
       'LocalStorageModule',
+      'ngFileUpload',
       'uiGmapgoogle-maps',
       'angulartics',
       'angulartics.google.analytics'

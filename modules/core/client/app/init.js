@@ -11,10 +11,10 @@
     .config(bootstrapConfig)
     .run(bootstrapRun);
 
-  bootstrapConfig.$inject = ['$compileProvider', '$locationProvider', '$httpProvider', '$logProvider', '$mdIconProvider', '$mdThemingProvider', 'localStorageServiceProvider', 'uiGmapGoogleMapApiProvider'];
+  bootstrapConfig.$inject = ['$provide', '$compileProvider', '$locationProvider', '$httpProvider', '$logProvider', '$mdIconProvider', '$mdThemingProvider', 'localStorageServiceProvider', 'uiGmapGoogleMapApiProvider'];
   bootstrapRun.$inject = ['$rootScope', '$state', '$templateRequest'];
 
-  function bootstrapConfig($compileProvider, $locationProvider, $httpProvider, $logProvider, $mdIconProvider, $mdThemingProvider, localStorageServiceProvider, uiGmapGoogleMapApiProvider) {
+  function bootstrapConfig($provide, $compileProvider, $locationProvider, $httpProvider, $logProvider, $mdIconProvider, $mdThemingProvider, localStorageServiceProvider, uiGmapGoogleMapApiProvider) {
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
@@ -28,12 +28,17 @@
     $logProvider.debugEnabled(app.applicationEnvironment !== 'production');
 
     // Register custom theme
-    $mdThemingProvider.theme('default')
+    $mdThemingProvider
+      .theme('default')
       .primaryPalette('blue')
-      .accentPalette('blue-grey', {
-        'default': '100'
-      })
+      .accentPalette('blue-grey', { 'default': '100' })
       .warnPalette('red');
+
+    $mdThemingProvider
+      .theme('alt')
+      .primaryPalette('blue')
+      .accentPalette('blue-grey', { 'default': '500' })
+      .warnPalette('green');
 
     localStorageServiceProvider.setPrefix('cms');
 
@@ -41,6 +46,22 @@
       key: 'AIzaSyBbv92i2n2EwboM3pYKPlTkJPz9eV4XaSs',
       libraries: ['geometry', 'places']
     });
+
+    // Use md-button for file upload
+    // https://github.com/angular/material/issues/2151#issuecomment-189975649
+    $provide.decorator('mdButtonDirective', ['$delegate',
+      function($delegate) {
+        var getTemplate = $delegate[0].template;
+        $delegate[0].template = function($element, $attrs) {
+          if ($attrs.type === 'file') {
+            return '<label class="md-button" ng-transclude></label>';
+          } else {
+            return getTemplate($element, $attrs);
+          }
+        };
+        return $delegate;
+      }
+    ]);
   }
 
   function bootstrapRun($rootScope, $state, $templateRequest) {
