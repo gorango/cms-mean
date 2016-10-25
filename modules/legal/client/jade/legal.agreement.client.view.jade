@@ -12,12 +12,12 @@ ol
     span.bold(ng-bind='$parent.vm.quote.serviceAddress || "[address]"') 
     |  (the &ldquo;Premises&rdquo;) during the period commencing 
     span.bold(ng-if='!vm.quote.coverage || vm.quote.coverage === "SEASON_FULL"') {{ "15 November " + (vm.serviceYear || vm.dates.serviceYear) }}
-    span.bold(ng-if='$parent.vm.quote.coverage = "SEASON_HOLIDAY" && vm.quote.holidayStartDate', ng-bind='$parent.vm.quote.holidayStartDate | date:"MMMM dd, yyyy"')
-    span.bold(ng-if='$parent.vm.quote.coverage = "SEASON_SINGLE" && vm.quote.singleServiceDate', ng-bind='$parent.vm.quote.singleServiceDate | date:"MMMM dd, yyyy"')
+    span.bold(ng-if='$parent.vm.quote.coverage === "SEASON_HOLIDAY" && vm.quote.holidayStartDate', ng-bind='$parent.vm.quote.holidayStartDate | date:"MMMM dd, yyyy"')
+    span.bold(ng-if='$parent.vm.quote.coverage === "SEASON_SINGLE" && vm.quote.singleServiceDate', ng-bind='$parent.vm.quote.singleServiceDate | date:"MMMM dd, yyyy"')
     |  and ending 
     span.bold(ng-if='!vm.quote.coverage || vm.quote.coverage === "SEASON_FULL"') {{ "15 April " + ((vm.serviceYear || vm.dates.serviceYear) + 1) }}
-    span.bold(ng-if='$parent.vm.quote.coverage = "SEASON_HOLIDAY" && vm.quote.holidayEndDate', ng-bind='$parent.vm.quote.holidayEndDate | date:"MMMM dd, yyyy"')
-    span.bold(ng-if='$parent.vm.quote.coverage = "SEASON_SINGLE" && vm.quote.singleServiceDate', ng-bind='$parent.vm.quote.singleServiceDate | date:"MMMM dd, yyyy"')
+    span.bold(ng-if='$parent.vm.quote.coverage === "SEASON_HOLIDAY" && vm.quote.holidayEndDate', ng-bind='$parent.vm.quote.holidayEndDate | date:"MMMM dd, yyyy"')
+    span.bold(ng-if='$parent.vm.quote.coverage === "SEASON_SINGLE" && vm.quote.singleServiceDate', ng-bind='$parent.vm.quote.singleServiceDate | date:"MMMM dd, yyyy"')
     |  (the &ldquo;Season&rdquo;).
   li  The Owner of the Premises hereby acknowledges that the Owner has physical possession of, has control over and is responsible for the condition of the Premises.
   li
