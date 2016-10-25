@@ -38,7 +38,7 @@
           if (response.state === 'approved') {
             _sendEmail(angular.copy(vm.quote));
             vm.approved = true;
-            $analytics.eventTrack('Registration confirmed', { category: 'sales', label: angular.copy(vm.quote.total) });
+            $analytics.eventTrack('Registration confirmed', { category: 'sales', lavel: angular.copy(vm.quote.clientName), value: angular.copy(vm.quote.total) });
             localStorage.clearAll();
           } else {
             vm.declined = true;
