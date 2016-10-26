@@ -14,6 +14,7 @@ var path = require('path'),
  */
 function getCurrent(cb) {
   var path = `/forecast/${process.env.WEATHER_API}/43.63,-79.67?exclude=currently,hourly,flags,minutely&units=si`;
+  console.log(path);
   var options = {
     host: 'api.darksky.net',
     port: 443,
@@ -55,10 +56,17 @@ exports.latest = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      // Limit calls to darksky to every one hour
-      console.log(weather[0].created);
-      if (weather[0].created.getHours() === new Date().getHours()) {
-        res.json(weather);
+      if (weather.length) {
+        // Limit calls to darksky to every one hour
+        if (weather[0].created.getHours() === new Date().getHours()) {
+          res.json(weather);
+        } else {
+          getCurrent(function(error, newWeather) {
+            if (!error) {
+              res.json([newWeather]);
+            }
+          });
+        }
       } else {
         getCurrent(function(error, newWeather) {
           if (!error) {
