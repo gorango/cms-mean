@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 /**
- * Route Schema
+ * Track Schema
  */
-var RouteSchema = new Schema({
+var TrackSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -18,20 +18,15 @@ var RouteSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  },
   title: {
     type: String,
-    default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Title cannot be blank',
+    index: {
+      unique: true
+    }
   },
-  markers: [{
-    type: Schema.ObjectId,
-    ref: 'Marker'
-  }],
+  places: [Schema.Types.Mixed],
   directions: [{
     segment: Number,
     points: [{
@@ -41,9 +36,9 @@ var RouteSchema = new Schema({
   }]
 });
 
-RouteSchema.pre('save', function(next) {
+TrackSchema.pre('save', function(next) {
   this.updated = new Date();
   next();
 });
 
-mongoose.model('Route', RouteSchema);
+mongoose.model('Track', TrackSchema);

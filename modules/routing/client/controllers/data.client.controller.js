@@ -4,10 +4,12 @@
   angular
     .module('routing')
     .controller('RoutingDataController', RoutingDataController)
-    .controller('DataImportController', DataImportController);
+    .controller('DataImportController', DataImportController)
+    .controller('DataExportController', DataExportController);
 
   RoutingDataController.$inject = ['$http', '$state', 'Upload', 'PlacesService', 'FieldsService'];
-  DataImportController.$inject = ['Upload', 'PlacesService', 'FieldsService'];
+  DataImportController.$inject = ['$state', 'Upload', 'PlacesService', 'FieldsService'];
+  DataExportController.$inject = ['PlacesService'];
 
   function RoutingDataController($http, $state, Upload, PlacesService, FieldsService) {
     var vm = this;
@@ -31,7 +33,9 @@
 
     function upload(file, errFiles) {
       if (file) {
-        vm.progress = { mode: 'indeterminate' };
+        vm.progress = {
+          mode: 'indeterminate'
+        };
         file.upload = Upload.upload({
           url: '/api/files',
           data: {
@@ -39,14 +43,14 @@
           }
         });
 
-        file.upload.then(function (response) {
+        file.upload.then(function(response) {
           vm.progress = undefined;
         });
       }
     }
   }
 
-  function DataImportController(Upload, PlacesService, FieldsService) {
+  function DataImportController($state, Upload, PlacesService, FieldsService) {
     var vm = this;
 
     vm.upload = upload;
@@ -61,10 +65,29 @@
           }
         });
 
-        file.upload.then(function (response) {
+        file.upload.then(function(response) {
           vm.progress = false;
+          console.log(response);
+          $state.go('office.routing.places.list');
         });
       }
+    }
+  }
+
+  function DataExportController(PlacesService) {
+    var vm = this;
+
+    vm.exportMethods = [{
+      label: 'xlsx'
+    }, {
+      label: 'garmin'
+    }, {
+      label: 'geotab'
+    }];
+    vm.exportTo = exportTo;
+
+    function exportTo(method) {
+      console.log(method);
     }
   }
 }());

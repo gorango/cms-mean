@@ -1,0 +1,27 @@
+md-card
+  md-toolbar
+    .md-toolbar-tools
+      | {{ panel.edit ? panel.place.address : panel.address.description }}
+
+  md-content(style='max-height: 80vh').py2.px4
+    form(style='min-width: 400px')
+      div(ng-if='!panel.edit')
+        md-input-container.md-block.width-100(ng-repeat='field in panel.fields | orderBy:"created":false')
+          input(name='{{field.value}}', 
+          ng-model='field.content', 
+          placeholder='{{field.value}}')
+
+        md-input-container.md-block.width-100.center
+          md-button.md-raised.md-primary(type='submit', ng-click='panel.savePlace()') Create
+      
+      div(ng-if='panel.edit')
+        md-input-container.md-block.width-100(ng-repeat='(key, val) in panel.place.fields')
+          input(name='{{key}}', 
+          ng-change='panel.updatePlaceField(key, val)'
+          ng-model='val', 
+          placeholder='{{key}}')
+
+        md-input-container.md-block.width-100.center
+          md-button.md-raised.md-primary(
+          type='submit', 
+          ng-click='panel.updatePlace(panel.place)') Update

@@ -1,0 +1,20 @@
+md-list.mt4
+  md-list-item(
+  ng-if='vm.fields.length'
+  ng-mouseenter='field.hovering = true'
+  ng-mouseleave='field.hovering = false'
+  ng-repeat='field in vm.fields | orderBy:"created":false').px4
+    p(ng-bind='field.value')
+    md-button.md-icon-button(ng-click='vm.removeField(field)')
+      md-icon close
+  md-list-item.px4
+    form(ng-submit='vm.addField()').flex.width-100
+      md-input-container.flex-auto
+        label New Field
+        input(ng-model='vm.newField.value')
+      md-button.md-icon-button.self-start.mt1(
+      type='submit', style='margin-top: 15px')
+        md-icon check
+  
+  
+  //- md-button.md-raised(ng-click='vm.saveFields()') Save

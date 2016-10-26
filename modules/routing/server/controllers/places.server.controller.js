@@ -9,7 +9,7 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
- * Create an place
+ * Create a place
  */
 exports.create = function(req, res) {
   var place = new Place(req.body);
@@ -41,13 +41,15 @@ exports.read = function(req, res) {
 };
 
 /**
- * Update an place
+ * Update a place
  */
 exports.update = function(req, res) {
   var place = req.place;
 
-  place.title = req.body.title;
-  place.content = req.body.content;
+  place.fields = req.body.fields;
+  place.location = req.body.location;
+  place.address = req.body.address;
+  place.routes = req.body.routes;
 
   place.save(function(err) {
     if (err) {
@@ -61,7 +63,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an place
+ * Delete a place
  */
 exports.delete = function(req, res) {
   var place = req.place;

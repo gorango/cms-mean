@@ -9,43 +9,43 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Places Permissions
+ * Invoke Fields Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/geotab',
+      resources: '/api/fields',
       permissions: '*'
     }, {
-      resources: '/api/geotab/*',
+      resources: '/api/fields/:fieldId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/geotab',
+      resources: '/api/fields',
       permissions: '*'
     }, {
-      resources: '/api/geotab/*',
+      resources: '/api/fields/:fieldId',
       permissions: '*'
     }]
   }]);
 };
 
 /**
- * Check If Places Policy Allows
+ * Check If Fields Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an place is being processed and the current user created it then allow any manipulation
-  // if (req.place && req.user && req.place.user && req.place.user.id === req.user.id) {
-  //   return next();
-  // }
+  // If an field is being processed and the current user created it then allow any manipulation
+  if (req.field && req.user && req.field.user && req.field.user.id === req.user.id) {
+    return next();
+  }
 
   // Check for user roles
-  acl.areAnyRolesAllowed(roles, req.url, req.method.toLowerCase(), function (err, isAllowed) {
+  acl.areAnyRolesAllowed(roles, req.route.path, req.method.toLowerCase(), function (err, isAllowed) {
     if (err) {
       // An authorization error occurred
       return res.status(500).send('Unexpected authorization error');

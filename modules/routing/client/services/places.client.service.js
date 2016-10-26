@@ -3,37 +3,37 @@
 
   angular
     .module('routing.services')
-    .factory('RoutingService', RoutingService);
+    .factory('PlacesService', PlacesService);
 
-  RoutingService.$inject = ['$resource', '$log'];
+  PlacesService.$inject = ['$resource', '$log'];
 
-  function RoutingService($resource, $log) {
-    var Route = $resource('/api/routes/:routeId', {
-      routeId: '@_id'
+  function PlacesService($resource, $log) {
+    var Place = $resource('/api/places/:placeId', {
+      placeId: '@_id'
     }, {
       update: {
         method: 'PUT'
       }
     });
 
-    angular.extend(Route.prototype, {
+    angular.extend(Place.prototype, {
       createOrUpdate: function () {
-        var route = this;
-        return createOrUpdate(route);
+        var place = this;
+        return createOrUpdate(place);
       }
     });
 
-    return Route;
+    return Place;
 
-    function createOrUpdate(route) {
-      if (route._id) {
-        return route.$update(onSuccess, onError);
+    function createOrUpdate(place) {
+      if (place._id) {
+        return place.$update(onSuccess, onError);
       } else {
-        return route.$save(onSuccess, onError);
+        return place.$save(onSuccess, onError);
       }
 
       // Handle successful response
-      function onSuccess(route) {
+      function onSuccess(place) {
         // Any required internal processing from inside the service, goes here.
       }
 

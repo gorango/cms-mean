@@ -1,13 +1,35 @@
-section
-  .page-header
-    h1 Routes
-  .list-group
-    a.list-group-item(ng-repeat='route in vm.routes', ui-sref='routes.view({ routeId: route._id })')
-      small.list-group-item-text
-        | Posted on
-        span(ng-bind="route.created | date:'mediumDate'")
-        | by
-        span(ng-if='route.user', ng-bind='route.user.displayName')
-        span(ng-if='!route.user') Deleted User
-      h4.list-group-item-heading(ng-bind='route.title')
-      p.list-group-item-text(ng-bind='route.content')
+md-tabs(
+style='min-height: calc(100vh - (64px + 48px + 1px))',
+md-selected='vm.activeRoute', 
+md-border-bottom='', 
+md-autoselect='')
+  md-tab(ng-repeat='route in vm.routes', md-on-select="vm.onRouteSelected(route)")
+    md-tab-label {{route.title}}
+    md-tab-body
+      //- Route items
+      //- ======================================================
+      md-list
+        md-list-item.md-2-line(
+        ng-repeat='place in vm.routePlaces', 
+        ng-mouseenter='parent.circleEvents.mouseenter(place)'
+        ng-mouseleave='parent.circleEvents.mouseleave(place)'
+        ng-click='null')
+          .md-list-item-text
+            h3 {{ place.address.split(',')[0] }}
+            p {{ place.address.split(',').slice(1).join(',') }}
+          md-button.md-icon-button(ng-click='vm.removeFromRoute(place)')
+            md-icon close
+      //- md-toolbar.md-accent.fixed.relative.bottom-0
+      //-   .md-toolbar-tools
+      //-     md-button.md-raised(ng-click='null') Update
+      //-     .flex-auto
+      //-     md-button.muted(ng-click='vm.removeRoute(route)') Delete
+  md-tab
+    md-tab-label 
+      .black +
+    md-tab-body
+      //- h3(ng-bind='tab.title')
+      form.p2.flex.flex-column(ng-submit='vm.addRoute()')
+        md-input-container
+          input(placeholder='Route Name', ng-model='vm.newTab.title', tyle='text')
+        md-button.md-raised(type='submit') Create

@@ -18,44 +18,30 @@ var PlaceSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  },
   location: {
-    type: [Number],
-    required: true,
+    type: [Number], // [lng, lat]
     index: '2dsphere'
-  }, // [lng, lat]
-  title: {
-    type: String,
-    trim: true,
-    default: ''
   },
+  place_id: String,
   address: {
     type: String,
-    default: ''
-  },
-  fields: [{
-    heading: {
-      type: String,
-      default: ''
-    },
-    content: {
-      type: String,
-      default: ''
+    index: {
+      unique: true
     }
-  }],
-  route: {
+  },
+  fields: {
+    type: Schema.Types.Mixed
+  },
+  routes: [{
     order: {
       type: Number,
       default: -1
     },
-    title: {
-      type: String,
-      default: ''
+    route: {
+      type: Schema.ObjectId,
+      ref: 'Route'
     }
-  }
+  }]
 });
 
 PlaceSchema.pre('save', function(next) {

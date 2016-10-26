@@ -10,14 +10,10 @@ var mongoose = require('mongoose'),
  * Geotab Schema
  */
 var GeotabSchema = new Schema({
-  session: {
-    token: {
-      type: Schema.Types.Mixed
-    },
-    issued: {
-      type: Date,
-      default: Date.now
-    }
+  token: Number,
+  issued: {
+    type: Date,
+    default: Date.now
   }
 });
 

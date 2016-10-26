@@ -65,6 +65,7 @@ exports.update = function (req, res) {
  */
 exports.delete = function (req, res) {
   var route = req.route;
+  console.log(route);
 
   route.remove(function (err) {
     if (err) {
@@ -103,7 +104,7 @@ exports.routeByID = function (req, res, next, id) {
     });
   }
 
-  Route.findById(id).populate('user', 'displayName').exec(function (err, route) {
+  Route.findById(id).exec(function (err, route) {
     if (err) {
       return next(err);
     } else if (!route) {

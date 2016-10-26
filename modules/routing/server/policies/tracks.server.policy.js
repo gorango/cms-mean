@@ -9,47 +9,38 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Routes Permissions
+ * Invoke Tracks Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/routes',
+      resources: '/api/tracks',
       permissions: '*'
     }, {
-      resources: '/api/routes/:routeId',
+      resources: '/api/tracks/:trackId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/routes',
-      permissions: ['get']
+      resources: '/api/tracks',
+      permissions: '*'
     }, {
-      resources: '/api/routes/:routeId',
-      permissions: ['get']
-    }]
-  }, {
-    roles: ['guest'],
-    allows: [{
-      resources: '/api/routes',
-      permissions: ['get']
-    }, {
-      resources: '/api/routes/:routeId',
-      permissions: ['get']
+      resources: '/api/tracks/:trackId',
+      permissions: '*'
     }]
   }]);
 };
 
 /**
- * Check If Routes Policy Allows
+ * Check If Tracks Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an route is being processed and the current user created it then allow any manipulation
-  if (req.route && req.user && req.route.user && req.route.user.id === req.user.id) {
+  // If an track is being processed and the current user created it then allow any manipulation
+  if (req.track && req.user && req.track.user && req.track.user.id === req.user.id) {
     return next();
   }
 

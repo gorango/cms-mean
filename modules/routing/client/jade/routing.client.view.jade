@@ -1,11 +1,50 @@
-section
-  .page-header
-    h1(ng-bind='vm.article.title')
-  small
-    em.text-muted
-      | Posted on
-      span(ng-bind="vm.article.created | date:'mediumDate'")
-      | by
-      span(ng-if='vm.article.user', ng-bind='vm.article.user.displayName')
-      span(ng-if='!vm.article.user') Deleted User
-  p.lead(ng-bind='vm.article.content')
+.flex
+  .flex-70#routing-map.relative
+    md-button.map-button.absolute.z2(
+    style='top: 4px; left: 111px;', 
+    aria-label='toggle service area bounds'
+    ng-click='parent.toggleServiceArea()'
+    ng-class="{ 'bold': parent.polygons.length }")
+      | Service Area
+    ui-gmap-google-map(
+      center='parent.map.center',
+      options='parent.map.options',
+      zoom='parent.map.zoom',
+      pan='false')
+      ui-gmap-polygon(
+      ng-repeat='polyg in parent.polygons track by $index'
+      path='polyg.path', 
+      stroke='polyg.stroke', 
+      fill='polyg.fill', 
+      clickable='false', 
+      draggable='false', 
+      editable='false', 
+      visible='true', 
+      fit='true', 
+      static='true')
+      ui-gmap-polyline(
+      path='parent.polyline.path'
+      stroke='parent.polyline.stroke')
+      ui-gmap-circle(
+      ng-repeat='place in parent.displayPlaces'
+      center='place.location'
+      radius='place.circle.radius'
+      stroke='place.circle.stroke'
+      fill='place.circle.fill',
+      events='parent.placeEvents')
+      ui-gmap-marker(
+      ng-repeat='marker in parent.markers track by $index'
+      idkey='$index', 
+      coords='marker.coords', 
+      click='marker.click', 
+      options='marker.options', 
+      events='marker.events', 
+      control='marker.control')
+
+  .flex-30.relative(style='overflow: hidden')
+    md-content.height-100
+      md-nav-bar(md-selected-nav-item='parent.activeParentRoute', aria-label='routing nav')
+        md-nav-item(md-nav-sref="office.routing.routes", name='routes'): a.md-primary Routes
+        md-nav-item(md-nav-sref="office.routing.places", name='places'): a.md-primary Places
+        md-nav-item(md-nav-sref="office.routing.data", name='data'): a.md-primary Data
+      ui-view
