@@ -30,8 +30,8 @@ module.exports = {
         'public/lib/skycons/skycons.js',
         'public/lib/angular-simple-logger/dist/angular-simple-logger.js',
         'public/lib/angular-google-maps/dist/angular-google-maps.js',
-        'public/lib/angulartics/dist/angulartics.min.js',
-        'public/lib/angulartics-google-analytics/dist/angulartics-ga.min.js'
+        'public/lib/angulartics/src/angulartics.js',
+        'public/lib/angulartics-google-tag-manager/lib/angulartics-google-tag-manager.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
