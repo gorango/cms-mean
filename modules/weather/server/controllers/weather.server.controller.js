@@ -13,7 +13,7 @@ var path = require('path'),
  * Get current weather
  */
 function getCurrent(cb) {
-  var path = '/forecast/2ab6bc66d7ddfc41330dbedf258ce699/43.63,-79.67?exclude=currently,hourly,flags,minutely&units=si';
+  var path = `/forecast/${process.env.WEATHER_API}/43.63,-79.67?exclude=currently,hourly,flags,minutely&units=si`;
   var options = {
     host: 'api.darksky.net',
     port: 443,
