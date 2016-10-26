@@ -37,3 +37,14 @@ h1, h2, h3, h4, h5, h6,
   // Shrink outlet margin
   #main { margin-bottom: 54px }
 }
+
+.center-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.o100 { opacity: 1 }
+.o0 { opacity: 0 }
+
+.transition { transition: all 0.3s ease }

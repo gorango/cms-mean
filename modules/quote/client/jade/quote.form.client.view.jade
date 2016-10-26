@@ -14,6 +14,7 @@ form(name='vm.quoteForm' novalidate='')
             md-subheader.heavy.blue.md-no-sticky.h2 How many cars could park in your driveway?
             md-list-item.md-2-line
               md-radio-group.width-100(
+              md-theme='alt'
               name='driveway'
               ng-model='vm.quote.driveway', 
               ng-change='vm.select(vm.quote.driveway)')
@@ -23,6 +24,7 @@ form(name='vm.quoteForm' novalidate='')
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like your front walkway cleared?
             md-list-item.md-2-line
               md-radio-group.width-100(
+              md-theme='alt'
               name='walkway'
               ng-model='vm.quote.walkway', 
               ng-change='vm.select(vm.quote.walkway)')
@@ -32,6 +34,7 @@ form(name='vm.quoteForm' novalidate='')
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like your city sidewalk cleared?
             md-list-item.md-2-line
               md-radio-group.width-100(
+              md-theme='alt'
               name='sidewalk'
               ng-model='vm.quote.sidewalk', 
               ng-change='vm.sidewalkSwitch(vm.quote.sidewalk)')
@@ -44,6 +47,7 @@ form(name='vm.quoteForm' novalidate='')
                 small (Does the sidewalk go around two sides of your home?)
               md-list-item
                 md-radio-group.width-100(
+                md-theme='alt'
                 name='corner'
                 ng-model='vm.quote.corner', 
                 ng-change='vm.select(vm.quote.corner)')
@@ -62,7 +66,7 @@ form(name='vm.quoteForm' novalidate='')
         md-content.md-padding
           md-list.flex-row
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your driveway?
-            md-list-item(ng-click='vm.saltSwitch("_drivesalt", true)')
+            md-list-item(ng-click='vm.saltSwitch("_drivesalt", true)', md-theme='alt')
               p Include Driveway Salting
               md-switch.md-warn(ng-change='vm.saltSwitch("_drivesalt", false)', ng-model='vm.quote._drivesalt')
             div(ng-show="vm.quote._drivesalt")
@@ -70,6 +74,7 @@ form(name='vm.quoteForm' novalidate='')
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your driveway.
               md-list-item.md-2-line
                 md-radio-group.width-100(
+                md-theme='alt'
                 name='drivesalt'
                 ng-model='vm.quote.drivesalt', 
                 ng-change='vm.select(vm.quote.drivesalt)')
@@ -77,7 +82,7 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_ECO') Eco
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your walkway?
-            md-list-item(ng-click='vm.saltSwitch("_walksalt", true)')
+            md-list-item(ng-click='vm.saltSwitch("_walksalt", true)', md-theme='alt')
               p Include Walkway Salting
               md-switch.md-warn(ng-change='vm.saltSwitch("_walksalt", false)', ng-model='vm.quote._walksalt')
             div(ng-show="vm.quote._walksalt")
@@ -85,14 +90,15 @@ form(name='vm.quoteForm' novalidate='')
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your walkway.
               md-list-item.md-2-line
                 md-radio-group.width-100(
+                md-theme='alt'
                 name='walksalt'
                 ng-model='vm.quote.walksalt', 
                 ng-change='vm.select(vm.quote.walksalt)')
-                  md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_SALT_REGULAR') Regular
-                  md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_SALT_ECO') Eco
+                  md-radio-button.md-warn(md-theme='alt', ng-value='vm.actions.WALKWAY_SALT_REGULAR') Regular
+                  md-radio-button.md-warn(md-theme='alt', ng-value='vm.actions.WALKWAY_SALT_ECO') Eco
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like salt on your sidewalk?
-            md-list-item(ng-click='vm.saltSwitch("_sidesalt", true)')
+            md-list-item(ng-click='vm.saltSwitch("_sidesalt", true)', md-theme='alt')
               p Include Sidewalk Salting
               md-switch.md-warn(ng-change='vm.saltSwitch("_sidesalt", false)', ng-model='vm.quote._sidesalt')
             div(ng-show="vm.quote._sidesalt")
@@ -100,6 +106,7 @@ form(name='vm.quoteForm' novalidate='')
               md-subheader.heavy.blue.md-no-sticky.h2 Choose regular or eco salt for your sidewalk.
               md-list-item.md-2-line
                 md-radio-group.width-100(
+                md-theme='alt'
                 name='sidesalt'
                 ng-model='vm.quote.sidesalt', 
                 ng-change='vm.select(vm.quote.sidesalt)')
@@ -118,7 +125,7 @@ form(name='vm.quoteForm' novalidate='')
           span.md-title Service Details
         md-content.md-padding
           md-list
-            md-list-item.flex(ng-click='vm.confirm("SENIOR")')
+            md-list-item.flex(ng-click='vm.confirm("SENIOR")', md-theme='alt')
               .md-body-2.flex-auto.heavy.blue Are you a senior citizen (or purchasing for a senior)? 
               p 65+
               md-switch.md-warn(ng-model='vm.quote._senior' ng-change='vm.help()')
@@ -140,6 +147,7 @@ form(name='vm.quoteForm' novalidate='')
               md-list-item.md-2-line
                 md-input-container.md-block(flex-gt-sm='')
                   md-radio-group.width-100.flex.justify-around(
+                  md-theme='alt'
                   name='period' 
                   ng-model='vm.quote.period', 
                   ng-change='vm.select(vm.quote.period)', 
@@ -226,7 +234,7 @@ form(name='vm.quoteForm' novalidate='')
               type='text', 
               name='clientPhone', 
               ng-model='vm.quote.clientPhone')
-          div(layout='column')
+          div(layout='column', md-theme='alt')
             md-checkbox.md-warn(
             name='clientFollowup',
             ng-disabled='vm.quote.clientNo',

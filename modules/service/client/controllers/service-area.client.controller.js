@@ -7,11 +7,11 @@
     .controller('PostalDialogController', PostalDialogController)
     .controller('AddressDialogController', AddressDialogController);
 
-  ServiceAreaController.$inject = ['$mdDialog', 'GeoService', 'SERVICE_AREA_MAP_CONFIG', 'SERVICE_AREA_STYLES', 'INNER_SERVICE_AREA_COORDS', 'POSTAL_CODES'];
+  ServiceAreaController.$inject = ['$mdDialog', 'SERVICE_AREA_MAP_CONFIG', 'SERVICE_AREA_STYLES', 'INNER_SERVICE_AREA_COORDS', 'POSTAL_CODES'];
   PostalDialogController.$inject = ['POSTAL_CODES'];
   AddressDialogController.$inject = ['$mdDialog', '$analytics', 'GeoService'];
 
-  function ServiceAreaController($mdDialog, GeoService, SERVICE_AREA_MAP_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS, POSTAL_CODES) {
+  function ServiceAreaController($mdDialog, SERVICE_AREA_MAP_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS, POSTAL_CODES) {
     var vm = this;
     vm.map = SERVICE_AREA_MAP_CONFIG;
     vm.polygons = [_.merge(SERVICE_AREA_STYLES, { path: INNER_SERVICE_AREA_COORDS })];

@@ -15,7 +15,7 @@
         quote.total = 0;
         quote.selection.forEach(function(action, i) {
           quote.total = _setTotal(quote, action);
-          if (i > quote.selection.length - 2) {
+          if (i === quote.selection.length - 1) {
             localStorage.set('quote', quote);
             quote.image = _imageFromQuote(quote);
             defer.resolve(quote);

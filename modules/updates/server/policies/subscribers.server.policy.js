@@ -9,38 +9,47 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Office Permissions
+ * Invoke Subscribers Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/office',
+      resources: '/api/subscribers',
+      permissions: '*'
+    }, {
+      resources: '/api/subscribers/:subscriberId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/office',
-      permissions: ['*']
+      resources: '/api/subscribers',
+      permissions: '*'
+    }, {
+      resources: '/api/subscribers/:subscriberId',
+      permissions: '*'
     }]
   }, {
     roles: ['guest'],
     allows: [{
-      resources: '/api/office',
+      resources: '/api/subscribers',
+      permissions: ['post']
+    }, {
+      resources: '/api/subscribers/:subscriberId',
       permissions: []
     }]
   }]);
 };
 
 /**
- * Check If Office Policy Allows
+ * Check If Subscribers Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an office is being processed and the current user created it then allow any manipulation
-  if (req.office && req.user && req.office.user && req.office.user.id === req.user.id) {
+  // If an subscriber is being processed and the current user created it then allow any manipulation
+  if (req.subscriber && req.user && req.subscriber.user && req.subscriber.user.id === req.user.id) {
     return next();
   }
 

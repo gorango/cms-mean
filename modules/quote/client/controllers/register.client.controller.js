@@ -3,16 +3,16 @@
 
   angular
     .module('quotes')
-    .controller('RegistrationController', RegistrationController);
+    .controller('RegisterController', RegisterController);
 
-  RegistrationController.$inject = ['$state', '$http', '$filter', '$mdDialog', '$analytics', 'localStorageService', 'QuoteFactory', 'PREVIEW_IMAGES', 'ACTIONS', 'PAYPAL_CHECKOUT_DEFAULTS'];
+  RegisterController.$inject = ['$state', '$http', '$filter', '$mdDialog', '$analytics', 'localStorageService', 'QuoteFactory', 'GeoService', 'PREVIEW_IMAGES', 'ACTIONS', 'PAYPAL_CHECKOUT_DEFAULTS'];
 
-  function RegistrationController($state, $http, $filter, $mdDialog, $analytics, localStorage, QuoteFactory, PREVIEW_IMAGES, ACTIONS, PAYPAL_CHECKOUT_DEFAULTS) {
+  function RegisterController($state, $http, $filter, $mdDialog, $analytics, localStorage, QuoteFactory, GeoService, PREVIEW_IMAGES, ACTIONS, PAYPAL_CHECKOUT_DEFAULTS) {
     var vm = this;
     vm.registrationForm = {};
     vm.dates = _configDates();
     vm.quote = localStorage.get('quote');
-    vm.searchAddress = QuoteFactory.searchAddress;
+    vm.searchAddress = GeoService.searchAddress;
     vm.updateBillingAddress = updateBillingAddress;
     vm.reset = reset;
     vm.checkout = checkout;

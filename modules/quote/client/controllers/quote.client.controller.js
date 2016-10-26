@@ -143,17 +143,18 @@
         vm.select();
       } else {
         switch (action) {
-          case '_drivesalt': vm.quote.drivesalt = ACTIONS.DRIVEWAY_SALT_REGULAR; vm.select(); break;
+          case '_drivesalt':
+            vm.quote.drivesalt = ACTIONS.DRIVEWAY_SALT_REGULAR; vm.select(); break;
           case '_walksalt':
-            if (!vm.quote.walkway === ACTIONS.WALKWAY_YES) {
-              vm.confirm(action);
+            if (vm.quote.walkway !== ACTIONS.WALKWAY_YES) {
+              confirm(action);
             } else {
               vm.quote.walksalt = ACTIONS.WALKWAY_SALT_REGULAR;
             }
             break;
           case '_sidesalt':
-            if (!vm.quote.sidewalk === ACTIONS.SIDEWALK_YES) {
-              vm.confirm(action);
+            if (vm.quote.sidewalk !== ACTIONS.SIDEWALK_YES) {
+              confirm(action);
             } else {
               vm.quote.sidesalt = ACTIONS.SIDEWALK_SALT_REGULAR;
             }

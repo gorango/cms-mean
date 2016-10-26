@@ -1,17 +1,19 @@
 .flex
   .max-width-2.width-100.relative(style='overflow: hidden')
     
-    md-toolbar(md-colors='{background: "blue-700"}')
+    md-toolbar(md-colors='{background: "blue-grey-500"}')
       //- .md-toolbar-tools
 
-      md-list.p0
-        md-list-item(ng-click='vm.add()')
-          p Create new update
-        md-divider
-        md-list-item(ng-click='vm.toggleServiceMode()')
-          //- .md-list-item-text.width-100.center
-          p Service Mode
-          md-switch.md-secondary(ng-model='tmp')
+      md-list
+        md-list-item.px1
+          p Post a new service update
+          md-button.md-raised(ng-click='vm.add()') New Post
+        //- md-divider
+        //- md-list-item(ng-click='vm.serviceModeActive = !vm.serviceModeActive')
+        //-   p Service Mode -
+        //-     span.bold(ng-class="{ muted: !vm.serviceModeActive, red: vm.serviceModeActive }")  
+        //-       | {{ vm.serviceModeActive ? 'Active' : 'Inactive' }}
+        //-   md-switch.md-warn(ng-model='vm.serviceModeActive')
 
     md-content.height-100
       section
@@ -64,6 +66,3 @@
             ng-click='vm.remove(vm.update)', 
             ng-if='vm.update._id') 
               md-icon delete
-
-//- md-button.md-warn.md-fab.absolute.bottom-0.right-0.m2(ng-click='vm.add()')
-//-   md-icon add

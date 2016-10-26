@@ -13,7 +13,6 @@
     vm.authentication = Authentication;
     vm.add = add;
     vm.create = create;
-    vm.toggleServiceMode = toggleServiceMode;
     vm.select = select;
     vm.save = save;
     vm.remove = remove;
@@ -35,9 +34,6 @@
     function create(update) {
       var newUpdate = new UpdatesService(update);
       newUpdate.$save().then(_refreshUpdates);
-    }
-
-    function toggleServiceMode() {
     }
 
     function select(update) {
@@ -93,7 +89,6 @@
     }
 
     function _handleWeather(res) {
-      console.log(res);
       vm.currentWeather = res[0];
     }
   }

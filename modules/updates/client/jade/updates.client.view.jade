@@ -21,20 +21,21 @@
           .md-toolbar-tools
             .md-subhead Subscribe to receive live service updates
         div.p2.flex
-          .md-title.self-center.center.muted(ng-if='vm.subscribed') You are now subscribed to receive our service updates
-          form.flex.flex-column.justify-center(ng-if='!vm.subscribed', novalidate='', name='vm.subscribeForm', ng-submit='vm.subscribe()')
+          div(ng-if='vm.subscribed').flex.flex-column.justify-center
+            md-icon.green(style='width: 50px; height: 50px; font-size: 50px') check_circle
+            .md-title.self-center.center.muted You are now subscribed to receive our service updates
+          form.flex.flex-column.justify-center(ng-if='!vm.subscribed', novalidate='', name='vm.subscribeForm', ng-submit='vm.subscribe(vm.subscriber)')
             md-input-container.md-block
               label Your Email
               input(required='', 
-              ng-disabled='true'
               type='email', 
-              name='clientEmail', 
+              name='email', 
               ng-focus='subscribing = true',
-              ng-model='vm.subscriber.clientEmail', 
+              ng-model='vm.subscriber.email', 
               minlength='10', 
               maxlength='100', 
               ng-pattern='/^.+@.+\..+$/')
-              div(ng-messages='vm.subscribeForm.clientEmail.$error', 
+              div(ng-messages='vm.subscribeForm.email.$error', 
               role='alert')
                 div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
                   | Your email must look like an e-mail address.
@@ -43,11 +44,10 @@
             md-input-container.mt0.md-block(ng-show='subscribing')
               label Your Name
               input(required='', 
-              ng-disabled='true'
               type='name', 
-              name='clientName', 
-              ng-model='vm.subscriber.clientName')
-              div(ng-messages='vm.subscribeForm.clientName.$error', role='alert')
+              name='name', 
+              ng-model='vm.subscriber.name')
+              div(ng-messages='vm.subscribeForm.name.$error', role='alert')
                 div(ng-message-exp="['required']")
                   | We need to know how to address you.
             div.center

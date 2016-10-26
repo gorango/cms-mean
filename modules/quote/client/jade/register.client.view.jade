@@ -46,7 +46,7 @@
                   name='clientPhone', 
                   ng-model='vm.quote.clientPhone')
               md-subheader.heavy.blue.md-no-sticky Your Billing Address
-              .px2(ng-init='sameBillingAddress = true')
+              .px2(ng-init='sameBillingAddress = true', md-theme='alt')
                 md-checkbox.md-warn(
                 name='sameBillingAddress',
                 ng-model='sameBillingAddress', 
@@ -86,7 +86,7 @@
                 p By registering, you also agree to the terms outlined in our 
                   | #[a(ui-sref="legal.terms") Terms and Conditions] and
                   |  #[a(ui-sref="legal.privacy") Privacy Policy].
-                md-input-container.md-block(flex='')
+                md-input-container.md-block(flex='', md-theme='alt')
                   md-checkbox.md-warn(
                   required=''
                   name='agreement',
