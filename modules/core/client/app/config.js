@@ -17,7 +17,7 @@
       'ngFileUpload',
       'uiGmapgoogle-maps',
       'angulartics',
-      'angulartics.google.tagmanager'
+      'angulartics.google.analytics'
     ],
     registerModule: registerModule
   };
