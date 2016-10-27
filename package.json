@@ -79,7 +79,8 @@
     "validator": "~6.0.0",
     "winston": "^2.2.0",
     "wiredep": "~4.0.0",
-    "xlsx": "^0.8.0"
+    "xlsx": "^0.8.0",
+    "xml-writer": "^1.6.0"
   },
   "devDependencies": {
     "coveralls": "~2.11.6",

@@ -26,13 +26,9 @@ var TrackSchema = new Schema({
       unique: true
     }
   },
-  places: [Schema.Types.Mixed],
-  directions: [{
-    segment: Number,
-    points: [{
-      lat: Number,
-      lng: Number
-    }]
+  places: [{
+    type: Schema.ObjectId,
+    ref: 'Place'
   }]
 });
 

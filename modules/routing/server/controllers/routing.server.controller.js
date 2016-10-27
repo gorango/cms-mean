@@ -65,7 +65,6 @@ exports.update = function (req, res) {
  */
 exports.delete = function (req, res) {
   var route = req.route;
-  console.log(route);
 
   route.remove(function (err) {
     if (err) {
@@ -82,7 +81,7 @@ exports.delete = function (req, res) {
  * List of Routes
  */
 exports.list = function (req, res) {
-  Route.find().sort('-created').populate('user', 'displayName').exec(function (err, routes) {
+  Route.find().sort('-created').populate('places').exec(function (err, routes) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -104,7 +103,7 @@ exports.routeByID = function (req, res, next, id) {
     });
   }
 
-  Route.findById(id).exec(function (err, route) {
+  Route.findById(id).populate('places').exec(function (err, route) {
     if (err) {
       return next(err);
     } else if (!route) {

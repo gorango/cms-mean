@@ -41,8 +41,8 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
   var track = req.track;
 
-  track.value = req.body.value;
-  track.address = req.body.address;
+  track.title = req.body.title;
+  track.places = req.body.places;
 
   track.save(function(err) {
     if (err) {
@@ -76,7 +76,7 @@ exports.delete = function(req, res) {
  * List of Tracks
  */
 exports.list = function(req, res) {
-  Track.find().sort('-created').exec(function(err, tracks) {
+  Track.find().sort('-created').populate('places').exec(function(err, tracks) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -98,7 +98,7 @@ exports.trackByID = function(req, res, next, id) {
     });
   }
 
-  Track.findById(id).exec(function(err, track) {
+  Track.findById(id).populate('places').exec(function(err, track) {
     if (err) {
       return next(err);
     } else if (!track) {

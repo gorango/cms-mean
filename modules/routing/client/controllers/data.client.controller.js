@@ -9,44 +9,17 @@
 
   RoutingDataController.$inject = ['$http', '$state', 'Upload', 'PlacesService', 'FieldsService'];
   DataImportController.$inject = ['$state', 'Upload', 'PlacesService', 'FieldsService'];
-  DataExportController.$inject = ['PlacesService'];
+  DataExportController.$inject = ['$http', '$window'];
 
   function RoutingDataController($http, $state, Upload, PlacesService, FieldsService) {
     var vm = this;
 
-    vm.upload = upload;
-    vm.create = create;
+    vm.dropPlaces = dropPlaces;
 
-    init();
-
-    function init() {
-      PlacesService.query(ensurePlaces);
-
-      function ensurePlaces(places) {
-        if (!places.length) {
-          console.log('no places..');
-        }
-      }
-    }
-
-    function create() {}
-
-    function upload(file, errFiles) {
-      if (file) {
-        vm.progress = {
-          mode: 'indeterminate'
-        };
-        file.upload = Upload.upload({
-          url: '/api/files',
-          data: {
-            routingFile: file
-          }
-        });
-
-        file.upload.then(function(response) {
-          vm.progress = undefined;
-        });
-      }
+    function dropPlaces() {
+      $http.get('/api/places/drop').then(function() {
+        $state.reload();
+      });
     }
   }
 
@@ -74,7 +47,7 @@
     }
   }
 
-  function DataExportController(PlacesService) {
+  function DataExportController($http, $window) {
     var vm = this;
 
     vm.exportMethods = [{
@@ -87,7 +60,9 @@
     vm.exportTo = exportTo;
 
     function exportTo(method) {
-      console.log(method);
+      $http.get('/api/files?type=' + method.label).then(function(res) {
+        $window.open(res.data.slice(1), '_blank');
+      });
     }
   }
 }());

@@ -1,7 +1,7 @@
 .flex
   .flex-70#routing-map.relative
     md-button.map-button.absolute.z2(
-    style='top: 4px; left: 111px;', 
+    style='top: 4px; right: 4px;', 
     aria-label='toggle service area bounds'
     ng-click='parent.toggleServiceArea()'
     ng-class="{ 'bold': parent.polygons.length }")
@@ -26,7 +26,7 @@
       path='parent.polyline.path'
       stroke='parent.polyline.stroke')
       ui-gmap-circle(
-      ng-repeat='place in parent.displayPlaces'
+      ng-repeat='place in parent.displayPlaces track by place._id'
       center='place.location'
       radius='place.circle.radius'
       stroke='place.circle.stroke'

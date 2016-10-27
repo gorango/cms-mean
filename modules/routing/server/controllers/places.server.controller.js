@@ -8,9 +8,15 @@ var path = require('path'),
   Place = mongoose.model('Place'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
-/**
- * Create a place
- */
+
+exports.drop = function(req, res) {
+  Place.remove({}, function(err) {
+    if (!err) {
+      res.send('ok');
+    }
+  });
+};
+
 exports.create = function(req, res) {
   var place = new Place(req.body);
   place.user = req.user;

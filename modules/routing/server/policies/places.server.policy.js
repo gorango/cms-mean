@@ -20,6 +20,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/places/:placeId',
       permissions: '*'
+    }, {
+      resources: '/api/places/drop',
+      permissions: '*'
     }]
   }, {
     roles: ['user'],
@@ -28,6 +31,9 @@ exports.invokeRolesPolicies = function () {
       permissions: '*'
     }, {
       resources: '/api/places/:placeId',
+      permissions: '*'
+    }, {
+      resources: '/api/places/drop',
       permissions: '*'
     }]
   }, {
