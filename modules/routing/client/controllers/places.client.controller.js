@@ -7,11 +7,11 @@
     .controller('PlacesFieldsController', PlacesFieldsController)
     .controller('PlacesPanelController', PlacesPanelController);
 
-  PlacesController.$inject = ['$mdPanel', 'PlacesService', 'FieldsService', 'GeoService'];
+  PlacesController.$inject = ['$state', '$http', '$mdPanel', 'PlacesService', 'FieldsService', 'GeoService'];
   PlacesFieldsController.$inject = ['FieldsService'];
   PlacesPanelController.$inject = ['$state', 'mdPanelRef', 'PlacesService', 'FieldsService', 'GeoService'];
 
-  function PlacesController($mdPanel, PlacesService, FieldsService, GeoService) {
+  function PlacesController($state, $http, $mdPanel, PlacesService, FieldsService, GeoService) {
     var vm = this;
 
     vm.places = PlacesService.query();

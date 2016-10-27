@@ -27,7 +27,8 @@ module.exports = function (app) {
     .get(places.list)
     .post(places.create);
 
-  app.route('/api/places/drop').all(placesPolicy.isAllowed).get(places.drop)
+  app.route('/api/places/drop').all(placesPolicy.isAllowed)
+    .get(places.drop);
 
   // Single place tracks
   app.route('/api/places/:placeId').all(placesPolicy.isAllowed)

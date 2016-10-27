@@ -8,25 +8,18 @@
     .controller('DataExportController', DataExportController);
 
   RoutingDataController.$inject = ['$http', '$state', 'Upload', 'PlacesService', 'FieldsService'];
-  DataImportController.$inject = ['$state', 'Upload', 'PlacesService', 'FieldsService'];
+  DataImportController.$inject = ['$http', '$state', 'Upload', 'PlacesService', 'FieldsService'];
   DataExportController.$inject = ['$http', '$window'];
 
   function RoutingDataController($http, $state, Upload, PlacesService, FieldsService) {
     var vm = this;
-
-    vm.dropPlaces = dropPlaces;
-
-    function dropPlaces() {
-      $http.get('/api/places/drop').then(function() {
-        $state.reload();
-      });
-    }
   }
 
-  function DataImportController($state, Upload, PlacesService, FieldsService) {
+  function DataImportController($http, $state, Upload, PlacesService, FieldsService) {
     var vm = this;
 
     vm.upload = upload;
+    vm.dropPlaces = dropPlaces;
 
     function upload(file, errFiles) {
       if (file) {
@@ -45,13 +38,19 @@
         });
       }
     }
+
+    function dropPlaces() {
+      $http.get('/api/places/drop').then(function() {
+        $state.reload();
+      });
+    }
   }
 
   function DataExportController($http, $window) {
     var vm = this;
 
     vm.exportMethods = [{
-      label: 'xlsx'
+      label: 'excel'
     }, {
       label: 'garmin'
     }, {

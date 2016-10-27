@@ -57,7 +57,7 @@ exports.importFromFile = function(req, res) {
         } else {
           var fields = sheet[i];
           var newFields = Object.keys(fields).reduce(function(previous, current) {
-            previous[current.toLowerCase().replace(' ', '_')] = fields[current].length ? fields[current] : 'N/A';
+            previous[current] = fields[current];
             return previous;
           }, {});
           fields = newFields || fields;
@@ -65,7 +65,7 @@ exports.importFromFile = function(req, res) {
             var place = new Place({
               fields
             });
-            var address = fields.address;
+            var address = fields[Object.keys(fields).filter(key => key.toLowerCase().indexOf('address') > -1)];
             var url = `http://maps.googleapis.com/maps/api/geocode/json?bounds=43.34,-79.98|43.98,-79.33&address=${address}&sensor=false`;
             request.get(url, function(error, response, body) {
               body = JSON.parse(body);
@@ -85,12 +85,16 @@ exports.importFromFile = function(req, res) {
                 cycle(++i);
               }
             });
-          }, 100);
+          }, 50);
         }
       };
       fn(0);
     }
   });
+};
+
+exports.finishUpload = function(req, res) {
+
 };
 
 /**
@@ -99,8 +103,8 @@ exports.importFromFile = function(req, res) {
 exports.exportFile = function(req, res) {
   var type = req.query.type;
   switch (type) {
-    case 'xlsx':
-      return downloadXLSX(res);
+    case 'excel':
+      return downloadExcel(res);
     case 'garmin':
       return Place.find().exec(function(err, places) {
         return downloadXML(res, places);
@@ -114,7 +118,7 @@ exports.exportFile = function(req, res) {
   }
 };
 
-function downloadXLSX(res) {
+function downloadExcel(res) {
   Track.find().sort('-created').populate('places').exec(function(err, tracks) {
     if (!err) {
       let build = [];

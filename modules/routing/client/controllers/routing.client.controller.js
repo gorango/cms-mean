@@ -170,12 +170,14 @@
     function placeEvents() {
       return {
         click: function(circle, e, model, args) {
-          var place = model.$parent.place;
-          var placeIndex = vm.route.places.indexOf(place);
-          if (placeIndex < 0) {
-            addToRoute(place);
-          } else {
-            removeFromRoute(place);
+          if (vm.route) {
+            var place = model.$parent.place;
+            var placeIndex = vm.route.places.indexOf(place);
+            if (placeIndex < 0) {
+              addToRoute(place);
+            } else {
+              removeFromRoute(place);
+            }
           }
         }
       };
@@ -192,6 +194,7 @@
       $timeout(function() {
         vm.activeParentRoute = _getActiveState(2);
         vm.activeChildRoute = _getActiveState(3);
+        vm.activeTrack = _getActiveState(4);
       });
     }
   }

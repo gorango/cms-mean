@@ -31,17 +31,7 @@ var PlaceSchema = new Schema({
   },
   fields: {
     type: Schema.Types.Mixed
-  },
-  routes: [{
-    order: {
-      type: Number,
-      default: -1
-    },
-    route: {
-      type: Schema.ObjectId,
-      ref: 'Route'
-    }
-  }]
+  }
 });
 
 PlaceSchema.pre('save', function(next) {
