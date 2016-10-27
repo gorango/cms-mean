@@ -1,19 +1,25 @@
 md-tabs(
-style='min-height: calc(100vh - (64px + 48px + 1px))',
+style='min-height: calc(100vh - (64px + 48px + 1px))'
 md-selected='parent.activeRoute', 
 md-border-bottom='', 
 md-autoselect='')
-  md-tab(ng-repeat='route in parent.routes', md-on-select="vm.onRouteSelected(route)")
-    md-tab-label {{route.title}}
+  md-tab(ng-repeat='route in parent.routes track by $index', md-on-select="vm.onRouteSelected(route)")
+    md-tab-label {{ $index + 1 }}
     md-tab-body
       md-toolbar.md-accent
         .md-toolbar-tools
-          md-button.md-raised(ng-click='parent.updateRoute(route)') Update
+          p.caps.thin {{ route.title }}
           .flex-auto
-          md-button.muted(ng-click='parent.removeRoute(route)') Delete
+          md-button.md-raised(ng-click='parent.updateRoute(route)') Save
+          md-button.md-icon-button.muted(ng-click='parent.clearRoute(route)')
+            md-tooltip(md-direction="top") Clear Route
+            md-icon clear_all
+          md-button.md-icon-button.muted(ng-click='parent.removeRoute(route)')
+            md-tooltip(md-direction="top") Delete Route
+            md-icon delete
       //- Route items
       //- ======================================================
-      md-list
+      md-list(style='max-height: calc(100vh - ((64px * 2) + (48px * 2) + 20px)); overflow: auto;')
         md-list-item.md-2-line(
         ng-repeat='place in vm.routePlaces track by $index', 
         ng-mouseenter='parent.circleEvents.mouseenter(place)'

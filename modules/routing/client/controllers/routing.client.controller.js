@@ -26,6 +26,7 @@
     vm.newTab = { title: '' };
     vm.addRoute = addRoute;
     vm.removeRoute = removeRoute;
+    vm.clearRoute = clearRoute;
     vm.removeFromRoute = removeFromRoute;
     vm.updateRoute = updateRoute;
 
@@ -33,7 +34,7 @@
     vm.placeEvents = placeEvents();
 
     $scope.$on('$stateChangeSuccess', init);
-    $scope.$on('routeSelected', drawDirections);
+    $scope.$on('routeSelected', routeSelected);
 
     function init() {
       uiGmapIsReady.promise(1).then(function(instances) {
@@ -46,8 +47,8 @@
         RoutesService.query(function(routes) {
           vm.routes = routes;
           if (routes.length) {
-            vm.route = routes[0];
-            vm.activeRoute = 0;
+            vm.route = routes[routes.length - 1];
+            vm.activeRoute = routes.length - 1;
             $scope.$broadcast('routeLoaded', vm.route);
             drawDirections({}, vm.route);
           }
@@ -56,7 +57,7 @@
     }
 
     function drawDirections(e, route) {
-      if (route) {
+      if (route && route.places) {
         vm.polyline.path = [];
         route.places.forEach(function(place) {
           if (place && place.location) {
@@ -65,6 +66,12 @@
           }
         });
       }
+    }
+
+    function routeSelected(e, route) {
+      console.log(route);
+      vm.route = route;
+      drawDirections({}, route);
     }
 
     function toggleServiceArea() {
@@ -106,6 +113,9 @@
 
     function removeFromRoute(place) {
       var routeIndex = vm.route.places.indexOf(place);
+      console.log(vm.route);
+      console.log(place);
+      console.log(routeIndex);
       vm.route.places.splice(routeIndex, 1);
       $scope.$broadcast('placeClick', vm.route);
       drawDirections({}, vm.route);
@@ -138,9 +148,21 @@
       drawDirections({}, vm.route);
     }
 
+    function clearRoute(route) {
+      route.places = [];
+      vm.route = route;
+      route.$update().then(function() {
+        $scope.$broadcast('routeLoaded', route);
+        drawDirections({}, route);
+      });
+    }
+
     function updateRoute(route) {
-      $scope.$broadcast('updateRoute', route);
-      route.$update().then(function() { $state.reload(); });
+      vm.route = route;
+      route.$update().then(function() {
+        $scope.$broadcast('routeLoaded', route);
+        drawDirections({}, route);
+      });
     }
 
     // Events
