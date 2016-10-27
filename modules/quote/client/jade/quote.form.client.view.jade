@@ -18,8 +18,8 @@ form(name='vm.quoteForm' novalidate='')
               name='driveway'
               ng-model='vm.quote.driveway', 
               ng-change='vm.select(vm.quote.driveway)')
-                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_REGULAR') Fewer than 5
-                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') More than 4
+                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_REGULAR') 4 vehicles or less
+                md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') 5 vehicles or more
             md-divider
             md-subheader.heavy.blue.md-no-sticky.h2 Would you like your front walkway cleared?
             md-list-item.md-2-line

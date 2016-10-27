@@ -5,6 +5,7 @@
     .module('quotes')
     .constant('QUOTE_INITIAL_STATE', {
       selection: [],
+      driveway: 'DRIVEWAY_REGULAR',
       coverage: 'SEASON_FULL',
       clientFollowup: true,
       image: 'R.gif',
