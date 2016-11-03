@@ -12,10 +12,10 @@
     var params = $location.search();
     var payment = localStorage.get('payment');
     vm.quote = localStorage.get('quote');
+    _enforceConfirmationPolicy();
+
     vm.quote.total = $filter('number')(vm.quote.total, 2);
     vm.quote.grandTotal = $filter('number')(vm.quote.total * 1.13, 2);
-
-    _enforceConfirmationPolicy();
 
     function _processPayment() {
       if (!payment) { return $location.path('/').replace(); }
