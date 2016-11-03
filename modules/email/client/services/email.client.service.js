@@ -32,6 +32,7 @@
             break;
           case 'PURCHASE':
             payload.template = 'purchase-confirm-email';
+            payload.bcc = 'sales@clearmysnow.com';
             payload.title = 'Purchase Confirmation';
             break;
         }
