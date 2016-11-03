@@ -14,7 +14,7 @@
             div(ng-if='vm.declined').self-center
               p.md-title Oops!
               p.lead The transaction did not complete successfully.
-              p(ng-if='vm.response.message' ng-bind='vm.response.message')
+              p(ng-if='vm.response.data.message' ng-bind='vm.response.data.message')
           div(ng-if='vm.approved')
             p.lead.center: strong Thank you for your business! #[br]We look forward to servicing you this winter season.
           div(ng-if='vm.declined')

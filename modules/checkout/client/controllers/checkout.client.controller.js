@@ -5,13 +5,15 @@
     .module('checkout')
     .controller('CheckoutController', CheckoutController);
 
-  CheckoutController.$inject = ['$timeout', '$state', '$http', '$location', '$analytics', 'localStorageService', 'EmailService'];
+  CheckoutController.$inject = ['$timeout', '$state', '$http', '$location', '$filter', '$analytics', 'localStorageService', 'EmailService'];
 
-  function CheckoutController($timeout, $state, $http, $location, $analytics, localStorage, EmailService) {
+  function CheckoutController($timeout, $state, $http, $location, $filter, $analytics, localStorage, EmailService) {
     var vm = this;
     var params = $location.search();
     var payment = localStorage.get('payment');
     vm.quote = localStorage.get('quote');
+    vm.quote.total = $filter('number')(vm.quote.total, 2);
+    vm.quote.grandTotal = $filter('number')(vm.quote.total * 1.13, 2);
 
     _enforceConfirmationPolicy();
 
@@ -35,15 +37,15 @@
           if (typeof(response) === 'string') {
             response = JSON.parse(response);
           }
-          if (response.state === 'approved') {
+          if (response.data.state === 'approved') {
             _sendEmail(angular.copy(vm.quote));
             vm.approved = true;
-            $analytics.eventTrack('Registration confirmed', { category: 'sales', lavel: angular.copy(vm.quote.clientName), value: angular.copy(vm.quote.total) });
+            $analytics.eventTrack('Registration confirmed', { category: 'purchase', label: angular.copy(vm.quote.clientName), value: angular.copy(vm.quote.total) });
             localStorage.clearAll();
           } else {
             vm.declined = true;
             vm.response = response;
-            $analytics.eventTrack('Registration declined', { category: 'sales', label: response.message });
+            $analytics.eventTrack('Registration declined', { category: 'purchase', label: angular.copy(vm.quote.clientName), value: response.data.message });
           }
         });
     }
