@@ -132,7 +132,6 @@ function downloadExcel(res) {
               }
             }
             return fields;
-            // return Object.keys(place.fields).map(field => place.fields[field]);
           });
           places.splice(0, 0, Object.keys(track.places[0].fields));
           build.push({
