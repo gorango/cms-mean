@@ -121,23 +121,29 @@ exports.exportFile = function(req, res) {
 function downloadExcel(res) {
   Track.find().sort('-created').populate('places').exec(function(err, tracks) {
     if (!err) {
-      let build = [];
+      let build = [{ name: 'all', data: [] }];
       tracks.forEach(track => {
         if (track.places.length) {
-          let places = track.places.map(place => {
+          let places = track.places.map((place, i) => {
             var fields = [];
             for (var key in place.fields) {
               if (place.fields[key]) {
                 fields.push(place.fields[key]);
               }
             }
+            fields.push(track.title);
+            fields.push(i + 1);
             return fields;
           });
-          places.splice(0, 0, Object.keys(track.places[0].fields));
+          places.splice(0, 0, Object.keys(track.places[0].fields).concat(['route', 'order']));
           build.push({
             name: track.title,
-            data: places
+            data: _.clone(places)
           });
+          if (build[0].data.length) {
+            places.splice(0, 1);
+          }
+          build[0].data = build[0].data.concat(places);
         }
       });
       var buffer = xlsx.build(build);
@@ -146,7 +152,7 @@ function downloadExcel(res) {
       wstream.write(buffer);
       wstream.end();
       wstream.on('finish', function() {
-        console.log('file has been written');
+        console.log(JSON.stringify(build, null, '\t'));
         res.send(path);
       });
     }
@@ -197,7 +203,6 @@ function downloadXML(res, points) {
 
   var path = `./modules/routing/client/uploads/${new Date().getFullYear().toString().slice(2)}${(new Date().getMonth() + 1)}${new Date().getDate()}locations.xml`;
   fs.writeFile(path, xw.toString(), function(err, result) {
-    console.log('saved');
     res.send(path);
   });
 }
