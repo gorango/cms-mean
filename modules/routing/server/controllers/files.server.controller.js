@@ -123,21 +123,22 @@ function downloadExcel(res) {
     if (!err) {
       let build = [];
       tracks.forEach(track => {
-        let places = track.places.map(place => {
-          var fields = [];
-          for (var key in place.fields) {
-            if (place.fields[key]) {
-              fields.push(place.fields[key]);
+        if (track.places.length) {
+          let places = track.places.map(place => {
+            var fields = [];
+            for (var key in place.fields) {
+              if (place.fields[key]) {
+                fields.push(place.fields[key]);
+              }
             }
-          }
-          return fields;
-          // return Object.keys(place.fields).map(field => place.fields[field]);
-        });
-        places.splice(0, 0, Object.keys(track.places[0].fields));
-        build.push({
-          name: track.title,
-          data: places
-        });
+            return fields;
+          });
+          places.splice(0, 0, Object.keys(track.places[0].fields));
+          build.push({
+            name: track.title,
+            data: places
+          });
+        }
       });
       var buffer = xlsx.build(build);
       var path = `./modules/routing/client/uploads/${new Date().getFullYear().toString().slice(2)}${(new Date().getMonth() + 1)}${new Date().getDate()}routes.xlsx`;

@@ -4,8 +4,8 @@ module.exports = {
   app: {
     title: 'ClearMySnow',
     domain: 'https://staging.clearmysnow.com',
-    description: 'Residential Snow Clearing',
-    keywords: 'snow removal, snow clearing, residential snow removal, residential snow clearing',
+    description: 'Residential Snow Clearing in Etobicoke, Mississauga, Oakville, and Brampton. Driveway Plowing, Walkway Snow Clearing, Eco-Friendly Ice Control.',
+    keywords: 'snow removal, snow clearing, residential snow removal, residential snow clearing, snow removal etobicoke, snow removal mississauga, snow removal toronto, snow removal oakville, snow removal brampton',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID
   },
   db: {
