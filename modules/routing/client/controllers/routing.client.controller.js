@@ -71,7 +71,6 @@
     }
 
     function routeSelected(e, route) {
-      console.log(route);
       vm.route = route;
       drawDirections({}, route);
     }
@@ -115,9 +114,6 @@
 
     function removeFromRoute(place) {
       var routeIndex = vm.route.places.indexOf(place);
-      console.log(vm.route);
-      console.log(place);
-      console.log(routeIndex);
       vm.route.places.splice(routeIndex, 1);
       $scope.$broadcast('placeClick', vm.route);
       drawDirections({}, vm.route);
@@ -133,18 +129,16 @@
 
     function reorderInRoutePrompt(place) {
       var confirm = $mdDialog.prompt()
-        .title('Enter the new position')
-        .textContent('Enter the desired order for this location')
+        .title('Enter a new position')
         .placeholder('Order number')
         .ariaLabel('Order number')
         .initialValue('')
-        // .targetEvent(ev)
         .ok('Confirm')
         .cancel('Cancel');
 
       $mdDialog.show(confirm).then(function(result) {
         var routeIndex = vm.route.places.indexOf(place);
-        var newIndex = parseInt(result) - 1;
+        var newIndex = Number(result) - 1;
         vm.route.places.splice(routeIndex, 1);
         vm.route.places.splice(newIndex, 0, place);
         $scope.$broadcast('placeClick', vm.route);
