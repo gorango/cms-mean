@@ -5,9 +5,9 @@
     .module('routing')
     .controller('RoutingController', RoutingController);
 
-  RoutingController.$inject = ['$scope', '$state', '$timeout', 'uiGmapIsReady', '$mdToast', 'RoutesService', 'PlacesService', 'GeoService', 'FieldsService', 'ROUTING_MAP_CONFIG', 'CIRCLES_CONFIG', 'SERVICE_AREA_STYLES', 'INNER_SERVICE_AREA_COORDS'];
+  RoutingController.$inject = ['$scope', '$state', '$timeout', 'uiGmapIsReady', '$mdToast', '$mdDialog', 'RoutesService', 'PlacesService', 'GeoService', 'FieldsService', 'ROUTING_MAP_CONFIG', 'CIRCLES_CONFIG', 'SERVICE_AREA_STYLES', 'INNER_SERVICE_AREA_COORDS'];
 
-  function RoutingController($scope, $state, $timeout, uiGmapIsReady, $mdToast, RoutesService, PlacesService, GeoService, FieldsService, ROUTING_MAP_CONFIG, CIRCLES_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS) {
+  function RoutingController($scope, $state, $timeout, uiGmapIsReady, $mdToast, $mdDialog, RoutesService, PlacesService, GeoService, FieldsService, ROUTING_MAP_CONFIG, CIRCLES_CONFIG, SERVICE_AREA_STYLES, INNER_SERVICE_AREA_COORDS) {
     var vm = this;
 
     vm.polygons = [];
@@ -27,6 +27,8 @@
     vm.addRoute = addRoute;
     vm.removeRoute = removeRoute;
     vm.clearRoute = clearRoute;
+    vm.reorderInRoute = reorderInRoute;
+    vm.reorderInRoutePrompt = reorderInRoutePrompt;
     vm.removeFromRoute = removeFromRoute;
     vm.updateRoute = updateRoute;
 
@@ -119,6 +121,35 @@
       vm.route.places.splice(routeIndex, 1);
       $scope.$broadcast('placeClick', vm.route);
       drawDirections({}, vm.route);
+    }
+
+    function reorderInRoute(place, index) {
+      var routeIndex = vm.route.places.indexOf(place);
+      vm.route.places.splice(routeIndex, 1);
+      vm.route.places.splice(index, 0, place);
+      $scope.$broadcast('placeClick', vm.route);
+      drawDirections({}, vm.route);
+    }
+
+    function reorderInRoutePrompt(place) {
+      var confirm = $mdDialog.prompt()
+        .title('Enter the new position')
+        .textContent('Enter the desired order for this location')
+        .placeholder('Order number')
+        .ariaLabel('Order number')
+        .initialValue('')
+        // .targetEvent(ev)
+        .ok('Confirm')
+        .cancel('Cancel');
+
+      $mdDialog.show(confirm).then(function(result) {
+        var routeIndex = vm.route.places.indexOf(place);
+        var newIndex = parseInt(result) - 1;
+        vm.route.places.splice(routeIndex, 1);
+        vm.route.places.splice(newIndex, 0, place);
+        $scope.$broadcast('placeClick', vm.route);
+        drawDirections({}, vm.route);
+      });
     }
 
     function addRoute() {

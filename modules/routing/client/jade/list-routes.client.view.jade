@@ -4,8 +4,10 @@ md-selected='parent.activeRoute',
 md-border-bottom='', 
 md-autoselect='')
   md-tab(ng-repeat='route in parent.routes track by $index', md-on-select="vm.onRouteSelected(route)")
-    md-tab-label {{ $index + 1 }}
+    md-tab-label {{ route.title }}
     md-tab-body
+      //- Toolbar
+      //- ======================================================
       md-toolbar.md-accent
         .md-toolbar-tools
           p.caps.thin {{ route.title }}
@@ -23,12 +25,26 @@ md-autoselect='')
         md-list-item.md-2-line(
         ng-repeat='place in vm.routePlaces track by $index', 
         ng-mouseenter='parent.circleEvents.mouseenter(place)'
-        ng-mouseleave='parent.circleEvents.mouseleave(place)'
-        ng-click='null')
+        ng-mouseleave='parent.circleEvents.mouseleave(place)',
+        ng-click='parent.reorderInRoutePrompt(place)')
+          .center(style='min-width: 60px')
+            p.lead {{ $index + 1 }}
           .md-list-item-text
             h3 {{ place.address.split(',')[0] }}
-            p {{ place.address.split(',').slice(1).join(',') }}
-          md-button.md-icon-button(ng-click='parent.removeFromRoute(place)')
+            p.nowrap {{ place.address.split(',').slice(1, 3).join(',') }}
+          md-button.md-primary.md-icon-button(
+          ng-disabled='vm.routePlaces.length - 1 === $index',
+          ng-click='parent.reorderInRoute(place, $index + 1)', 
+          style='margin: 0')
+            md-icon arrow_drop_down
+          md-button.md-primary.md-icon-button(
+          ng-disabled='$index === 0',
+          ng-click='parent.reorderInRoute(place, $index - 1)', 
+          style='margin: 0')
+            md-icon arrow_drop_up
+          md-button.muted.md-icon-button(
+          ng-click='parent.removeFromRoute(place)', 
+          style='margin: 0')
             md-icon close
   md-tab
     md-tab-label 
