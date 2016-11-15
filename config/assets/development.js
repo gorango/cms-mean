@@ -31,7 +31,7 @@ module.exports = {
         'public/lib/angular-simple-logger/dist/angular-simple-logger.js',
         'public/lib/angular-google-maps/dist/angular-google-maps.js',
         'public/lib/angulartics/src/angulartics.js',
-        'public/lib/angulartics-google-analytics/dist/angulartics-ga.min.js'
+        'public/lib/angulartics-google-analytics/lib/angulartics-ga.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

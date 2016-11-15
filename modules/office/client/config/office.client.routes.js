@@ -14,7 +14,7 @@
         templateUrl: '/modules/office/client/views/office.client.view.html',
         controller: 'OfficeController',
         controllerAs: 'vm',
-        redirectTo: 'office.dashboard',
+        redirectTo: 'office.routing',
         data: {
           roles: ['user']
         }

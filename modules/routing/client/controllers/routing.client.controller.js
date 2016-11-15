@@ -11,7 +11,8 @@
     var vm = this;
 
     vm.polygons = [];
-    vm.polyline = { path: [], stroke: CIRCLES_CONFIG.green.stroke };
+    vm.polyline = { path: [] };
+    vm.polylines = [];
     vm.markers = [];
     vm.map = ROUTING_MAP_CONFIG;
 
@@ -58,16 +59,21 @@
       });
     }
 
-    function drawDirections(e, route) {
-      if (route && route.places) {
-        vm.polyline.path = [];
-        route.places.forEach(function(place) {
-          if (place && place.location) {
-            var center = new google.maps.LatLng(place.location[1], place.location[0]);
-            vm.polyline.path = vm.polyline.path.concat(center);
-          }
+    function drawDirections(e, r) {
+      vm.polylines = [];
+      vm.routes.$promise.then(function(routes) {
+        routes.forEach(function(route) {
+          var polyline = { path: [], stroke: CIRCLES_CONFIG.blue.stroke };
+          if (route._id === r._id) { polyline.stroke = CIRCLES_CONFIG.green.stroke; }
+          route.places.forEach(function(place) {
+            if (place && place.location) {
+              var center = new google.maps.LatLng(place.location[1], place.location[0]);
+              polyline.path = polyline.path.concat(center);
+            }
+          });
+          vm.polylines.push(polyline);
         });
-      }
+      });
     }
 
     function routeSelected(e, route) {

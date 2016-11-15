@@ -23,8 +23,9 @@
       fit='true', 
       static='true')
       ui-gmap-polyline(
-      path='parent.polyline.path'
-      stroke='parent.polyline.stroke')
+      ng-repeat='polyline in parent.polylines track by $index'
+      path='polyline.path'
+      stroke='polyline.stroke')
       ui-gmap-circle(
       ng-repeat='place in parent.displayPlaces track by place._id'
       center='place.location'
