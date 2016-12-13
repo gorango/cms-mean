@@ -5,9 +5,9 @@
     .module('updates')
     .controller('ManageUpdatesController', ManageUpdatesController);
 
-  ManageUpdatesController.$inject = ['$sce', '$mdDialog', 'UpdatesService', 'WeatherService', 'Authentication'];
+  ManageUpdatesController.$inject = ['$sce', '$mdDialog', 'UpdatesService', 'WeatherService', 'SubscribersService', 'EmailService', 'Authentication'];
 
-  function ManageUpdatesController($sce, $mdDialog, UpdatesService, WeatherService, Authentication) {
+  function ManageUpdatesController($sce, $mdDialog, UpdatesService, WeatherService, SubscribersService, EmailService, Authentication) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -33,6 +33,13 @@
 
     function create(update) {
       var newUpdate = new UpdatesService(update);
+      if (vm.notifySubscribers) {
+        SubscribersService.query().$promise.then(function(subscribers) {
+          subscribers.forEach(function(sub) {
+            EmailService.update(sub.email, update);
+          });
+        });
+      }
       newUpdate.$save().then(_refreshUpdates);
     }
 
@@ -76,6 +83,7 @@
     }
 
     function _refreshUpdates() {
+      vm.update = {};
       UpdatesService
       .query(_handleUpdates).$promise
       .then(select);

@@ -14,7 +14,7 @@ var smtpTransport = nodemailer.createTransport(config.mailer.options);
 exports.send = function (req, res, next) {
   var payload = req.body.payload;
 
-  if (!payload.quote || !payload.template) { return res.send(400); }
+  if ((!payload.quote && !payload.update) && !payload.template) { return res.send(400); }
 
   async.waterfall([
     function (done) {
@@ -25,6 +25,7 @@ exports.send = function (req, res, next) {
       var baseUrl = req.app.get('domain') || httpTransport + req.headers.host;
       res.render(path.resolve('modules/email/server/templates/' + payload.template), {
         quote: payload.quote,
+        update: payload.update,
         appName: config.app.title
       }, function (err, emailHTML) {
         done(err, emailHTML);

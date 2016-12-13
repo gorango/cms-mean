@@ -38,11 +38,25 @@
         }
         $http.post('/api/email', { payload: payload })
           .then(_handleEmailResponse, _handleEmailError);
+      },
+      update: function(recipient, update) {
+        var payload = {
+          update: update,
+          bcc: '',
+          template: 'service-update-email',
+          recipient: recipient,
+          title: 'ClearMySnow Service Update'
+        };
+
+        console.log(payload);
+
+        $http.post('/api/email', { payload: payload })
+          .then(_handleEmailResponse, _handleEmailError);
       }
     };
 
-    function _handleEmailResponse(res) { }
+    function _handleEmailResponse(res) { console.log('success'); }
 
-    function _handleEmailError(err) { }
+    function _handleEmailError(err) { console.log(err); }
   }
 }());

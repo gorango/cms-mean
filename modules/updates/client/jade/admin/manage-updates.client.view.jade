@@ -2,7 +2,6 @@
   .max-width-2.width-100.relative(style='overflow: hidden')
     
     md-toolbar(md-colors='{background: "blue-grey-500"}')
-      //- .md-toolbar-tools
 
       md-list
         md-list-item.px1
@@ -56,7 +55,7 @@
             md-button.md-raised(
             ng-click='vm.create(vm.update)', 
             ng-if='!vm.update._id') 
-              | Create
+              | Post
             md-button.md-raised(
             ng-click='vm.save(vm.update)', 
             ng-if='vm.update._id') 
@@ -66,3 +65,8 @@
             ng-click='vm.remove(vm.update)', 
             ng-if='vm.update._id') 
               md-icon delete
+            md-checkbox.md-primary.m0(
+            ng-if="!vm.update._id",
+            ng-model='vm.notifySubscribers',
+            aria-label='Notify Subscribers')
+              | Notify Subscribers
