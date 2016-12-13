@@ -4,7 +4,7 @@
   
 div.bg-center.bg-cover.border-top.border-bottom.border-silver(style='background-image: url(https://s3-us-west-2.amazonaws.com/clearmysnow/front/photos/cms-11.jpg); height: 50vh; opacity: 0.85')
 
-.max-width-3.mx-auto.px2.my4
+.max-width-4.mx-auto.px2.my4
   
   div.flex-wrap(layout-gt-sm='')
     .flex.p1.min-width-50
@@ -41,7 +41,37 @@ div.bg-center.bg-cover.border-top.border-bottom.border-silver(style='background-
       md-card.py2.px3.mb2
         h2.mb1.md-headline.center Professional Crews
         p.lead To ensure smooth season overall, we meticulously plan and organize our winter routes. All of our drivers complete several runs before a single snowflake even hits the ground in order to make necessary optimizations and improvements.
-        
+
+.max-width-5.mx-auto.my4
+
+  h3.md-display-1.center Learn More
+
+  div(layout-gt-sm='')
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Process
+        .p2
+          p Learn how we handle a snow storm, including our process with routing, weather watch, fleet dispatch, communication and followup.
+          md-button.right.md-raised(ui-sref='service.benefits') View Process
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Frequently Asked Questions
+        .p2
+          p Read through some of the most frequently asked questions relating to our service, collection of information, and payment security.
+          md-button.right.md-raised(ui-sref='info.faq') Read More
+    .flex.sm-col-4.p1
+      md-card
+        md-toolbar.md-accent
+          .md-toolbar-tools
+            h2 Updates
+        .p2
+          p Browse through our updates section to see what we've been up to and view the latest announcements. You can also check the weather!
+          md-button.right.md-raised(ui-sref='info.updates') View Updates
+
 section.z1.bg-blue.border-top.border-bottom.border-navy
   .center.py3(md-colors="{background: 'blue-800'}")
     md-button.md-raised.md-primary.px3.py2.larger(ui-sref='service.quote' md-no-ink='') Get a Quote
