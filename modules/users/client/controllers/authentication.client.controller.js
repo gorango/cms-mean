@@ -76,9 +76,9 @@
     function onUserSigninSuccess(response) {
       // If successful we assign the response to the global user model
       vm.authentication.user = response;
-      _showToast('info', 'Welcome ' + response.firstName);
+      // _showToast('info', 'Welcome ' + response.firstName);
       // And redirect to the previous or home page
-      $state.go($state.previous.state.name || 'home', $state.previous.params);
+      $state.go($state.previous.state.name || 'office', $state.previous.params);
     }
 
     function onUserSigninError(response) {
