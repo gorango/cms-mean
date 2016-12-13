@@ -2,7 +2,7 @@
   div(layout-gt-sm='row').mb3
     div.flex.min-width-50
       md-card.width-100
-        md-toolbar.md-accent
+        md-toolbar.md-primary
           .md-toolbar-tools
             p.md-subhead Current weather conditions
         div.p2.cms-weather-window.flex.flex-column.justify-between.items-center
@@ -57,31 +57,36 @@
   div(ng-if="!vm.updates").p4.center
     p.muted Loading...
 
-  md-card.mb3(ng-repeat='update in vm.updates | orderBy:"date":true')
-    md-toolbar.md-accent
-      .md-toolbar-tools
-        p.md-subhead {{ update.date | date: 'MMM dd, yyyy @ HH:mm' }}
-    .px2.row
-      div.sm-col.sm-col-6.md-col-8.pr2.pt1(ng-class='{"md-col-12": (!update.weather || !update.weather.daily.data[0].icon), "sm-col-12": (!update.weather || !update.weather.daily.data[0].icon)}')
-        p(ng-bind-html='update.content')
-        .update-media(ng-if='update.link' ng-bind-html='update.link')
-      //- Weather
-      div.sm-col.sm-col-6.md-col-4.py2.pl2.cms-weather-window(ng-if='update.weather && update.weather.daily.data[0].icon')
-        .row
-          p.mt0 {{ update.weather.daily.data[0].summary }}
-        .row.clearfix
-          .col.col-5
-            .flex
-              skycon.skycon(icon="update.weather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='50')
-              div.flex.flex-row.items-center
-                div.pl2
-                  div.flex.flex-column.items-center
-                    p.m0.heavy.blue.mb1 {{ update.weather.daily.data[0].temperatureMax | number: 0 }}
-                    p.m0.heavy.blue {{ update.weather.daily.data[0].temperatureMin | number: 0 }}
-          .col.col-7
-            .flex.relative.items-center(ng-if='update.weather.daily.data[0].precipAccumulation')
-              svg.fit.relative(
-              style='height: 48px; fill: rgb(33,150,243); top: 4px;', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewbox='-137 81.6 50 62.5', xml:space='preserve')
-                path(d='M-105.4,130.8c0.9,0,1.6-0.7,1.6-1.6V84c0-0.9-0.7-1.6-1.6-1.6h-14c-0.9,0-1.6,0.7-1.6,1.6v45.2c0,0.9,0.7,1.6,1.6,1.6  H-105.4z M-106.9,85.6v42h-10.8v-3.1h2.6c0.9,0,1.6-0.7,1.6-1.6c0-0.9-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6  s-0.7-1.6-1.6-1.6h-3.6v-3.2h2.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6  h-3.6v-3.2h2.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6c0-0.9-0.7-1.6-1.6-1.6h-3.6v-4.2  H-106.9z')
-              p.m0.heavy.blue {{ update.weather.daily.data[0].precipAccumulation | number: 1 }} cm
-    
+  div(infinite-scroll="vm.loadMoreUpdates()", 
+  infinite-scroll-disabled="vm.scrollUpdates.disabled"
+  infinite-scroll-distance="vm.scrollUpdates.distance")
+    md-card.mb3(ng-repeat='update in vm.updates | orderBy:"date":true | limitTo: vm.scrollUpdates.limit')
+      md-toolbar.md-accent
+        .md-toolbar-tools
+          p.md-subhead {{ update.date | date: 'MMM dd, yyyy @ HH:mm' }}
+      .px2.row
+        div.sm-col.sm-col-6.md-col-8.pr2.pt1(ng-class='{"md-col-12": (!update.weather || !update.weather.daily.data[0].icon), "sm-col-12": (!update.weather || !update.weather.daily.data[0].icon)}')
+          p(ng-bind-html='update.content')
+          .update-media(ng-if='update.link' ng-bind-html='update.link')
+        //- Weather
+        div.sm-col.sm-col-6.md-col-4.py2.pl2.cms-weather-window(ng-if='update.weather && update.weather.daily.data[0].icon')
+          .row
+            p.mt0 {{ update.weather.daily.data[0].summary }}
+          .row.clearfix
+            .col.col-5
+              .flex
+                skycon.skycon(icon="update.weather.daily.data[0].icon.toUpperCase().replace('-', '_')", size='50')
+                div.flex.flex-row.items-center
+                  div.pl2
+                    div.flex.flex-column.items-center
+                      p.m0.heavy.blue.mb1 {{ update.weather.daily.data[0].temperatureMax | number: 0 }}
+                      p.m0.heavy.blue {{ update.weather.daily.data[0].temperatureMin | number: 0 }}
+            .col.col-7
+              .flex.relative.items-center(ng-if='update.weather.daily.data[0].precipAccumulation')
+                svg.fit.relative(
+                style='height: 48px; fill: rgb(33,150,243); top: 4px;', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewbox='-137 81.6 50 62.5', xml:space='preserve')
+                  path(d='M-105.4,130.8c0.9,0,1.6-0.7,1.6-1.6V84c0-0.9-0.7-1.6-1.6-1.6h-14c-0.9,0-1.6,0.7-1.6,1.6v45.2c0,0.9,0.7,1.6,1.6,1.6  H-105.4z M-106.9,85.6v42h-10.8v-3.1h2.6c0.9,0,1.6-0.7,1.6-1.6c0-0.9-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6  s-0.7-1.6-1.6-1.6h-3.6v-3.2h2.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6  h-3.6v-3.2h2.6c0.9,0,1.6-0.7,1.6-1.6s-0.7-1.6-1.6-1.6h-2.6v-3.2h3.6c0.9,0,1.6-0.7,1.6-1.6c0-0.9-0.7-1.6-1.6-1.6h-3.6v-4.2  H-106.9z')
+                p.m0.heavy.blue {{ update.weather.daily.data[0].precipAccumulation | number: 1 }} cm
+    a.center.block.md-primary.md-button(ng-click="vm.loadMoreUpdates()"
+    ng-if="vm.updates.length > vm.scrollUpdates.limit")
+      | Load More

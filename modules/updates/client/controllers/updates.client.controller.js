@@ -12,6 +12,12 @@
 
     vm.authentication = Authentication;
     vm.subscribe = subscribe;
+    vm.loadMoreUpdates = loadMoreUpdates;
+    vm.scrollUpdates = {
+      disabled: false,
+      distance: 400,
+      limit: 5
+    };
 
     init();
 
@@ -53,6 +59,20 @@
             .hideDelay(3000)
           );
       });
+    }
+
+    // HACK: Debounce wasn't handling window event very well
+    var lastCalled = _getDateVal();
+    function loadMoreUpdates() {
+      var calling = _getDateVal();
+      if (calling - lastCalled > 1000) {
+        vm.scrollUpdates.limit += 5;
+        lastCalled = _getDateVal();
+      }
+    }
+
+    function _getDateVal() {
+      return new Date().valueOf();
     }
   }
 }());
