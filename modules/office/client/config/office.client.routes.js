@@ -81,7 +81,7 @@
        */
       .state('office.routing.data', {
         url: '/data',
-        redirectTo: 'office.routing.data.import',
+        redirectTo: 'office.routing.data.export',
         templateUrl: '/modules/routing/client/views/data.client.view.html',
         controller: 'RoutingDataController',
         controllerAs: 'child'

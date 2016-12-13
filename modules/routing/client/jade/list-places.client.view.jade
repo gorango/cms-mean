@@ -23,8 +23,6 @@ md-content.mt3(style='max-height: calc(100vh - (64px + (48px * 2) + (40px + 35px
     ng-mouseenter='parent.circleEvents.mouseenter(place)'
     ng-mouseleave='parent.circleEvents.mouseleave(place)'
     ng-click='vm.modifyPlace(place)')
-      md-icon(ng-if='place.routes.length') location_on
-      md-icon(ng-if='!place.routes.length') location_off
       .md-list-item-text
         h3 {{ place.address.split(',')[0] }}
         p {{ place.address.split(',').slice(1).join(',') }}
