@@ -241,12 +241,6 @@ form(name='vm.quoteForm' novalidate='')
             ng-model='vm.quote.clientFollowup', 
             aria-label='I don\'t mind being contacted for a follow-up')
               | I don't mind being contacted for a follow-up
-            //- md-checkbox.md-warn(
-            //- name='clientUpdates',
-            //- ng-disabled='vm.quote.clientNo',
-            //- ng-model='vm.quote.clientUpdates', 
-            //- aria-label='I would like to receive occasional updates from ClearMySnow')
-            //-   | I would like to receive occasional updates from ClearMySnow
             md-checkbox.md-warn(
             name='clientNo'
             ng-change='vm.confirm("NO_CONTACT")'
@@ -321,7 +315,6 @@ form(name='vm.quoteForm' novalidate='')
                   | No matches found for &quot;{{vm.searchText}}&quot;.
             p.px2.md-caption.green(ng-show='vm.quote.verified && vm.quote.serviceAddress') Excellent! We've got you covered. You can go ahead and register with your quote.
             p.px2.md-caption.red(ng-show='!vm.quote.verified && vm.quote.serviceAddress') Oh no! We do not provide service at that address. Would you like to try a different one?
-
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
             md-button.md-raised(ng-click='vm.step("prev")') Prev

@@ -205,7 +205,7 @@
       $mdDialog.show(
         $mdDialog.confirm()
         .clickOutsideToClose(true)
-        .title('Online Registration is Down')
+        .title('Online Registration is Closed')
         .textContent('Please contact our office to register.')
         .ariaLabel('Please contact our office to register.')
         .ok('I Understand')

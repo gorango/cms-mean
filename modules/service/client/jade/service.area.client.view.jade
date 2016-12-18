@@ -6,11 +6,11 @@ md-content.py3.px2.center.border-bottom.border-silver
   md-button.md-raised(ng-click='vm.dialog("address")') Search by Address
 
 div.relative#service-area-map
-  div.z2.absolute.top-0.left-0.right-0.p2.center(
-  md-colors="{background: 'blue'}", 
+  div.z2.absolute.top-0.left-0.right-0.p1.center(
+  md-colors="{background: 'green'}", 
   ng-show='vm.verified === true') 
     p Excellent! We've got you covered. You can go ahead and register once you #[a.white(ui-sref='service.quote') get a quote].
-  div.z2.absolute.top-0.left-0.right-0.p2.center(
+  div.z2.absolute.top-0.left-0.right-0.p1.center(
   md-colors="{background: 'red'}", 
   ng-show='vm.verified === false') 
     p Oh no! We do not provide service at that address. Would you like to try a different one?
