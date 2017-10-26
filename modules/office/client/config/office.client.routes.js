@@ -87,7 +87,7 @@
         controllerAs: 'child'
       })
       .state('office.routing.data.import', {
-        url: '/',
+        url: '/import',
         templateUrl: '/modules/routing/client/views/data-import.client.view.html',
         controller: 'DataImportController',
         controllerAs: 'vm'
