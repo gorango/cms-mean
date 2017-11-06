@@ -11,8 +11,7 @@
     "url": "https://github.com/gorango/cms-mean.git"
   },
   "engines": {
-    "node": ">=4.6.0",
-    "npm": ">=3.10.8"
+    "node": ">=6"
   },
   "scripts": {
     "dev": "./start-dev",

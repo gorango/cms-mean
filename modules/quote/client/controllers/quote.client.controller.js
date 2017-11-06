@@ -24,7 +24,7 @@
     vm.confirm = confirm;
     vm.sidewalkSwitch = sidewalkSwitch;
     vm.saltSwitch = saltSwitch;
-    vm.registrationDisabled = registrationDisabled;
+    // vm.registrationDisabled = registrationDisabled;
 
     angular.element(document).ready(select);
 
@@ -201,18 +201,18 @@
       if (!quote.clientNo) EmailService.send('QUOTE_OFFICE', quote);
     }
 
-    function registrationDisabled() {
-      $mdDialog.show(
-        $mdDialog.confirm()
-        .clickOutsideToClose(true)
-        .title('Online Registration is Closed')
-        .textContent('Please contact our office to register.')
-        .ariaLabel('Please contact our office to register.')
-        .ok('I Understand')
-      ).then(function() {
-        $state.go('contact');
-      });
-    }
+    // function registrationDisabled() {
+    //   $mdDialog.show(
+    //     $mdDialog.confirm()
+    //     .clickOutsideToClose(true)
+    //     .title('Online Registration is Closed')
+    //     .textContent('Please contact our office to register.')
+    //     .ariaLabel('Please contact our office to register.')
+    //     .ok('I Understand')
+    //   ).then(function() {
+    //     $state.go('contact');
+    //   });
+    // }
 
     function _configDates() {
       return {
