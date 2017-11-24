@@ -320,11 +320,7 @@ form(name='vm.quoteForm' novalidate='')
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
             md-button.md-raised.md-primary.px3(
-            analytics-on='click',
-            analytics-event='Going to registration',
-            analytics-category='sales',
-            analytics-label='{{vm.quote.total}}',
-            ui-sref='service.register', 
+            ng-click='vm.registrationDisabled()',
             ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress || !vm.quote.total > 0'
             style='color: white') 
               | Register
