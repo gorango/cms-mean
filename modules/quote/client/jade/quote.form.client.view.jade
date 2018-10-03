@@ -153,7 +153,7 @@ form(name='vm.quoteForm' novalidate='')
                   ng-change='vm.select(vm.quote.period)',
                   aria-label='Half season selection')
                     md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_FIRST') November 15 - February 1
-                    md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_SECOND') February 1 - April 15
+                    md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_SECOND') February 1 - March 31
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_HOLIDAY')
               md-subheader.heavy.blue.md-no-sticky Select your desired start and end dates.
               md-list-item

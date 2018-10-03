@@ -57,7 +57,7 @@
         case ACTIONS.SEASON_HALF_FIRST:
           return 'November 15 - February 1';
         case ACTIONS.SEASON_HALF_SECOND:
-          return 'February 1 - April 15';
+          return 'February 1 - March 31';
         case ACTIONS.SEASON_SINGLE:
           return 'Single Service';
         case ACTIONS.SEASON_HOLIDAY:
