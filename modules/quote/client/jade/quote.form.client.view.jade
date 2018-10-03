@@ -1,10 +1,10 @@
 form(name='vm.quoteForm' novalidate='')
   md-tabs.md-accent(
-  md-selected='vm.quote.step', 
-  md-dynamic-height='', 
+  md-selected='vm.quote.step',
+  md-dynamic-height='',
   md-border-bottom='')
     md-tab(md-active='bold')
-      md-tab-label 
+      md-tab-label
         .black 1. clearing
       md-tab-body
         div.p2(md-colors="{background: 'blue-grey-500'}")
@@ -16,7 +16,7 @@ form(name='vm.quoteForm' novalidate='')
               md-radio-group.width-100(
               md-theme='alt'
               name='driveway'
-              ng-model='vm.quote.driveway', 
+              ng-model='vm.quote.driveway',
               ng-change='vm.select(vm.quote.driveway)')
                 md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_REGULAR') 4 vehicles or less
                 md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_LARGE') 5 vehicles or more
@@ -26,7 +26,7 @@ form(name='vm.quoteForm' novalidate='')
               md-radio-group.width-100(
               md-theme='alt'
               name='walkway'
-              ng-model='vm.quote.walkway', 
+              ng-model='vm.quote.walkway',
               ng-change='vm.select(vm.quote.walkway)')
                 md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_YES') Yes
                 md-radio-button.md-warn(ng-value='vm.actions.WALKWAY_NO') No
@@ -36,7 +36,7 @@ form(name='vm.quoteForm' novalidate='')
               md-radio-group.width-100(
               md-theme='alt'
               name='sidewalk'
-              ng-model='vm.quote.sidewalk', 
+              ng-model='vm.quote.sidewalk',
               ng-change='vm.sidewalkSwitch(vm.quote.sidewalk)')
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_YES') Yes
                 md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_NO') No
@@ -49,7 +49,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-group.width-100(
                 md-theme='alt'
                 name='corner'
-                ng-model='vm.quote.corner', 
+                ng-model='vm.quote.corner',
                 ng-change='vm.select(vm.quote.corner)')
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SIZE_CORNER') Yes
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SIZE_REGULAR') No
@@ -58,7 +58,7 @@ form(name='vm.quoteForm' novalidate='')
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
     md-tab(md-active='bold')
-      md-tab-label 
+      md-tab-label
         .black 2. salting
       md-tab-body
         div.p2(md-colors="{background: 'blue-grey-500'}")
@@ -76,7 +76,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-group.width-100(
                 md-theme='alt'
                 name='drivesalt'
-                ng-model='vm.quote.drivesalt', 
+                ng-model='vm.quote.drivesalt',
                 ng-change='vm.select(vm.quote.drivesalt)')
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_REGULAR') Regular
                   md-radio-button.md-warn(ng-value='vm.actions.DRIVEWAY_SALT_ECO') Eco
@@ -92,7 +92,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-group.width-100(
                 md-theme='alt'
                 name='walksalt'
-                ng-model='vm.quote.walksalt', 
+                ng-model='vm.quote.walksalt',
                 ng-change='vm.select(vm.quote.walksalt)')
                   md-radio-button.md-warn(md-theme='alt', ng-value='vm.actions.WALKWAY_SALT_REGULAR') Regular
                   md-radio-button.md-warn(md-theme='alt', ng-value='vm.actions.WALKWAY_SALT_ECO') Eco
@@ -108,7 +108,7 @@ form(name='vm.quoteForm' novalidate='')
                 md-radio-group.width-100(
                 md-theme='alt'
                 name='sidesalt'
-                ng-model='vm.quote.sidesalt', 
+                ng-model='vm.quote.sidesalt',
                 ng-change='vm.select(vm.quote.sidesalt)')
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SALT_REGULAR') Regular
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SALT_ECO') Eco
@@ -118,7 +118,7 @@ form(name='vm.quoteForm' novalidate='')
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
     md-tab(md-active='bold')
-      md-tab-label 
+      md-tab-label
         .black 3. details
       md-tab-body
         div.p2(md-colors="{background: 'blue-grey-500'}")
@@ -126,17 +126,17 @@ form(name='vm.quoteForm' novalidate='')
         md-content.md-padding
           md-list
             md-list-item.flex(ng-click='vm.confirm("SENIOR")', md-theme='alt')
-              .md-body-2.flex-auto.heavy.blue Are you a senior citizen (or purchasing for a senior)? 
+              .md-body-2.flex-auto.heavy.blue Are you a senior citizen (or purchasing for a senior)?
               p 65+
-              md-switch.md-warn(ng-model='vm.quote._senior' ng-change='vm.help()')
+              md-switch.md-warn(ng-model='vm.quote._senior', disabled)
             md-divider
             .md-body-2.flex-auto.heavy.blue.px2.pt2 What type of coverage are you looking for?
             md-list-item
               md-input-container
                 md-select(
                 name='coverage',
-                ng-model='vm.quote.coverage', 
-                ng-change='vm.select(vm.quote.coverage)', 
+                ng-model='vm.quote.coverage',
+                ng-change='vm.select(vm.quote.coverage)',
                 aria-label='Coverage Period')
                   md-option(ng-value='vm.actions.SEASON_FULL') Full Season
                   md-option(ng-value='vm.actions.SEASON_HALF') Half Season
@@ -148,9 +148,9 @@ form(name='vm.quoteForm' novalidate='')
                 md-input-container.md-block(flex-gt-sm='')
                   md-radio-group.width-100.flex.justify-around(
                   md-theme='alt'
-                  name='period' 
-                  ng-model='vm.quote.period', 
-                  ng-change='vm.select(vm.quote.period)', 
+                  name='period'
+                  ng-model='vm.quote.period',
+                  ng-change='vm.select(vm.quote.period)',
                   aria-label='Half season selection')
                     md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_FIRST') November 15 - February 1
                     md-radio-button.md-warn(ng-value='vm.actions.SEASON_HALF_SECOND') February 1 - April 15
@@ -160,20 +160,20 @@ form(name='vm.quoteForm' novalidate='')
                 md-input-container.sm-col.sm-col-6
                   md-datepicker(
                   name='holidayStartDate',
-                  ng-model='vm.quote.holidayStartDate', 
+                  ng-model='vm.quote.holidayStartDate',
                   ng-change='vm.select(vm.quote.holidayStartDate)'
                   aria-label='Start Date'
-                  md-placeholder='Start date', 
-                  md-min-date='vm.dates.minDate', 
+                  md-placeholder='Start date',
+                  md-min-date='vm.dates.minDate',
                   md-max-date='vm.dates.maxDate')
                 md-input-container.sm-col.sm-col-6
                   md-datepicker(
                   name='holidayEndDate',
-                  ng-model='vm.quote.holidayEndDate', 
+                  ng-model='vm.quote.holidayEndDate',
                   ng-change='vm.select(vm.quote.holidayEndDate)'
                   aria-label='End Date'
-                  md-placeholder='End date', 
-                  md-min-date='vm.dates.minDate', 
+                  md-placeholder='End date',
+                  md-min-date='vm.dates.minDate',
                   md-max-date='vm.dates.maxDate')
             div(ng-if='vm.quote.coverage === vm.actions.SEASON_SINGLE')
               md-subheader.heavy.blue.md-no-sticky Select your desired service date.
@@ -181,11 +181,11 @@ form(name='vm.quoteForm' novalidate='')
                 md-input-container
                   md-datepicker(
                   name='singleServiceDate',
-                  ng-model='vm.quote.singleServiceDate', 
+                  ng-model='vm.quote.singleServiceDate',
                   ng-change='vm.select(vm.quote.singleServiceDate)'
                   aria-label='Service Date'
-                  md-placeholder='Service date', 
-                  md-min-date='vm.dates.minDate', 
+                  md-placeholder='Service date',
+                  md-min-date='vm.dates.minDate',
                   md-max-date='vm.dates.maxDate')
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
@@ -193,7 +193,7 @@ form(name='vm.quoteForm' novalidate='')
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
     md-tab(md-active='bold')
-      md-tab-label 
+      md-tab-label
         .black 4. info
       md-tab-body
         div.p2(md-colors="{background: 'blue-grey-500'}")
@@ -203,23 +203,23 @@ form(name='vm.quoteForm' novalidate='')
           div(layout-gt-sm='row')
             md-input-container.md-block(flex-gt-sm='')
               label Your Name
-              input.md-warn(required='', 
+              input.md-warn(required='',
               md-autofocus=''
               ng-disabled='vm.quote.clientNo',
-              name='clientName', 
+              name='clientName',
               ng-model='vm.quote.clientName')
               div(ng-messages='vm.quoteForm.clientName.$error')
                 div(ng-message='required') We need your name.
             span(flex='5')
             md-input-container.md-block(flex-gt-sm='')
               label Your Email
-              input.md-warn(required='', 
+              input.md-warn(required='',
               ng-disabled='vm.quote.clientNo',
-              type='email', 
-              name='clientEmail', 
-              ng-model='vm.quote.clientEmail', 
-              minlength='10', 
-              maxlength='100', 
+              type='email',
+              name='clientEmail',
+              ng-model='vm.quote.clientEmail',
+              minlength='10',
+              maxlength='100',
               ng-pattern='/^.+@.+\..+$/')
               div(ng-messages='vm.quoteForm.clientEmail.$error', role='alert')
                 div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
@@ -231,26 +231,26 @@ form(name='vm.quoteForm' novalidate='')
               label Your Phone Number
               input.md-warn(
               ng-disabled='vm.quote.clientNo',
-              type='text', 
-              name='clientPhone', 
+              type='text',
+              name='clientPhone',
               ng-model='vm.quote.clientPhone')
           div(layout='column', md-theme='alt')
             md-checkbox.md-warn(
             name='clientFollowup',
             ng-disabled='vm.quote.clientNo',
-            ng-model='vm.quote.clientFollowup', 
+            ng-model='vm.quote.clientFollowup',
             aria-label='I don\'t mind being contacted for a follow-up')
               | I don't mind being contacted for a follow-up
             md-checkbox.md-warn(
             name='clientNo'
             ng-change='vm.confirm("NO_CONTACT")'
             ng-style='{ opacity: vm.quote.clientNo ? 1 : 0.5 }'
-            ng-model='vm.quote.clientNo', 
+            ng-model='vm.quote.clientNo',
             aria-label='I\'d rather not give my email address')
               | I'd rather not give my email address
           md-divider
-          p.muted.md-caption 
-            | We take your privacy seriously. We will never sell or reveal your information to a third party. 
+          p.muted.md-caption
+            | We take your privacy seriously. We will never sell or reveal your information to a third party.
             br
             | You can read more about our #[a.md-primary(ui-sref='legal.privacy') Privacy Policy].
         md-toolbar.md-accent
@@ -258,10 +258,10 @@ form(name='vm.quoteForm' novalidate='')
             md-button.md-raised(ng-click='vm.step("prev")') Prev
             span(flex='auto')
             md-button.md-raised(
-            ng-click='vm.finalStep()', 
+            ng-click='vm.finalStep()',
             ng-disabled='vm.quoteForm.$invalid && !vm.quote.clientNo') Next
     md-tab(
-    md-active='bold', 
+    md-active='bold',
     ng-disabled='vm.quoteForm.$invalid && !vm.quote.clientNo')
       md-tab-label
         .black 5. quote
@@ -280,15 +280,15 @@ form(name='vm.quoteForm' novalidate='')
             md-list-item.md-2-line
               .md-list-item-text
                 h3 {{ vm.quote.coverage | englishize }}
-                p(ng-if='vm.quote.coverage === vm.actions.SEASON_FULL') 
-                  | {{ vm.dates.minDate | date: 'MMMM dd, yyyy' }} - 
+                p(ng-if='vm.quote.coverage === vm.actions.SEASON_FULL')
+                  | {{ vm.dates.minDate | date: 'MMMM dd, yyyy' }} -
                   | {{ vm.dates.maxDate | date: 'MMMM dd, yyyy' }}
-                p(ng-if='vm.quote.coverage === vm.actions.SEASON_HALF') 
+                p(ng-if='vm.quote.coverage === vm.actions.SEASON_HALF')
                   | {{ vm.quote.period | englishize }}
-                p(ng-if='vm.quote.coverage === vm.actions.SEASON_HOLIDAY') 
-                  | {{ vm.quote.holidayStartDate | date: 'MMMM dd, yyyy' }} - 
+                p(ng-if='vm.quote.coverage === vm.actions.SEASON_HOLIDAY')
+                  | {{ vm.quote.holidayStartDate | date: 'MMMM dd, yyyy' }} -
                   | {{ vm.quote.holidayEndDate | date: 'MMMM dd, yyyy' }}
-                p(ng-if='vm.quote.coverage === vm.actions.SEASON_SINGLE') 
+                p(ng-if='vm.quote.coverage === vm.actions.SEASON_SINGLE')
                   | {{ vm.quote.singleServiceDate | date: 'MMMM dd, yyyy' }}
             md-divider
             md-subheader.heavy.blue.md-no-sticky Total with Tax
@@ -299,17 +299,17 @@ form(name='vm.quoteForm' novalidate='')
             md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area
             md-list-item
               md-autocomplete.width-100(
-              md-no-cache='true', 
-              md-selected-item='vm.selectedItem', 
+              md-no-cache='true',
+              md-selected-item='vm.selectedItem',
               md-selected-item-change='vm.verifyAddress(item)',
-              md-search-text-change='vm.searchAddress(vm.searchText)', 
-              md-search-text='vm.searchText', 
-              md-items='item in vm.searchAddress(vm.searchText)', 
-              md-item-text='item.description', 
-              md-min-length='0', 
+              md-search-text-change='vm.searchAddress(vm.searchText)',
+              md-search-text='vm.searchText',
+              md-items='item in vm.searchAddress(vm.searchText)',
+              md-item-text='item.description',
+              md-min-length='0',
               placeholder='Enter your service address')
                 md-item-template
-                  span(md-highlight-text='vm.searchText', 
+                  span(md-highlight-text='vm.searchText',
                   md-highlight-flags='^i') {{item.description}}
                 md-not-found
                   | No matches found for &quot;{{vm.searchText}}&quot;.
@@ -322,6 +322,6 @@ form(name='vm.quoteForm' novalidate='')
             md-button.md-raised.md-primary.px3(
             ng-click='vm.registrationDisabled()',
             ng-disabled='!vm.quote.verified || !vm.quote.serviceAddress || !vm.quote.total > 0'
-            style='color: white') 
+            style='color: white')
               | Register
               md-icon.ml1 keyboard_arrow_right
