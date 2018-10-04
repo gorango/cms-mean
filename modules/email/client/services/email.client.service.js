@@ -17,12 +17,13 @@
         };
         switch (type) {
           case 'CONTACT':
-            payload.recipient = 'sales@clearmysnow.com';
             payload.template = 'contact-email';
+            payload.recipient = 'sales@clearmysnow.com';
             payload.title = 'Website Contact Form';
             break;
           case 'QUOTE':
             payload.template = 'quote-email';
+            payload.bcc = 'sales@clearmysnow.com';
             payload.title = 'Snow Clearing Quote';
             break;
           case 'QUOTE_OFFICE':
