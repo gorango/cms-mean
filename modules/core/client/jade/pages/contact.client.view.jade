@@ -26,7 +26,7 @@
               md-icon.md-avatar-icon phone
               .md-list-item-text
                 h3 (905) 272-9939
-                p Phone 
+                p Phone
             md-list-item.md-2-line
               md-icon.md-avatar-icon phone
               .md-list-item-text
@@ -42,7 +42,7 @@
             md-list-item.md-2-line
               md-icon.md-avatar-icon email
               .md-list-item-text
-                a.text-decoration-none.black(href="mailto:jobs@clearmysnow.com") jobs@clearmysnow.com
+                a.text-decoration-none.black(href="mailto:sales@clearmysnow.com") sales@clearmysnow.com
                 p Job Inquiries
             md-divider
             md-subheader.md-no-sticky Hours of Operation
@@ -55,7 +55,7 @@
                 h3 24/7
                 p During Storms
             .p1
-        
+
     .sm-col.sm-col-8.px2
       md-card
         md-toolbar(md-colors="{background: 'blue-grey-500'}")
@@ -65,32 +65,32 @@
             | We are happy to answer any of your questions and to provide assistance any way we can.
           p
             | You can leave us a message using this form, and we will get back to you as soon as possible.
-          form.p2(name='vm.contactForm', 
-          ng-submit='vm.submitForm()', 
+          form.p2(name='vm.contactForm',
+          ng-submit='vm.submitForm()',
           style="transition: all 1s ease;"
           ng-class="{'bg-darken-1': vm.submitted}"
           novalidate='')
             div(layout-gt-sm='row')
               md-input-container.md-block(flex-gt-sm)
                 label Your Name
-                input(required='', 
+                input(required='',
                 ng-disabled='vm.submitted',
-                name='clientName', 
+                name='clientName',
                 ng-model='vm.contact.clientName')
                 div(ng-messages='vm.contactForm.clientName.$error')
                   div(ng-message='required') We need your name.
               span(flex='5')
               md-input-container.md-block(flex-gt-sm)
                 label Your Email
-                input(required='', 
+                input(required='',
                 ng-disabled='vm.submitted',
-                type='email', 
-                name='clientEmail', 
-                ng-model='vm.contact.clientEmail', 
-                minlength='10', 
-                maxlength='100', 
+                type='email',
+                name='clientEmail',
+                ng-model='vm.contact.clientEmail',
+                minlength='10',
+                maxlength='100',
                 ng-pattern='/^.+@.+\..+$/')
-                div(ng-messages='vm.contactForm.clientEmail.$error', 
+                div(ng-messages='vm.contactForm.clientEmail.$error',
                 role='alert')
                   div(ng-message-exp="['minlength', 'maxlength', 'pattern']")
                     | Your email must look like an e-mail address.
@@ -99,13 +99,13 @@
             div(layout-gt-sm='row')
               md-input-container.md-block(flex-gt-sm)
                 label Address
-                input(name='clientAddress', 
+                input(name='clientAddress',
                 ng-disabled='vm.submitted',
                 ng-model='vm.contact.clientAddress')
               span(flex='5')
               md-input-container.md-block(flex-gt-sm)
                 label Phone Number
-                input(name='clientPhone', 
+                input(name='clientPhone',
                 ng-disabled='vm.submitted',
                 ng-model='vm.contact.clientPhone')
             div(layout-gt-sm='row')
@@ -114,8 +114,8 @@
                 textarea(required='',
                 ng-disabled='vm.submitted',
                 name='message'
-                ng-model='vm.contact.message', 
-                rows='5', 
+                ng-model='vm.contact.message',
+                rows='5',
                 md-select-on-focus='')
                 div(ng-messages='vm.contactForm.message.$error')
                   div(ng-message='required') You left the message blank.

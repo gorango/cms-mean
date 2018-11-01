@@ -9,9 +9,14 @@
   <p>Dear {{quote.clientName}},</p>
   <p></p>
   <p>We are sending you a copy of your recent snow clearing quote from clearmysnow.com</p>
-  <br />
-  <br />
-  <p>The {{appName}} Support Team</p>
+  <p></p>
+  <p><b>Your Selection:</b>
+    {{#each quote.selection}}<br>&nbsp;&nbsp;&nbsp;&nbsp;{{this}}{{/each}}
+  <p><b>Total:</b> ${{quote.total}} +tax</p>
+  <p></p>
+  <p>Feel free to respond directly to this email to inquire further about this quote or to register for the season.</p>
+  <p></p>
+  <p>The ClearMySnow Support Team</p>
 </body>
 
 </html>
