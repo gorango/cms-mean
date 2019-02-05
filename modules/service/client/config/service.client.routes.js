@@ -28,15 +28,15 @@
           pageTitle: 'Service Estimate and Quote'
         }
       })
-      .state('service.register', {
-        url: '/register',
-        templateUrl: '/modules/quote/client/views/register.client.view.html',
-        controller: 'RegisterController',
-        controllerAs: 'vm',
-        data: {
-          pageTitle: 'Online Registration'
-        }
-      })
+      // .state('service.register', {
+      //   url: '/register',
+      //   templateUrl: '/modules/quote/client/views/register.client.view.html',
+      //   controller: 'RegisterController',
+      //   controllerAs: 'vm',
+      //   data: {
+      //     pageTitle: 'Online Registration'
+      //   }
+      // })
       .state('service.area', {
         url: '/area',
         templateUrl: '/modules/service/client/views/service.area.client.view.html',
