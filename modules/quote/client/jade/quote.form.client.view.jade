@@ -5,6 +5,41 @@ form(name='vm.quoteForm' novalidate='')
   md-border-bottom='')
     md-tab(md-active='bold')
       md-tab-label
+        .black 1. location
+      md-tab-body
+        div.p2(md-colors="{background: 'blue-grey-500'}")
+          span.md-title Verify Your Location
+        md-content.md-padding
+          md-list.flex-row
+            md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area
+            md-list-item
+              md-autocomplete.width-100(
+              md-no-cache='true',
+              md-selected-item='vm.selectedItem',
+              md-selected-item-change='vm.verifyAddress(item)',
+              md-search-text-change='vm.searchAddress(vm.searchText)',
+              md-search-text='vm.searchText',
+              md-items='item in vm.searchAddress(vm.searchText)',
+              md-item-text='item.description',
+              md-min-length='0',
+              placeholder='Enter your service address')
+                md-item-template
+                  span(md-highlight-text='vm.searchText',
+                  md-highlight-flags='^i') {{item.description}}
+                md-not-found
+                  | No matches found for &quot;{{vm.searchText}}&quot;.
+            p.px2.md-caption.green(ng-show='vm.quote.verified && vm.quote.serviceAddress') Excellent! We've got you covered. You can go ahead and register with your quote.
+            p.px2.md-caption.red(ng-show='!vm.quote.verified && vm.quote.serviceAddress') Oh no! We do not provide service at that address. Would you like to try a different one?
+        md-toolbar.md-accent
+          .md-toolbar-tools.bg-lighten-4
+            span(flex='auto')
+            md-button.md-raised.md-primary.px3(
+            ng-click='vm.step("next")',
+            ng-disabled='!vm.quote.verified',
+            style='color: white')
+              | Next
+    md-tab(md-active='bold', ng-disabled='!vm.quote.verified')
+      md-tab-label
         .black 1. clearing
       md-tab-body
         div.p2(md-colors="{background: 'blue-grey-500'}")
@@ -55,9 +90,10 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SIZE_REGULAR') No
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
+            md-button.md-raised(ng-click='vm.step("prev")') Back
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
-    md-tab(md-active='bold')
+    md-tab(md-active='bold', ng-disabled='!vm.quote.verified')
       md-tab-label
         .black 2. salting
       md-tab-body
@@ -114,10 +150,10 @@ form(name='vm.quoteForm' novalidate='')
                   md-radio-button.md-warn(ng-value='vm.actions.SIDEWALK_SALT_ECO') Eco
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
-            md-button.md-raised(ng-click='vm.step("prev")') Prev
+            md-button.md-raised(ng-click='vm.step("prev")') Back
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
-    md-tab(md-active='bold')
+    md-tab(md-active='bold', ng-disabled='!vm.quote.verified')
       md-tab-label
         .black 3. details
       md-tab-body
@@ -189,10 +225,10 @@ form(name='vm.quoteForm' novalidate='')
                   md-max-date='vm.dates.maxDate')
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
-            md-button.md-raised(ng-click='vm.step("prev")') Prev
+            md-button.md-raised(ng-click='vm.step("prev")') Back
             span(flex='auto')
             md-button.md-raised(ng-click='vm.step("next")') Next
-    md-tab(md-active='bold')
+    md-tab(md-active='bold', ng-disabled='!vm.quote.verified')
       md-tab-label
         .black 4. info
       md-tab-body
@@ -255,7 +291,7 @@ form(name='vm.quoteForm' novalidate='')
             | You can read more about our #[a.md-primary(ui-sref='legal.privacy') Privacy Policy].
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
-            md-button.md-raised(ng-click='vm.step("prev")') Prev
+            md-button.md-raised(ng-click='vm.step("prev")') Back
             span(flex='auto')
             md-button.md-raised(
             ng-click='vm.finalStep()',
@@ -295,29 +331,29 @@ form(name='vm.quoteForm' novalidate='')
             md-list-item
               .md-list-item-text
                 p.mt0.md-title {{ vm.quote.total * 1.13 | currency }}
-            md-divider
-            md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area
-            md-list-item
-              md-autocomplete.width-100(
-              md-no-cache='true',
-              md-selected-item='vm.selectedItem',
-              md-selected-item-change='vm.verifyAddress(item)',
-              md-search-text-change='vm.searchAddress(vm.searchText)',
-              md-search-text='vm.searchText',
-              md-items='item in vm.searchAddress(vm.searchText)',
-              md-item-text='item.description',
-              md-min-length='0',
-              placeholder='Enter your service address')
-                md-item-template
-                  span(md-highlight-text='vm.searchText',
-                  md-highlight-flags='^i') {{item.description}}
-                md-not-found
-                  | No matches found for &quot;{{vm.searchText}}&quot;.
-            p.px2.md-caption.green(ng-show='vm.quote.verified && vm.quote.serviceAddress') Excellent! We've got you covered. You can go ahead and register with your quote.
-            p.px2.md-caption.red(ng-show='!vm.quote.verified && vm.quote.serviceAddress') Oh no! We do not provide service at that address. Would you like to try a different one?
+            //- md-divider
+            //- md-subheader.heavy.blue.md-no-sticky Verify that you are in our service area
+            //- md-list-item
+            //-   md-autocomplete.width-100(
+            //-   md-no-cache='true',
+            //-   md-selected-item='vm.selectedItem',
+            //-   md-selected-item-change='vm.verifyAddress(item)',
+            //-   md-search-text-change='vm.searchAddress(vm.searchText)',
+            //-   md-search-text='vm.searchText',
+            //-   md-items='item in vm.searchAddress(vm.searchText)',
+            //-   md-item-text='item.description',
+            //-   md-min-length='0',
+            //-   placeholder='Enter your service address')
+            //-     md-item-template
+            //-       span(md-highlight-text='vm.searchText',
+            //-       md-highlight-flags='^i') {{item.description}}
+            //-     md-not-found
+            //-       | No matches found for &quot;{{vm.searchText}}&quot;.
+            //- p.px2.md-caption.green(ng-show='vm.quote.verified && vm.quote.serviceAddress') Excellent! We've got you covered. You can go ahead and register with your quote.
+            //- p.px2.md-caption.red(ng-show='!vm.quote.verified && vm.quote.serviceAddress') Oh no! We do not provide service at that address. Would you like to try a different one?
         md-toolbar.md-accent
           .md-toolbar-tools.bg-lighten-4
-            md-button.md-raised(ng-click='vm.step("prev")') Prev
+            md-button.md-raised(ng-click='vm.step("prev")') Back
             span(flex='auto')
             md-button.md-raised.md-primary.px3(
             ng-click='vm.registrationDisabled()',
