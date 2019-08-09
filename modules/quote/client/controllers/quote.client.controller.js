@@ -28,7 +28,7 @@
 
     angular.element(document).ready(select);
 
-    $scope.$on('$stateChangeSuccess', _startOverPrompt);
+    // $scope.$on('$stateChangeSuccess', _startOverPrompt);
 
     function select() {
       var quote = angular.copy(vm.quote);
