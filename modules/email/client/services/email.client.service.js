@@ -145,7 +145,7 @@
       case ACTIONS.SIDEWALK_SALT_NO:
         return 'No Salt for Sidewalk';
       case ACTIONS.CLIENT_SENIOR:
-        return 'Senior Client (10% Discount)';
+        return 'Senior Client (5% Discount)';
       case ACTIONS.CLIENT_REGULAR:
         return 'Regular Client';
       case ACTIONS.SEASON_FULL:
