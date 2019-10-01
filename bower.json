@@ -23,7 +23,7 @@
     "angulartics-google-analytics": "^0.3.0"
   },
   "resolutions": {
-    "angular": "1.15.11"
+    "angular": "1.5.11"
   },
   "overrides": {}
 }
