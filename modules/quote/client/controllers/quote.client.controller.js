@@ -23,7 +23,6 @@
     vm.finalStep = finalStep;
     vm.confirm = confirm;
     vm.sidewalkSwitch = sidewalkSwitch;
-    vm.saltSwitch = saltSwitch;
     // vm.registrationDisabled = registrationDisabled;
 
     angular.element(document).ready(select);
@@ -101,32 +100,6 @@
             });
           }
           break;
-        case '_walksalt':
-          $mdDialog.show(
-            $mdDialog.confirm().clickOutsideToClose(true).ok('Sure').cancel('Nevermind')
-            .title('You can only select salting for cleared areas')
-            .textContent('Would you like to select walkway clearing for your property?').ariaLabel('Would you like to select walkway clearing for your property?')
-          ).then(function() {
-            vm.quote.walkway = ACTIONS.WALKWAY_YES;
-            vm.quote.walksalt = ACTIONS.WALKWAY_SALT_REGULAR;
-            vm.select();
-          }, function() {
-            vm.quote._walksalt = false;
-          });
-          break;
-        case '_sidesalt':
-          $mdDialog.show(
-            $mdDialog.confirm().clickOutsideToClose(true).ok('Sure').cancel('Nevermind')
-            .title('You can only select salting for cleared areas')
-            .textContent('Would you like to select sidewalk clearing for your property?').ariaLabel('Would you like to select sidewalk clearing for your property?')
-          ).then(function() {
-            vm.quote.sidewalk = ACTIONS.SIDEWALK_YES;
-            vm.quote.sidesalt = ACTIONS.SIDEWALK_SALT_REGULAR;
-            vm.select();
-          }, function() {
-            vm.quote._sidesalt = false;
-          });
-          break;
       }
     }
 
@@ -135,33 +108,6 @@
         vm.quote.corner = undefined;
       }
       vm.select();
-    }
-
-    function saltSwitch(action, toggle) {
-      if (toggle) { vm.quote[action] = !vm.quote[action]; }
-      if (vm.quote[action] === false) {
-        vm.quote[action.slice(1)] = undefined;
-        vm.select();
-      } else {
-        switch (action) {
-          case '_drivesalt':
-            vm.quote.drivesalt = ACTIONS.DRIVEWAY_SALT_REGULAR; vm.select(); break;
-          case '_walksalt':
-            if (vm.quote.walkway !== ACTIONS.WALKWAY_YES) {
-              confirm(action);
-            } else {
-              vm.quote.walksalt = ACTIONS.WALKWAY_SALT_REGULAR;
-            }
-            break;
-          case '_sidesalt':
-            if (vm.quote.sidewalk !== ACTIONS.SIDEWALK_YES) {
-              confirm(action);
-            } else {
-              vm.quote.sidesalt = ACTIONS.SIDEWALK_SALT_REGULAR;
-            }
-            break;
-        }
-      }
     }
 
     function verifyAddress(address) {
@@ -200,19 +146,6 @@
       vm.emailSent = true;
       if (!quote.clientNo) EmailService.send('QUOTE_OFFICE', quote);
     }
-
-    // function registrationDisabled() {
-    //   $mdDialog.show(
-    //     $mdDialog.confirm()
-    //     .clickOutsideToClose(true)
-    //     .title('Online Registration is Closed')
-    //     .textContent('Please contact our office to register.')
-    //     .ariaLabel('Please contact our office to register.')
-    //     .ok('I Understand')
-    //   ).then(function() {
-    //     $state.go('contact');
-    //   });
-    // }
 
     function _configDates() {
       return {
