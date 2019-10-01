@@ -318,7 +318,7 @@ describe('User CRUD tests', function () {
   });
 
   it('forgot password should return 400 for no username provided', function (done) {
-    var provider = 'facebook';
+    var provider = 'local';
     user.provider = provider;
     user.roles = ['user'];
 
@@ -342,7 +342,7 @@ describe('User CRUD tests', function () {
   });
 
   it('forgot password should return 400 for non-local provider set for the user object', function (done) {
-    var provider = 'facebook';
+    var provider = 'local';
     user.provider = provider;
     user.roles = ['user'];
 
