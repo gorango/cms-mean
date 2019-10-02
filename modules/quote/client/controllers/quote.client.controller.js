@@ -23,11 +23,8 @@
     vm.finalStep = finalStep;
     vm.confirm = confirm;
     vm.sidewalkSwitch = sidewalkSwitch;
-    // vm.registrationDisabled = registrationDisabled;
 
     angular.element(document).ready(select);
-
-    // $scope.$on('$stateChangeSuccess', _startOverPrompt);
 
     function select() {
       var quote = angular.copy(vm.quote);

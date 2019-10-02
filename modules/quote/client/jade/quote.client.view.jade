@@ -3,13 +3,8 @@ div(ng-cloak='')
   .hide
     img(ng-repeat="img in vm.previewImages" ng-src="/modules/quote/client/img/{{img}}")
 
-  //- .width-100.max-width-5.mx-auto.mt4.pb5
-  .width-100.max-width-3.mx-auto.mt4.pb5
-    md-card.py2.px3.mb2
-      h2.mb1.md-headline.center Call #[a.text-decoration-none.blue(href='tel:19052729939') (905) 272-9939] to receive a fast quote
-      p.lead Please call our office between regular business hours to receive a quote.
-      p.lead You can visit our #[a.text-decoration-none.blue(href='/contact') contact page] for additional information regarding our location, office hours, and emails.
-    //- .row.clearfix
+  .width-100.max-width-5.mx-auto.mt4.pb5
+    .row.clearfix
       .sm-col.sm-col-7.px2.height-100.relative
         .absolute.muted.px2.reset-quote
           md-button.md-raised.px2(
