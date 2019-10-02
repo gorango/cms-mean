@@ -10,7 +10,7 @@
       clientFollowup: true,
       image: 'R.gif',
       date: new Date(),
-      total: 0,
+      total: 850,
       step: 0
     })
     .constant('ACTIONS', {
